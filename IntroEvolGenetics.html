@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>8&nbsp; Introduction: Evolutionary genetics – Evolution 303</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./MechEvolDrift.html" rel="next">
+<link href="./GenesMutationGeneticVariation.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./EvolGenetics.html">Evolutionary Genetics</a></li><li class="breadcrumb-item"><a href="./IntroEvolGenetics.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Introduction: Evolutionary genetics</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Evolution 303</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Evolution 303</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface - Evolution 303</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./IntroBasicConcepts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction: Basic Concepts</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./WhatEvolutionIs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">What evolution is</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./HistoricaPerspective.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">A brief history of evolutionary thought</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./EvidenceForEvolution.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Evidence for Evolution</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./HowNaturalSelectionWorks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">How Natural Selection Works</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./EvolTreesAndPhylogenetics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Evolutionary Trees and Phylogenetics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./UnderstandingEvolTrees.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Understanding Evolutionary Trees</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./EstimatingEvoTrees.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Estimating evolutionary trees</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./EvolGenetics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Evolutionary Genetics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./GenesMutationGeneticVariation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Genes, mutation, and genetic variation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./IntroEvolGenetics.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Introduction: Evolutionary genetics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./MechEvolDrift.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Genetic Drift</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./MechEvolSelection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Mechanisms that drive evolution: natural selection</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./MechEvolMutation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Mutation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./MechEvolMigration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Migration and other factors</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./EvolPhenotype.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">The Evolution of Quantitative Traits</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">In Light Of Evolution</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./KinAndSexualSelection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Social Behavior and Sexual Selection</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Adaptations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Adaptation and Phenotypic Plasticity</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./SpeciesSpeciation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Species and Speciation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./EvolutionGenomicLevel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Evolution at the genomic level</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./EvoDevo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">EvoDevo</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Evolution At The Macro Level</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./EvoBiogeogrphy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Evolutionary Biogeography</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./DivLife.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Diversification and patterns of life through time</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">What About Us</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./HumanEvol.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Human Evolution</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./EvolMed.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Evolutionary Medicine</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./EvolMedPartI.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Evolutionary Medicine I: Aging and Diseases of Civilization</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./EvolMedPartII.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Evolutionary Medicine II: Evolving Pathogens</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#section-summary" id="toc-section-summary" class="nav-link active" data-scroll-target="#section-summary"><span class="header-section-number">8.1</span> Section Summary</a></li>
+  <li><a href="#calculating-allele-frequencies" id="toc-calculating-allele-frequencies" class="nav-link" data-scroll-target="#calculating-allele-frequencies"><span class="header-section-number">8.2</span> Calculating allele frequencies</a></li>
+  <li><a href="#hardy-weinberg-a-null-model-for-evolution" id="toc-hardy-weinberg-a-null-model-for-evolution" class="nav-link" data-scroll-target="#hardy-weinberg-a-null-model-for-evolution"><span class="header-section-number">8.3</span> Hardy Weinberg: A Null Model for Evolution</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./EvolGenetics.html">Evolutionary Genetics</a></li><li class="breadcrumb-item"><a href="./IntroEvolGenetics.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Introduction: Evolutionary genetics</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-intropopgen" class="quarto-section-identifier"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Introduction: Evolutionary genetics</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><em>DRAFT 20250113</em></p>
+<section id="section-summary" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="section-summary"><span class="header-section-number">8.1</span> Section Summary</h2>
+<p>In <a href="WhatEvolutionIs.html" class="quarto-xref"><span>Chapter 1</span></a>, we discussed that one way to define evolution was the <em>change in allele frequencies in a population over time</em>. We also discussed in <a href="HistoricaPerspective.html" class="quarto-xref"><span>Chapter 2</span></a> the role natural selection plays in the evolution of adaptations, but that there also exists other mechanisms the drive evolution in addition to natural selection. In the following chapters we will explore how the various mechanisms that drive evolution work by focusing on how they effect the change in the frequency of alleles in a population. We will do this by modeling the various mechanisms with a focus on the how they work individually and in concert. This takes us into the field of <a href="https://en.wikipedia.org/wiki/Population_genetics">population genetics</a>, also referred to as evolutionary genetics. Though evolutionary genetics can get more than a little math and statistics heavy, our attempt here is not for you to get lost in the maths and equations, but to come to a more deeper understanding of the how evolution works by understanding the fundamentals of the various mechanisms work<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. We will be discussing various equations and statistical principles as necessary, but will try to keep them to a minimum.</p>
+<p>What are the mechanisms that drive evolution? To be specific, they are:</p>
+<div id="imp-evolmechs" class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important&nbsp;8.1: Mechanisms that drive evolution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>mutation</p></li>
+<li><p>migration</p></li>
+<li><p>selection</p></li>
+<li><p>drift</p></li>
+<li><p>non-random mating</p></li>
+</ul>
+<p><strong><em>Not in order of importance!</em></strong></p>
+</div>
+</div>
+<p>In <span class="quarto-unresolved-ref">?sec-mutvar</span> we discussed the fuel that drives the evolutionary engine, variation in the genome. Later on we will expand these ideas to phenotypic variation, but for the next couple of chapters we will focus on what happens to that variation over time.</p>
+<p>We will begin our discussion here by first clarifying how allele frequencies are calculated. We will then discuss the <strong>null model</strong> of evolution that will be essential to understanding how the various mechanisms work to drive evolution, Hardy-Weinberg equilibrium<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Understanding HW equilibrium will then allow us to explore how the various mechanisms work individually and in concert, starting with the concept of genetic drift (<a href="MechEvolDrift.html" class="quarto-xref"><span>Chapter 9</span></a>). Most texts would begin the discussion on evolutionary genetics with natural selection, but in my opinion genetic drift, which we will refer as just drift for brevity’s sake, is much more important than it is usually given credit for. That is not to say that it is more important than selection or migration or any of the the other mechanisms, just that it is more important than usually presented in introductory biology texts or many introductory evolution texts. Plus it will give us an opportunity to move beyond the deterministic models for the various other mechanisms as we discuss them, making our discussions a little more reality based.</p>
+<p>Following drift, we will then move on to discuss in great detail selection <a href="MechEvolSelection.html" class="quarto-xref"><span>Chapter 10</span></a>, followed by migration <a href="MechEvolMigration.html" class="quarto-xref"><span>Chapter 12</span></a>, mutation, and nonrandom mating.</p>
+</section>
+<section id="calculating-allele-frequencies" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="calculating-allele-frequencies"><span class="header-section-number">8.2</span> Calculating allele frequencies</h2>
+<p>For population genetic analyses, researchers today typically sample dozens to hundreds of individuals from one or many populations for genotyping usually by DNA sequencing. Based on the sequencing data, we can determine the genotype of each individual. Assuming a diploid organism, single gene with two alleles (bi-allelic locus) designated as <span class="math inline">\(A\)</span> and <span class="math inline">\(a\)</span>, there are three possible genotypes: <span class="math inline">\(AA\)</span>, <span class="math inline">\(Aa\)</span>, and <span class="math inline">\(aa\)</span>. At a population level, we can then describe genetic variation with two metrics: the <strong>relative genotype frequency</strong> and the <strong>relative allele frequency</strong> in the population.</p>
+<p>The relative genotype frequency is the proportion of individuals in a population with a particular genotype, one measure of the distribution of genetic variation in a population. The table below summarizes hw we extimate the genotype frequecies.</p>
+<div id="tbl-genotypefreq" class="striped hover quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-genotypefreq-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;8.1: Genotype table
+</figcaption>
+<div aria-describedby="tbl-genotypefreq-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table-striped table-hover caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Genotype</th>
+<th style="text-align: center;"><span class="math inline">\(AA\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(Aa\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(aa\)</span></th>
+<th style="text-align: left;">Sum</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">Counts</td>
+<td style="text-align: center;"><span class="math inline">\(N_{AA}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(N_{Aa}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(N_{aa}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(N_T\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Freq (<span class="math inline">\(f_{ij}\)</span>)</td>
+<td style="text-align: center;"><span class="math inline">\(\frac{N_{AA}}{N_T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{N_{Aa}}{N_T}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{N_{aa}}{N_T}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(1.0\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>The sum of genotype frequencies (<span class="math inline">\(f\)</span>) equals one, as shown here for a bi-allelic locus:</p>
+<p><span id="eq-1"><span class="math display">\[
+\frac{N_{AA}}{N_T} + \frac{N_{Aa}}{N_T} + \frac{N_{aa}}{N_T} = f_{AA}+f_{Aa}+f_{aa} = 1.0
+\tag{8.1}\]</span></span></p>
+<p>The <strong>relative allele frequency</strong> is the proportion of different alleles at a particular locus and measures the amount of genetic variation in a population. If you can identify the different genotypes in a population, than the allele frequencies can be easily calculated based on the relative genotype frequencies. For a bi-allelic locus in a diploid organism, the frequencies of <span class="math inline">\(A\)</span> allele is designated <span class="math inline">\(p\)</span> (<span class="math inline">\(f_A=p\)</span>) and <span class="math inline">\(a\)</span> allele <span class="math inline">\(q\)</span> (<span class="math inline">\(f_a=q\)</span>). We do this by effectively counting the <strong>number of allele copies</strong> in the population and divide that by the <strong>total number of allele copies</strong> in a population, which for a diploid organism is (<span class="math inline">\(2N_T\)</span>). To determine the number of allele copies for an allele, each homozygus individual contributes two copies of the specific allele, so there are <span class="math inline">\(2N_{AA}\)</span> allele copies from the homozygotes, while the heterozygous genotype contributes only one allele copy, or <span class="math inline">\(N_{Aa}\)</span>.</p>
+<p>To calculate the relative allele frequency for the <span class="math inline">\(A\)</span> allele then:</p>
+<p><span class="math display">\[
+f_A = p = \frac{2N_{AA}+N_{Aa}}{2N_T}
+\]</span></p>
+<p>A little bit of simple algebra to simplify gives:</p>
+<p><span class="math display">\[
+p=\frac{2N_{AA}}{2N_T}+\frac{N_{Aa}}{2N_T}=\frac{N_{AA}}{N_T}+\frac{1}{2}\Big(\frac{N_{Aa}}{N_T}\Big) = f_{AA}+\frac{1}{2}(f_{Aa})
+\]</span></p>
+<p>To show the above a little cleaner:</p>
+<p><span id="eq-2"><span class="math display">\[
+f_A=p=\frac{2f_{AA}+f_{Aa}}{2(f_{AA}+f_{Aa}+f_{aa})}=f_{AA}+\frac{1}{2}(f_{Aa})
+\tag{8.2}\]</span></span></p>
+<p>Likewise for the alternative allele <span class="math inline">\(a\)</span>:</p>
+<p><span id="eq-3"><span class="math display">\[
+f_a=q=\frac{2f_{aa}+f_{Aa}}{2(f_{AA}+f_{Aa}+f_{aa})}=f_{aa}+0.5*f_{Aa}
+\tag{8.3}\]</span></span></p>
+<p>Remember, if Equation <a href="#eq-1" class="quarto-xref">Equation&nbsp;<span>8.1</span></a> is true, then the sum of p and q must also be one (<span class="math inline">\(p+q=1.0\)</span>).</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Mistakes frequently happen during the calculation of allele frequencies. I recommend that you calculate <em>p</em> and <em>q</em> independently and then check whether the sum of your calculated values equals one. If not, you made a mistake in your calculation.</p>
+</div>
+</div>
+</section>
+<section id="hardy-weinberg-a-null-model-for-evolution" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="hardy-weinberg-a-null-model-for-evolution"><span class="header-section-number">8.3</span> Hardy Weinberg: A Null Model for Evolution</h2>
+<p>Population genetics does not just allow us to quantify and describe genetic variation in populations; it also provides a powerful tool to address evolutionary hypotheses. Before we dive into that, I want to revisit the definition of evolution from <a href="what-evolution-is.html#predictions">Chapter 1</a>, where we described evolution as “change in the inherited traits of a population across successive generations”. With genetics in mind, we reframed that definition to explicitly address the mechanisms that underlie heredity:</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definition: Evolution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Evolution is the change of allele frequencies across successive generations.</p>
+</div>
+</div>
+<p>The predictable relationship between genotype and allele frequencies lets us use population genetic principles to determine whether evolution is happening. As already shown, we can infer allele frequencies based on measured genotype frequencies (Equations <a href="#eq-2" class="quarto-xref">Equation&nbsp;<span>8.2</span></a> and <a href="#eq-3" class="quarto-xref">Equation&nbsp;<span>8.3</span></a>). If we assume that no evolutionary forces are acting on a population (<a href="#imp-evolmechs" class="quarto-xref">Important&nbsp;<span>8.1</span></a>), we can predict the genotype frequencies of the next generation using the following formula (see <a href="#fig-punnett" class="quarto-xref">Figure&nbsp;<span>8.1</span></a>) for a graphical explanation).</p>
+<p><span id="eq-4"><span class="math display">\[
+f_{AA}=p^2
+\tag{8.4}\]</span></span></p>
+<p><span id="eq-5"><span class="math display">\[
+f_{Aa}=2pq
+\tag{8.5}\]</span></span></p>
+<p><span id="eq-6"><span class="math display">\[
+f_{aa}=q^2
+\tag{8.6}\]</span></span></p>
+<p>Since these are frequencies, then:</p>
+<p><span id="eq-7"><span class="math display">\[
+p^2+2pq+q^2=1
+\tag{8.7}\]</span></span></p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Unfortunately I have found over the years that many students will confuse <span class="citation" data-cites="eqn-7">(<a href="#ref-eqn-7" role="doc-biblioref"><strong>eqn-7?</strong></a>)</span> as the most important take away from HW. <span class="citation" data-cites="eqn-7">(<a href="#ref-eqn-7" role="doc-biblioref"><strong>eqn-7?</strong></a>)</span> is actually kind of trivial since of course the sum of the relative gentoype frequencies will be <span class="math inline">\(1.0\)</span>, they are relative frequencies. It is very important that you understand, the important result of HW is that under the assumptions of the model, the <strong><em>genotype frequencies will be</em></strong>:</p>
+<table class="table-striped table-hover caption-top table">
+<caption>Hardy Weinberg genotype frequencies</caption>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Genotype</th>
+<th style="text-align: center;"><span class="math inline">\(AA\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(Aa\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(aa\)</span></th>
+<th style="text-align: center;">Sum</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="math inline">\(f_{AA}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(f_{Aa}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(f_{aa}\)</span></td>
+<td style="text-align: center;">1.0</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">Freq (<span class="math inline">\(f_{ij}\)</span>)</td>
+<td style="text-align: center;"><span class="math inline">\(p^2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(2pq\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(q^2\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="fig-punnett" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-punnett-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<img src="images/HWE.png" class="img-fluid figure-img">
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-punnett-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.1: A modified Punnett square illustrates the relationship between allele frequencies (p and q) and the resulting genotype frequencies (p2, 2pq, and q2) under the assumptions of the Hardy-Weinberg principle.
+</figcaption>
+</figure>
+</div>
+<p>Since what we are interested in is the change in allele frequencies over time, our definition of evolution, we can use <span class="citation" data-cites="eqn-2">(<a href="#ref-eqn-2" role="doc-biblioref"><strong>eqn-2?</strong></a>)</span> above to calculate the allele frequencies in the next generation from the genotype frequencies.</p>
+<p><span class="math display">\[
+p'= f_{AA} + 1/2(f_{Aa})
+\]</span></p>
+<p><span class="math display">\[
+p'= p^2 + 1/2(2pq) = p^2 + pq
+\]</span></p>
+<p>Recalling that <span class="math inline">\(p+q=1\)</span> and a little simple algebra shows:</p>
+<p><span id="eq-8"><span class="math display">\[
+p'= p^2 + pq = p(p+q) = p
+\tag{8.8}\]</span></span></p>
+<p>Obviously the same would be true for the other allele <span class="math inline">\(a\)</span>:</p>
+<p><span class="math display">\[
+q'= q^2 + pq = q(p+q) = q
+\]</span></p>
+<p>This is the second important conclusion of Hardy-Weinberg: <span class="citation" data-cites="eqn-8">(<a href="#ref-eqn-8" role="doc-biblioref"><strong>eqn-8?</strong></a>)</span> tells us that under the assumptions of Hardy-Weinberg, there will be <strong>no changes in allele frequencies over time</strong>.</p>
+<p>This predictability of genotype and allele frequencies across generations is known as the Hardy-Weinberg principle (or equilibrium), which states that <strong>genotype and allele frequencies in a population will remain constant across generations as long as there are no evolutionary forces acting on that population</strong>. Those evolutionary forces are <a href="#imp-evolmechs" class="quarto-xref">Important&nbsp;<span>8.1</span></a>.</p>
+<p>A third important point about the Hardy-Weinberg principle is that it can be used as a <strong>null model</strong> to test whether any evolutionary forces are acting on a particular locus. To do so, we just need to genotype a representative sample of individuals in a population and calculate relative allele frequencies based on the observed genotype frequencies <a href="#eq-2" class="quarto-xref">Equation&nbsp;<span>8.2</span></a> and <a href="#eq-3" class="quarto-xref">Equation&nbsp;<span>8.3</span></a>. Then, we can calculate the idealized genotype frequencies predicted by Hardy-Weinberg using <a href="#eq-4" class="quarto-xref">Equation&nbsp;<span>8.4</span></a>, <a href="#eq-5" class="quarto-xref">Equation&nbsp;<span>8.5</span></a>, and <a href="#eq-6" class="quarto-xref">Equation&nbsp;<span>8.6</span></a>. If the calculated idealized genotype frequencies match the initially observed genotype frequencies, we say that the population is in <em>Hardy-Weinberg equilibrium</em> (<a href="#fig-decisiontree" class="quarto-xref">Figure&nbsp;<span>8.2</span></a>)<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. In this case, the observable data matches the model prediction, meaning that the assumptions underlying the model are correct: there are no evolutionary forces acting on that locus.</p>
+<p>In contrast, if the calculated idealized genotype frequencies do not match the initially observed genotype frequencies, the population is in <em>Hardy-Weinberg disequilibrium</em> (<a href="#fig-decisiontree" class="quarto-xref">Figure&nbsp;<span>8.2</span></a>). Since we cannot correctly calculate genotype frequencies based on the measured allele frequencies, some assumption of the Hardy-Weinberg model must be violated; <em>i.e.</em> at least one evolutionary force must be acting on the locus, causing an over representation of some genotypes relative to the others. This approach will not tell you which of the evolutionary forces caused the observed discrepancy; sorting that out requires additional research.</p>
+<div id="fig-decisiontree" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-decisiontree-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<img src="images/HW_principle.jpg" class="img-fluid figure-img">
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-decisiontree-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;8.2
+</figcaption>
+</figure>
+</div>
+<p>Applying the Hardy-Weinberg principle is nonetheless a good starting point, because we can genotype individuals in a population at many loci in the genome, apply the Hardy-Weinberg principle at each locus, and identify regions of the genome where evolutionary forces are likely acting to change allele frequencies across generations. It is a simple approach to find a needle in a haystack, but comes with a lot of caveats.</p>
+<p>A more important aspect of HW as a null model is that it allows us to ask questions concerning what would happen to the change in allele frequencies if we relax the assumptions of the model, say for example if natural selection is acting on the population. We can use HW expectations to develop relatively simple models to assess the impacts of mutation, migration, selection, and drift by relaxing each of these assumption individually and determine how it might impact the change in allele frequencies over time. This is the basis of the field of evolutionary population genetics, and allows us to explore how the various mechanisms that drive evolution work, which we will be focusing on in the next couple of chapters.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hardy Weinberg Equilibrium
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For a diploid organism, a single gene (locus) with two alleles, assuming (1) no new mutation, (2) no migration from an outside population, (3) no natural selection acting on the gene, (4) an infinite population size (no drift), and (5) random mating (no nonrandom mating, a double negative), then:</p>
+<p>the genotype frequencies in a population will be <span class="math inline">\(p2\)</span>, <span class="math inline">\(2pq\)</span>, and <span class="math inline">\(q^2\)</span>, where <span class="math inline">\(p=\)</span> frequency of one allele and <span class="math inline">\(q\)</span> = the frequency of the alternate allele in the population.</p>
+<p>the genotype frequencies and the allele frequencies will not change over time.</p>
+<p>HW acts as a null model in evolution, allowing us to model how the mechanisms of evolution work.</p>
+</div>
+</div>
+
+
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Truth in advertising, the areas of emphasis for my PhD from the Ecology and Evolution Department at SUNY Stony Brook were in molecular evolution and population genetics, so I kind of have a soft spot for these two disciplines in evolution. Plus this may explain why I tend to put more emphasis on evolutionary genetics, phylogenetics, and molecular evolution then found in most commonly used texts.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Also known as the Hardy Weinberg Principle. We will use both ways to refer to it in this OER.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>We would normally perform a <span class="math inline">\(\chi^2\)</span> test to determine whether the differences found between observed and expected genotype frequencies are significant. We will wait to discuss this in lab though.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./GenesMutationGeneticVariation.html" class="pagination-link" aria-label="Genes, mutation, and genetic variation">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Genes, mutation, and genetic variation</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./MechEvolDrift.html" class="pagination-link" aria-label="Genetic Drift">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Genetic Drift</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

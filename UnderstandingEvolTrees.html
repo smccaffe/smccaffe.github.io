@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>5&nbsp; Understanding Evolutionary Trees – Evolution 303</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./EstimatingEvoTrees.html" rel="next">
+<link href="./EvolTreesAndPhylogenetics.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./EvolTreesAndPhylogenetics.html">Evolutionary Trees and Phylogenetics</a></li><li class="breadcrumb-item"><a href="./UnderstandingEvolTrees.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Understanding Evolutionary Trees</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Evolution 303</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Evolution 303</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface - Evolution 303</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./IntroBasicConcepts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction: Basic Concepts</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./WhatEvolutionIs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">What evolution is</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./HistoricaPerspective.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">A brief history of evolutionary thought</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./EvidenceForEvolution.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Evidence for Evolution</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./HowNaturalSelectionWorks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">How Natural Selection Works</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./EvolTreesAndPhylogenetics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Evolutionary Trees and Phylogenetics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./UnderstandingEvolTrees.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Understanding Evolutionary Trees</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./EstimatingEvoTrees.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Estimating evolutionary trees</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./EvolGenetics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Evolutionary Genetics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./GenesMutationGeneticVariation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Genes, mutation, and genetic variation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./IntroEvolGenetics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Introduction: Evolutionary genetics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./MechEvolDrift.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Genetic Drift</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./MechEvolSelection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Mechanisms that drive evolution: natural selection</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./MechEvolMutation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Mutation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./MechEvolMigration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Migration and other factors</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./EvolPhenotype.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">The Evolution of Quantitative Traits</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">In Light Of Evolution</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./KinAndSexualSelection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Social Behavior and Sexual Selection</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Adaptations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Adaptation and Phenotypic Plasticity</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./SpeciesSpeciation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Species and Speciation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./EvolutionGenomicLevel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Evolution at the genomic level</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./EvoDevo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">EvoDevo</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Evolution At The Macro Level</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./EvoBiogeogrphy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Evolutionary Biogeography</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./DivLife.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Diversification and patterns of life through time</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">What About Us</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./HumanEvol.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Human Evolution</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./EvolMed.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Evolutionary Medicine</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./EvolMedPartI.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Evolutionary Medicine I: Aging and Diseases of Civilization</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./EvolMedPartII.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Evolutionary Medicine II: Evolving Pathogens</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#what-is-an-evolutionary-tree" id="toc-what-is-an-evolutionary-tree" class="nav-link active" data-scroll-target="#what-is-an-evolutionary-tree"><span class="header-section-number">5.1</span> What is an evolutionary tree</a></li>
+  <li><a href="#classification-and-phylogenetics" id="toc-classification-and-phylogenetics" class="nav-link" data-scroll-target="#classification-and-phylogenetics"><span class="header-section-number">5.2</span> Classification and phylogenetics</a></li>
+  <li><a href="#phylogenetic-trees" id="toc-phylogenetic-trees" class="nav-link" data-scroll-target="#phylogenetic-trees"><span class="header-section-number">5.3</span> Phylogenetic trees</a>
+  <ul class="collapse">
+  <li><a href="#anatomy-of-an-evolutionary-tree" id="toc-anatomy-of-an-evolutionary-tree" class="nav-link" data-scroll-target="#anatomy-of-an-evolutionary-tree"><span class="header-section-number">5.3.1</span> Anatomy of an evolutionary tree</a></li>
+  <li><a href="#evolutionary-relationships-are-determined-by-the-sharing-of-common-ancestry" id="toc-evolutionary-relationships-are-determined-by-the-sharing-of-common-ancestry" class="nav-link" data-scroll-target="#evolutionary-relationships-are-determined-by-the-sharing-of-common-ancestry"><span class="header-section-number">5.3.2</span> Evolutionary relationships are determined by the sharing of common ancestry</a></li>
+  <li><a href="#evolutionary-trees-are-like-mobiles" id="toc-evolutionary-trees-are-like-mobiles" class="nav-link" data-scroll-target="#evolutionary-trees-are-like-mobiles"><span class="header-section-number">5.3.3</span> Evolutionary trees are like mobiles</a></li>
+  <li><a href="#phylogenies-may-be-drawn-in-many-different-styles" id="toc-phylogenies-may-be-drawn-in-many-different-styles" class="nav-link" data-scroll-target="#phylogenies-may-be-drawn-in-many-different-styles"><span class="header-section-number">5.3.4</span> Phylogenies may be drawn in many different styles</a></li>
+  <li><a href="#branch-lengths-on-a-phylogeny-can-either-have-meaning-or-not-depending-on-the-method-used-to-construct-the-tree." id="toc-branch-lengths-on-a-phylogeny-can-either-have-meaning-or-not-depending-on-the-method-used-to-construct-the-tree." class="nav-link" data-scroll-target="#branch-lengths-on-a-phylogeny-can-either-have-meaning-or-not-depending-on-the-method-used-to-construct-the-tree."><span class="header-section-number">5.3.5</span> Branch lengths on a phylogeny can either have meaning or not, depending on the method used to construct the tree.</a></li>
+  <li><a href="#trees-can-be-either-rooted-or-unrooted" id="toc-trees-can-be-either-rooted-or-unrooted" class="nav-link" data-scroll-target="#trees-can-be-either-rooted-or-unrooted"><span class="header-section-number">5.3.6</span> Trees can be either rooted or unrooted</a></li>
+  <li><a href="#phylogenies-can-be-fully-resolvedor-not" id="toc-phylogenies-can-be-fully-resolvedor-not" class="nav-link" data-scroll-target="#phylogenies-can-be-fully-resolvedor-not"><span class="header-section-number">5.3.7</span> Phylogenies can be fully resolved…or not</a></li>
+  <li><a href="#phylogenies-can-also-be-represented-by-networks" id="toc-phylogenies-can-also-be-represented-by-networks" class="nav-link" data-scroll-target="#phylogenies-can-also-be-represented-by-networks"><span class="header-section-number">5.3.8</span> Phylogenies can also be represented by networks</a></li>
+  <li><a href="#oftentimes-trees-are-drawn-by-compressing-the-number-of-taxa-shown-to-make-them-more-readable." id="toc-oftentimes-trees-are-drawn-by-compressing-the-number-of-taxa-shown-to-make-them-more-readable." class="nav-link" data-scroll-target="#oftentimes-trees-are-drawn-by-compressing-the-number-of-taxa-shown-to-make-them-more-readable."><span class="header-section-number">5.3.9</span> Oftentimes trees are drawn by compressing the number of taxa shown to make them more readable.</a></li>
+  <li><a href="#evolutionary-trees-can-contain-both-extinct-fossil-and-extant-taxa" id="toc-evolutionary-trees-can-contain-both-extinct-fossil-and-extant-taxa" class="nav-link" data-scroll-target="#evolutionary-trees-can-contain-both-extinct-fossil-and-extant-taxa"><span class="header-section-number">5.3.10</span> Evolutionary trees can contain both extinct (fossil) and extant taxa</a></li>
+  <li><a href="#mapping-characters-onto-a-known-phylogeny" id="toc-mapping-characters-onto-a-known-phylogeny" class="nav-link" data-scroll-target="#mapping-characters-onto-a-known-phylogeny"><span class="header-section-number">5.3.11</span> Mapping characters onto a known phylogeny</a></li>
+  <li><a href="#some-additional-information-concerning-interpreting-character-states-on-a-tree" id="toc-some-additional-information-concerning-interpreting-character-states-on-a-tree" class="nav-link" data-scroll-target="#some-additional-information-concerning-interpreting-character-states-on-a-tree"><span class="header-section-number">5.3.12</span> Some additional information concerning interpreting character states on a tree</a></li>
+  </ul></li>
+  <li><a href="#in-closing" id="toc-in-closing" class="nav-link" data-scroll-target="#in-closing"><span class="header-section-number">5.4</span> In closing</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./EvolTreesAndPhylogenetics.html">Evolutionary Trees and Phylogenetics</a></li><li class="breadcrumb-item"><a href="./UnderstandingEvolTrees.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Understanding Evolutionary Trees</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-evoltrees" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Understanding Evolutionary Trees</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><em>DRAFT 20250113</em></p>
+<section id="what-is-an-evolutionary-tree" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="what-is-an-evolutionary-tree"><span class="header-section-number">5.1</span> What is an evolutionary tree</h2>
+<p>Recall from Chapter 2 that one of Darwin’s great contributions was the idea that new species are formed by the splitting off from a pre-existing ancestor, forming a tree-like structure with species diverging from a common ancestor. As early as 1837, a year after he returned from his voyage on the <em>Beagle</em>, Darwin sketched in one of his notebooks a branching diagram representing the idea of descent from common ancestors, an image today that remains an icon of evolutionary thinking. Though there are others that were kind-of thinking along similar lines of “divergence from a common ancestor” and showing these relationships not as a linear process but more tree-like, it was Darwin who should and does get the most credit. He took this simple yet elegant idea of descent with modification as envisioned by a branching tree-like structure, and extrapolated it to all of life. In OTOS he wrote:</p>
+<blockquote class="blockquote">
+<p><em>As buds give rise by growth to fresh buds, and these, if vigorous, branch out and overtop on all sides many a feebler branch, so by generation I believe it has been with the great Tree of Life, which fills with its dead and broken branches the crust of the earth, and covers the surface with its ever-branching and beautiful ramifications.</em></p>
+</blockquote>
+<p>It is clear that Darwin considered this <em>Tree Of Life</em> as a fundamentally important to understanding “descent with modification”, so much so that the only figure found in the OTOS is a hand drawn branching diagram that today we would call an evolutionary tree, or phylogeny.</p>
+<p>Today, evolutionary trees form the bedrock of modern evolutionary biology. Understanding how to correctly interpret evolutionary trees is absolutely essential to understanding modern evolutionary biology. This is true beyond understanding the relationship of closely related species, but ranges across the hierarchy of life, from the grand Tree Of Life on down to genes and proteins. Constructing evolutionary trees used to be difficult, sometimes highly subjective, certainly loaded with conflict. It took the better part of 30 years to resolve the issues surrounding the methodologies to constructing reliable evolutionary trees, with much of the progress driven by advances in molecular and genomic biology, statistics, and computer science.</p>
+<p>In this chapter we will introduce phylogenetic trees with an emphasis on interpreting and understanding what they are, what they can tell us, and some common mistakes in interpreting evolutionary relationships from phylogenies to try to avoid. Later in the semester we will study how to actually build evolutionary trees in lecture and lab. But before we dive into the basics of evolutionary trees and how to understand and use them, we need to make a clear distinction between what we mean by Classification/Taxonomy and phylogenetics.</p>
+</section>
+<section id="classification-and-phylogenetics" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="classification-and-phylogenetics"><span class="header-section-number">5.2</span> Classification and phylogenetics</h2>
+<p>Though closely related, Classification, and by extension Taxonomy, is in fact distinct from phylogenetics.</p>
+<blockquote class="blockquote">
+<ul>
+<li><strong>Phylogenetic tree</strong> is an estimate of the evolutionary relationship among groups of taxa, where taxa can be genes, populations, species, and even higher order groups. As such, we consider phylogenies to be hypotheses that can/will change as new evidence, data, or methodologies emerge.</li>
+<li><strong>Classification schemes</strong> are systems used to categorize and organize living organisms into unique groups. Their main purpose is to identify, name, and categorize organisms in some way that makes sense, usually by some measure of similarity (e.g.&nbsp;morphology). They tend to be rather stable.</li>
+</ul>
+</blockquote>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong><em>Important: do not let me confuse you…</em></strong></p>
+<p>Throughout this OER I will be using the terms <strong>phylogenies</strong> and <strong>evolutionary trees</strong> interchangeably. They essentially mean the same thing, and I will use either one kind of arbitrarily depending on how it sounds or what is in my notes.</p>
+</div>
+</div>
+<p>There have been numerous Classification schemes proposed by natural historians over the last century or so, some seemingly more”arbritrary” than others. Today we pretty much rely on a system based on shared characteristics, the so-called Linnaean system, which organizes organisms into hierarchical categories such as Kingdom, Phylum, Class, Order, Family, Genus, and species. I am confident you are comfortable with the Linnaean system, so will not go into much detail.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you need a reminder of what the Linnaean system is, you can refer to this <a href="https://bio.libretexts.org/Bookshelves/Introductory_and_General_Biology/Introductory_Biology_(CK-12)/05%3A_Evolution/5.01%3A_Linnaean_Classification#:~:text=The%20Linnaean%20system%20of%20classification,just%20a%20few%20basic%20similarities.">chapter in an online introductory biology textbook</a>, or the this <a href="https://en.wikipedia.org/wiki/Linnaean_taxonomy">Wikipedia entry</a>.</p>
+</div>
+</div>
+<p><strong>Taxonomy</strong> (the science of naming, describing, and classifying organisms into groups based on shared characteristics) is very focused on classification and identification, with a pretty strict set of rules when it comes to naming genera and species (perhaps a little less so at the higher levels). The goal is to assure that no two species bear the same name, such that when you are studying a particular organism, you have a fair amount of confidence that it is what you think it is.</p>
+<p>Though related, <strong>Systematics</strong> on the other hand focuses on studying the diversity of organisms, investigating evolutionary relationships, and understanding the processes that lead to biodiversity. This includes reconstructing evolutionary histories (phylogenies), analyzing genetic, morphological, and ecological data, and exploring the mechanisms of speciation and adaptation.</p>
+<p>Today, it is agreed that the best classification schemes are those that reflect evolutionary relationships, <em>i.e.</em> phylogenies (though this was not always the case). Most systematists, though there remain a few hold-overs from past antiquated arguments, understand that the best classifications should consist of monophyletic taxa only and thus reflect phylogenetic relationships.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Definitions: Monophyletic, Paraphyletic, and Polyphyletic
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Monophyletic</strong>: taxon is one that includes all the named descendants of a particular common ancestor</li>
+<li><strong>Paraphyletic</strong>: taxon includes some, but not all, of the descendants from a particular ancestor</li>
+<li><strong>Polyphyletic</strong>: &nbsp;taxon includes species that do not exclusively share a common ancestor</li>
+</ul>
+<p><img src="images/TypesOfClades.png" class="img-fluid"></p>
+</div>
+</div>
+<p>We will dive more into and clarify these terms later. The key points here is that</p>
+<blockquote class="blockquote">
+<ul>
+<li><p>The best classifications should reflect evolutionary history</p></li>
+<li><p>Evolutionary history is best represented by phylogenies.</p></li>
+</ul>
+</blockquote>
+<p>For the remainder of this chapter we will discuss it is essential to have a clear understanding of what phylogenies are, how they are constructed, and how to interpret them correctly.</p>
+</section>
+<section id="phylogenetic-trees" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="phylogenetic-trees"><span class="header-section-number">5.3</span> Phylogenetic trees</h2>
+<p>Before discussing what the components of an evolutionary tree are, it is worth while to take a step back to discuss the two generalized processes in evolution, namely <em>anagenesis</em> and <em>cladogenesis</em>.</p>
+<ul>
+<li><p><strong>Anagenesis</strong> is evolutionary change of features within a single lineage, say a species or a population.</p></li>
+<li><p><strong>Cladogenesis</strong> on the other hand is the branching of a lineage into two or more descendant lineages.</p></li>
+</ul>
+<p>When Darwin proposed species forming by splitting from a common ancestor, he was evoking cladogenesis. Cladogenesis is often (but perhaps not always) followed by anagenesis in each of the descendant lineages such that they become different from each other via various mechanisms. This can lead to increasing divergence between the two taxa over time, <em>i.e.</em> divergent evolution. The two processes of anagenesis and cladogenesis can be reflected in phylogenetic trees (depending on the method used to construct the tree): cladogenesis as the branching patterns seen in the tree, and anagenesis by the length of the branches, but only in some specific methods of constructing evolutionary trees. More on this idea of reflecting anagenesis on an evoutionary tree later in this OER.</p>
+<p>Other types of evolutionary phenomena can also be shown on a phylogenetic tree, for example <strong>extinction</strong> and <strong>reticulation</strong> (when two lineages merge), but for our purposes, we will focus on what we call a bifurcating tree for the time being.</p>
+<section id="anatomy-of-an-evolutionary-tree" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="anatomy-of-an-evolutionary-tree"><span class="header-section-number">5.3.1</span> Anatomy of an evolutionary tree</h3>
+<p>Before describing the components of an evolutionary tree, the following terms are important to understand:</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p><strong>topology</strong> : this is the branching pattern of tree. It indicates evolutionary relatedness. For example, in th figure above species A and B share a recent common ancestor that was not shared by the other species and are therefore called “<strong>sister taxa</strong>.” Similarly, species D and E are sister taxa. Species F is the most distantly related of the sample of species and is known as the “outgroup.”</p></li>
+<li><p><strong>clade</strong> : a relative term for a group of taxa that are related by a common ancestor, or from the opposite perspective, it is all the lineages derived from a single recent common ancestor. For example, in the figure above, A and B can be considered a clade. Likewise A, B, and C can also be considered a clade. D and E can be considered a clade, as can A, B, C, D, &amp; E. However, A and D can not be considered a valid clade, since you are excluding other lineages that are derived from the common ancestor connecting A &amp; D.</p></li>
+<li><p><strong>Common Ancestor (CA)</strong> :</p></li>
+<li><p><strong>More Recent Common Ancestor</strong> (MRCA) :</p></li>
+</ul>
+</div>
+</div>
+<p>The following figure is a very simple phylogenetic tree showing the relationship among 6 taxa. Though very simple, it contains most of the key elements found in an evolutionary tree, which are defined below.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/EvolTreeAnatAlt2.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption><em>Anatomy of an evolutionary tree (from Gregory 2008)</em></figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+DEFINITIONS: Anatomy of an evolution tree
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Taxa</strong> : General term for the items at the ends of a tips of a tree. Taxa can be most anything really, though we usually think of species as taxa. However they can also be genes or regions of a genome, or even higher order systematic levels. It all depends on the what evolutionary history the tree represents. For that reason, you will often see the term <strong>OTU</strong> (Operational Taxonomic Unit) used in exchange for taxa.</li>
+<li><strong>Node</strong> : A branching point in a phylogenetic tree; can be either internal or terminal.</li>
+<li><strong>Internal node</strong> : Represents a (hypothetical) common ancestor of two lineages; a splitting event, or inferred lineage splitting (e.g.&nbsp;speciation) events that give rise to descendant sister groups—in other words, they represent the common ancestors from which two or more related lineages are descended.</li>
+<li><strong>Terminal node</strong> : Tip of a branch/lineage that defines taxa, e.g.&nbsp;OTU or taxa names.</li>
+<li><strong>Branch</strong> : also referred to as a <strong>lineage</strong>; the “lines” of a phylogenetic tree that connect either two nodes (<strong>internal branch</strong>) or one node with a tip (<strong>terminal branch</strong>); also called <strong>edges</strong>.</li>
+<li><strong>Root</strong> : If the tree is rooted, the node/branch at the base of the tree; represents the most basal portion of the tree, or the <strong>most recent common ancestor</strong> (<strong>MRCA</strong>) of all the taxa on the tree.</li>
+<li><strong>Outgroup</strong> : In a rooted tree, a taxa or group of taxa used to define the root the tree. The outgroup IS NOT the root of the tree, but helps to define where the root of the tree is. The root indicate the last common ancestor (i.e., the deepest internal node) shared by the entire group of species. The term <em>basal lineage</em> is sometimes used to describe the outgroup, but this term if often misunderstood so best not to even use it.</li>
+<li><strong>Ingroup</strong> : Those taxa that are of primary interest, i.e.&nbsp;the taxa for wish you wish you estimate the evolutionary relationship</li>
+</ul>
+</div>
+</div>
+<p>Generally speaking, there is some level of directionality to the tree if it is a rooted tree such that the base or root of the tree represents the past (more ancient) while the tips are the more recent (present). This does not mean that all trees accurately represent when a particular lineage diverged. That requires a special type of tree, which we will explain later. At this point, understand that the root of the tree is the most ancestral, while the terminal nodes (tips) are the most recent.</p>
+</section>
+<section id="evolutionary-relationships-are-determined-by-the-sharing-of-common-ancestry" class="level3" data-number="5.3.2">
+<h3 data-number="5.3.2" class="anchored" data-anchor-id="evolutionary-relationships-are-determined-by-the-sharing-of-common-ancestry"><span class="header-section-number">5.3.2</span> Evolutionary relationships are determined by the sharing of common ancestry</h3>
+<p>Since evolution occurs via the splitting from a common ancestor, then we define evolutionary relationships via the sharing of common ancestry. If two taxa share a more recent common ancestor with each other than they do with a third taxa, then those two taxa are more closely related to each other than they are to the third. As with the discussion on tree as mobiles, it is all about the sharing of <strong>Most Recent Common Ancestry</strong> (MRCA).</p>
+<p>Perhaps an example will help. Panel A in the figure below shows a well accepted phylogeny or the Old World primates.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/PrimateTree2.png" class="img-fluid figure-img" style="width:75.0%"></p>
+<figcaption><em>Primate evolutionary tree</em></figcaption>
+</figure>
+</div>
+<p>To determine evolutionary relationships, basically you simply trace down the tree to find that internal node that connects the two taxa of interest; that node represents their MRCA. Based on tree in Panel (B), we would say the humans are more closely related to chimpanzees than they are to gorillas since they share a MRCA (node 1, path in red) with chimps than they do with gorillas (node 2, path in green). Likewise, as shown in Panel (C), humans are more closely related to gorillas than they are to orangutans since they share a MRCA with gorillas (node 2, path in green) than they do with Orangutans (node 3, path in orange).</p>
+<p>A source of confusion to many students when they first try to make this transition to “tree thinking” is that they tend to focus on the number of nodes connecting two taxa rather than the sharing of a MCRA. For example, in Panel (D) in the figure above we would say that Gibbons are equally related to Orangutans as they are to Chimpanzees since Gibbons share the same MRCA (node 4) with Orangutans (path in blue) as they do with Chimpanzees (path in purple). Even though when tracing back through the tree we pass by only 3 nodes between Gibbons and Orangutans (path in blue) but 6 nodes between Gibbons and Chimpanzees (path in purple), from an evolutionary perspective we would still consider Gibbons to be equally related to Orangutans as they are to Chimpanzees: it is the sharing of the MRCA (node 4) that determines evolutionary relationship, not how many evolutionary events occurred after splitting from that common ancestor.</p>
+<p>Another source of confusion some students have is tending to equate <strong>evolutionary relationship</strong> as shown by a phylogeny with <strong>evolutionary divergence</strong>. Though these two concepts can be related, they need not be. Divergence is some measure of how different two taxa are, be that from a genomic or phenotypic perspective. A lineage can undergo extensive divergence from a sister taxa after splitting from a common ancestor (remember anagenesis?), yet the evolutionary relationship as demonstrated by the topology of an evolutionary tree would be just the same even if there was little divergence. The lesson here is to be careful about the language being used, such that we are not confusing these two very important processes.</p>
+</section>
+<section id="evolutionary-trees-are-like-mobiles" class="level3" data-number="5.3.3">
+<h3 data-number="5.3.3" class="anchored" data-anchor-id="evolutionary-trees-are-like-mobiles"><span class="header-section-number">5.3.3</span> Evolutionary trees are like mobiles</h3>
+<p>Evolutionary trees are actually two dimensional representations of a three dimensional object, like a mobile lying on the table. If you were to pick the mobile up and hang it on the ceiling, the various parts can rotate around the internal points; it has three dimensional qualities. With an evolutionary tree, the various lineages can rotate around their nodes just like a hanging mobile.</p>
+<p>This is very important to recognize. It tells us that when interpreting an evolutionary tree, you should not pay too much attention as to which taxa are next to each other, but rather focus on how taxa are connected by internal nodes. All internal nodes can be rotated without changing the topology. For example, the figure below shows the evolutionary relationship among a subset of mammals. Even though the four trees may look different, they actually are exactly equivalent to one another. This is because it is the order of branching events—the topology—that is relevant, not the order of the taxa at the tips. Each internal node can be rotated without affecting the topology because this does not alter the groupings of species.</p>
+<p>For example, to convert our original tree (A) to (B), all you need do is rotate around the node labeled as 2. By rotating node 2, elephants (<em>Loxodontia</em>) + armadillos (<em>Dasypus</em>) retain sister taxa with their relationship to the other mammals retained even though they now are found on the “top” of the tree. Likewise to go from tree (B) to (C), simply rotate around node 3, and from (C) to (D), rotate around node 4.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/TreeRotate.png" class="img-fluid figure-img" style="width:75.0%"></p>
+<figcaption>Evolutionary trees are like mobiles</figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Take a close look at the figure above, and using what you learned above about MRCA defining evolutionary relationship, convince yourself that the four trees above are indeed showing the exact same evolutionary relationship indicated by the branching pattern by tracing the pathways through CA.</p>
+</div>
+</div>
+</section>
+<section id="phylogenies-may-be-drawn-in-many-different-styles" class="level3" data-number="5.3.4">
+<h3 data-number="5.3.4" class="anchored" data-anchor-id="phylogenies-may-be-drawn-in-many-different-styles"><span class="header-section-number">5.3.4</span> Phylogenies may be drawn in many different styles</h3>
+<p>So far the trees shown in the chapter have been very simple in both structure and style. However, that is not always the case. Phylogenies can be simple and straight forward as the ones shown above, or they can be elegant and information rich. It all depends on the information that the author is trying to present and the method used to construct the phylogeny (more on this later).</p>
+<p>The image below taken from Herron &amp; Freeman (20xx) gives one example of how the same evolutionary relationship can be shown using different styles. Though at first glance one may think the four trees are different, they actually show the same evolutionary relationships among the various extant (not extinct) Felid lineages.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/CatTree.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption><em>Four different versions of the same tree modified from Figure 4.5 from Herron and Freeman (20xx)</em></figcaption>
+</figure>
+</div>
+<p>Notice that the trees can be oriented horizontally, vertically, or even as a circle. The internal branch points can be shown as angled or rectangular, or they can stylized as curving (these used to be called “swoopograms”). The key point here is not to be confused by how the tree looks, but focus on the topology itself.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Prove to yourself that these four trees all show the same evolutionary relationships.</p>
+</div>
+</div>
+<p>And they can seem even more complicated than just those four. The figure below shows many different styles of trees, yet they all demonstrate the same evolutionary relationship.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/layout-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The following video <a href="https://vimeo.com/148794860">by JD Laurence-Chasen, a former student of Casey Dunn’s at Brown University</a>, does a great job summarizing many of the issues discussed so far. It is worth checking it out as a way to test how well you understand what we just went over.</p>
+</div>
+</div>
+</section>
+<section id="branch-lengths-on-a-phylogeny-can-either-have-meaning-or-not-depending-on-the-method-used-to-construct-the-tree." class="level3" data-number="5.3.5">
+<h3 data-number="5.3.5" class="anchored" data-anchor-id="branch-lengths-on-a-phylogeny-can-either-have-meaning-or-not-depending-on-the-method-used-to-construct-the-tree."><span class="header-section-number">5.3.5</span> Branch lengths on a phylogeny can either have meaning or not, depending on the method used to construct the tree.</h3>
+<p>A generalized term for all types of evolutionary trees is a <strong>dendogram</strong>. When an evolutionary tree is showing only the evolutionary relationships among the various taxa (OTUs), it is referred to as a <strong>cladogram</strong>. All the trees shown so far in this chapter have been cladograms. Remember, the branch lengths in a cladogram are effectively meaningless. They can be longer or shorter depending basically on esthetics, so long as they do not alter the branching pattern.</p>
+<p>However, there are methods used to construct trees that specifically estimate the levels of divergence among taxa. This is most certainly true for molecular and genomic data. We will dive into the specifics of how to estimate an evolutionary tree, particularly using molecular or genomic data, in a later chapter. For our purposes here, when these types of methods are used, the branch lengths on the resulting trees do have meaning; the longer the branch, the larger the level of divergence. The figure below gives a very simple example of how these trees look.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/BranchLengths.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>*From Gregory (2008)*</figcaption>
+</figure>
+</div>
+<p>In this figure:</p>
+<ul>
+<li><p>Panel (a) is a <strong>cladogam</strong>. Similar to the trees shown earlier in this chapter, the branch lengths have no real meaning. These types of trees are simply showing the branching pattern (topology)or evolutionary relationships among the taxa.</p></li>
+<li><p>Panel (b) shows a tree where the branch lengths do have meaning, <em>i.e.</em> they are estimates of the degree of genetic or morphological divergence among taxa. It shows the same evolutionary relationship among taxa as in (a), but includes information on the level of divergence between nodes. This type of tree is often referred to as a <strong>phylogram</strong>. Phylograms typically include a scale bar some where to indicate how much change is reflected in the lengths of the branches. Total divergence between two taxa is determined on by adding up the length of the branches connecting them: from one species to their CA plus from the CA to the second species. These types of trees are very common in the leterature today since it is pretty much agreed the best data for constructing a reliable evolutionary tree is molecular or genomic data, which naturally lend itself to providing estimates of divergence. Again, more on this later.</p></li>
+<li><p>Panel (c) is sort of a modified phylogram called a <strong>chronogram</strong>. The branch lengths still have meaning, but note that the terminal nodes are aligned with each other and the internal branch lengths are scaled in such a way that the internal nodes are aligned with the <strong>estimated date of divergence</strong>. This very special type of tree is only used when you can calibrate or convert the levels of divergence into time in some way, say when you have a reliable fossil record for the taxa of interest or are using molecular data that have been calibrated in some way to reliably convert levels of genomic divergence into time. This type of tree is also referred to as <strong>ultrametric tree</strong> or <strong>time-tree</strong>. These types of trees are not without controversy, but nonetheless very useful. As an example, take a look at <a href="http://www.timetree.org">Time Tree of Life</a> website.</p></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Distinguishing among the various types of tree
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Can you tell which type of tree you are looking at just by how they look? Not always, particularly when a lot of creative license was used to make the tree informative. The best way to figure it our is to read the Methods section of the paper, something I strongly recommend you do. However, there are some clues.</p>
+<ul>
+<li><strong>Cladogram</strong> : If terminal taxa are all aligned along the same axis, and the branch lengths lengths seem to have a pattern in terms of different lengths, then you probably have a cladogram. The tree does not need to be rectangular as above, and in fact are often angular, “swoopograms”, or circular trees.</li>
+<li><strong>Phylogram</strong> : If the terminal taxa are located at various locations within the figure (not along a single straight axis), the branch lengths are clearly quite different along the tree, and there are either numbers along the branches (usually real numbers) or some sort of scale showing how much divergence is represented by a set distance, then you have a phylogram. These types of trees are usually quite obvious, and can get a little busy owing to the methods used to construct them. Nonetheless, staggered taxa names, probably a phylogram</li>
+<li><strong>Chronogram</strong> : In this case the terminal taxa will all be aligned along a single axis, but the internal nodes will be distributed along an axis reflecting the estimated date of divergence. In this type of tree, you almost always will see some type of time scale (for example in millions of years, or as a geological time scale) in the same orientation of the tree such that you can trace down to the that scale from any internal node and get an estimate of date of divergence for the lineages splitting off the MCRA. Notice the scale along the bottom of the tree in Panel (c), though it is a little difficult to see in this figure.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="trees-can-be-either-rooted-or-unrooted" class="level3" data-number="5.3.6">
+<h3 data-number="5.3.6" class="anchored" data-anchor-id="trees-can-be-either-rooted-or-unrooted"><span class="header-section-number">5.3.6</span> Trees can be either rooted or unrooted</h3>
+<p>All the evolutionary trees presented in this chapter so far have been <strong>rooted trees</strong>, meaning that the basal position of the tree has been set giving the tree a temporal directionality. To simplify, a rooted tree can be read as indicating the earliest ancestor at the root or base, from which all other lineages on the tree have descended with the terminal nodes being the most recent: rooted evolutionary trees indicate the passage of time beginning from the root (oldest) to the terminal nodes (youngest). (However, the exact placement of nodes on a rooted tree is not necessarily indicative of the date of divergence unless it is an ultrametric tree.) The following figure shows both a rooted and unrooted tree that have the same branching pattern for the taxa.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Unrooted.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption><em>Rooted versus unrooted tree</em></figcaption>
+</figure>
+</div>
+<p>To reiterate, a rooted tree has temporal directionality going from the root to the terminal branches as indicated in the figure. An unrooted tree does not.</p>
+<p>That there are also <strong>unrooted trees</strong> may seem a little puzzling at first. There actually are a number of good reasons for why an unrooted tree may be useful, but for our purposes the main reasons why are (a) the methodology used to construct the tree, and (b) that we may not know what would best represent the ancestor leading to the taxa in question.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>DEFINITIONS - a reminder of these two important terms</p>
+<p><strong>ingroup</strong> - those taxa of interest when estimating a phylogeny.</p>
+<p><strong>outgroup</strong> - A taxon or group of taxa that, based on prior evidence or information, is more distantly related to the taxa of interest on a phylogeny. These should be relatives of the ingroup but less closely related to them than the members of the ingroup are to each other.</p>
+</div>
+</div>
+<p>Because we do not usually know what the ancestor of our ingroup may have looked like, we can use an outgroup to approximate the ancestor since the outgroup and the ingroup form two branches that diverge from a common ancestor, or in this case our putative ancestor.</p>
+<p>Defining and using outgroups used to be a somewhat contentious issue, as with just about everything associated with phylogenetics and cladistics used to be. This more so with morphological than molecular data. Conceptually it is a pretty standard and straight forward process, though you should be cognizant to try to use an appropriate outgroup. How do you know what is an appropriate outgroup? Not an easy question to answer, but generally speaking if you choose a group of taxa that are closely related to the group of taxa that you are trying to determine the evolutionary relationship of (your ingroup), you should be ok. For example, if you are interested in the evolutionary relationship of a group of species within a genus, then using a different genus outside the one of interest that the literature suggests is closely related (<em>e.g.</em> in the same Family), then generally speaking you should be ok. This is not always simple to do, and can be quite challenging with some types of molecular data, <em>e.g.</em> studying the relationship of gene family members. In cases where it is difficult or even inappropriate to include an outgroup, there are other methods for rooting a tree (<em>e.g.</em> mid-point rooting), but be aware they may be controversial in terms of giving the tree a true time directionality.</p>
+<p>How do we root a tree? The following figure does a very good job explaining the concept of rooting a tree graphically:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/RootingTreeConcept.png" class="img-fluid figure-img" style="width:75.0%"></p>
+<figcaption><em>modified from Bronham (20xx)</em></figcaption>
+</figure>
+</div>
+<p>Conceptually to root a tree, you are grabbing the branch connecting the outgroup to the ingroup and pulling the tree up such that the root of the tree, the putative ancestor to both the ingroup and outgroup, marks the base of the tree, as shown in Panel (A). It most definitely can make a difference in terms of where you root your tree, as shown in Panel (B). Note that in the tree on the left in Panel (B), taxa <em>[a+b]</em> form a monophyletic group with taxa <em>c</em> more closely related to <em>[d+e+f]</em> than <em>[a+b]</em>, whereas in the right most tree taxa <em>[a+b+c]</em> form a monophyletic group, with <em>c</em> more closely related to <em>[a+b]</em> than it is <em>[d+e+f]</em>.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Language of phylogenetics
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Note how I phrased the relationships among various taxa in the above paragraph. It is very important that you become comfortable with the language of phylogenetics (<em>e.g.</em> monophlytic groups, sister taxa, MRCAs) when working with evolutionary trees. It may seem a little cryptic or clunky at first, but trust me, it is the best way to describe evolutionary relationships and prevent confusion or outright mistakes.</p>
+</div>
+</div>
+<p>As with most everything in phylogenetics today, rooting trees can be easily done using any of the more common phylogenetic analysis programs out there. You basically just click or name your outgroup and the program does it all for you. The underlying algorithms (program steps) behind doing the actual rooting can be a little complex and beyond the scope of this OER, but nonetheless very simple to do.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Many programs will produce an initial tree that is either rooted arbritrarily or use mid-point rooting, basically the half way point in the tree. It is then up to you to define the outgroup using whatever the steps the program implements: read the manual to find out.</p>
+</div>
+</div>
+</section>
+<section id="phylogenies-can-be-fully-resolvedor-not" class="level3" data-number="5.3.7">
+<h3 data-number="5.3.7" class="anchored" data-anchor-id="phylogenies-can-be-fully-resolvedor-not"><span class="header-section-number">5.3.7</span> Phylogenies can be fully resolved…or not</h3>
+<p>Depending on the nature of the data and methods being used, most times the trees generated are consistent with how we discussed evolution occurring in previous chapters, divergence from a common ancestor that can be represented by two lineages diverging from a common ancestor (node). We refer to this type of tree as a <strong>bifurcating tree</strong>. All of the trees we have shown so far have been fully bifurcating trees, or <strong>fully resolved trees</strong>. This need not always be the case for a number of reasons.</p>
+<p>When for whatever reason we can not reliably determine the branching pattern among descendant lineages from a common ancestor, we show this on a phylogeny as more than two branches diverging from a single node, what we refer to as a <strong>polytomy</strong>. For example, below is a phylogeny of mammals showing a fully bifurcating tree and one with an arbitrary polytomy.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Polytomy.png" class="img-fluid figure-img" style="width:75.0%"></p>
+<figcaption>Phylogeny of some mammals. Topology and branch lengths from http://vertlife.org. The organism silhouettes are from http://phylopic.org/. Note that node circles are not drawn, instead nodes are implied at ends of branches. After Dunn 2024.</figcaption>
+</figure>
+</div>
+<p>Note how in the tree on the right we can not determine the relationship among the four taxa (bats, cats, whales, and horses; in reality this relationship is very well resolved).</p>
+<p>There both <strong>soft</strong> and <strong>hard polytomies</strong>. A <em>hard polytomy</em> is when multiple divergence events occurred in very quick succession, giving rise at effectively the same time to more than two lineages (<em>i.e.</em> reflects the “true” evolutionary history). A <em>soft polytomy</em> on the other hand is due to uncertainty about branching order due to other reasons; in other words it is not really a reflection of true evolutionary history of the group. They are usually considered a methodilogical artifact or insufficient data (e.g.&nbsp;not enough data, or the type of data used was inappropriate to resolve the branching pattern). In these cases the polytomies may potentially be resolved by more or a different type of data or a different analytical approach. These type of issues are beyond the scope of this OER, and probably are best left for an advanced course in molecular phylogenetics or phylogenomics.</p>
+</section>
+<section id="phylogenies-can-also-be-represented-by-networks" class="level3" data-number="5.3.8">
+<h3 data-number="5.3.8" class="anchored" data-anchor-id="phylogenies-can-also-be-represented-by-networks"><span class="header-section-number">5.3.8</span> Phylogenies can also be represented by networks</h3>
+<p>When we think about reconstructing evolutionary histories using phylogenies, we implicitly assume that evolution occurs via the splitting from a common ancestor (cladogenesis) that lends itself well to be represented by a bifurcating phylogenetic tree. However, biological systems being what they are, that is not always the case. For example:</p>
+<ul>
+<li><p>In some instances lineages may come back together after splitting from an CA, a process called <strong>hybrid speciation</strong> (we will explore this in more detail when we look at species and the process of speciation).</p></li>
+<li><p>Portions of a genome may cross species boundaries for various reasons, a process referred to <strong>horizontal gene transfer</strong>.</p></li>
+<li><p>The nature of the data itself may not be best represented by a bifurcating process, for example multiple independent mutations occurring in a region of a genome (<em>e.g.</em> alleles at a gene or mitochondrial DNA haplotypes)</p></li>
+<li><p>Inconsistencies in the patterns of divergence among different regions of the genome.</p></li>
+</ul>
+<p>For these (and other) reasons, evolutionary relationships are better represented using methods other than bifurcating phylogenetic trees, most notably by what we call <strong>networks</strong>. Networks can be shown in various ways depending on the nature of the data and the analysis used. Below are a couple of examples of networks.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/NetworksExamples.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+</figure>
+</div>
+<p>Actually, phylogenetic trees themselves are considered a specifc type of network, and certainly it is easy to see that an unrooted phylogenetic tree is most definitely considered a network. Like an unrooted phylogeny, networks have no time directionality associated with them. However, the branch lengths can reflect levels of divergence (but not always), and you can approximate evolutionary relationships via the sharing of MRCA if appropriate.</p>
+<p>Bottom line, networks may look different from standard phylogenetic trees, but they still represent the evolution patterns of taxa, and are extremely useful in a number of circumstances. Lately there has been increasing interest in the use of networks due to the increasing advances being made in genomics and the analysis of genomic data, particularly in the emerging field of <strong>phylogenomics</strong>.</p>
+<p>We will discuss networks more in the chapter on constructing evolutionary trees.</p>
+</section>
+<section id="oftentimes-trees-are-drawn-by-compressing-the-number-of-taxa-shown-to-make-them-more-readable." class="level3" data-number="5.3.9">
+<h3 data-number="5.3.9" class="anchored" data-anchor-id="oftentimes-trees-are-drawn-by-compressing-the-number-of-taxa-shown-to-make-them-more-readable."><span class="header-section-number">5.3.9</span> Oftentimes trees are drawn by compressing the number of taxa shown to make them more readable.</h3>
+<p>There are many instances when there is simply too much information to be clearly shown on phylogenetic tree, for example when you have a large number of taxa, so large that the greater point, <em>e.g.</em> higher order relationships, gets lost in forest that is the tree. In that case, it is not uncommon for the authors to collapse clades in the published figure in order to emphasize or summarize the information in clear, succinct manner. Below is an example of compressing the number of taxa on a tree to make it more readable.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/CladeCollapse.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+</figure>
+</div>
+<p>The top figure shows in a stylized fashion how collapsing a clade can make the tree a bit more readable. The bottom of the figure shows an example of how collapsing clades help to shift the emphasis of a figure, allowing one to focus on the information that is most important. The tree on the left is a phylogram including all the samples, while the tree on the right collapses the major monophyletic clades to a single branch, making clear the evolutionary relationship of the different species in a genus of damselfish.</p>
+<p>Collapsed clades can be shown in any number of creative ways, usually as triangles. There are numerous programs to help with these types of tree manipulations.</p>
+</section>
+<section id="evolutionary-trees-can-contain-both-extinct-fossil-and-extant-taxa" class="level3" data-number="5.3.10">
+<h3 data-number="5.3.10" class="anchored" data-anchor-id="evolutionary-trees-can-contain-both-extinct-fossil-and-extant-taxa"><span class="header-section-number">5.3.10</span> Evolutionary trees can contain both extinct (fossil) and extant taxa</h3>
+<p>Depending on the evolutionary question being asked, it may be quite useful to include fossil taxa onto a tree should they be available. There are lots of different ways to do this, some more straightforward than others. We will not go much into this at all, but just be aware that methods exist to incorporate both extinct and extant taxa (OTUs) to a tree. Usually we do this using time-trees (ultrametric) with the terminal node of the extinct species set to the estimated date from the fossil record. The figure below provides a very nice example of such a tree.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/ExtinctTrees.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+<p>First note the time axis along the top of the figure, clearly indicating this a time calibrated tree. Next, notice that the extant taxa (ray finned fish, Coelacanth, Lungfish, and Living tetrapods) are all aligned along a single axis to the far right of the tree, while the branches of the extinct taxa do not. You can get a rough estimate of when a particular extinct taxa split from its common ancestor (for extinct taxa, when they first appear in the fossil record), and for fossil taxa the approximate date of extinction (when it last appears in the fossil record) by simply reading the dates along the time axis that correspond to the internal nodes and the end of the branch for the extinct taxa.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Based on the information above, you should be able to interpret and understand just about any evolutionary tree we will encounter in this text as well as in the literature. We will dive into how to estimate evolutionary trees later in this OER; it can get a little complicated. Before wrapping this discussion up, there are three more topics worth understanding: (1) mapping characters onto a known phylogeny, in which we will introduce the very important concept of parsimony, (2) some additional information concerning interpreting character states on a tree, and (3) a simple introduction into the uses of phylogenies, which as you will see extends far beyond species relationships.</p>
+</div>
+</div>
+</section>
+<section id="mapping-characters-onto-a-known-phylogeny" class="level3" data-number="5.3.11">
+<h3 data-number="5.3.11" class="anchored" data-anchor-id="mapping-characters-onto-a-known-phylogeny"><span class="header-section-number">5.3.11</span> Mapping characters onto a known phylogeny</h3>
+<p>One the most important uses of evolutionary trees is that they allow us to infer the evolutionary history of particular characters by <em>mapping</em> the characters on the phylogeny. What we mean by mapping is conceptually quite simple: attach or “map” character states (specific traits or behaviors) of existing species to the tree’s branches.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+DEFINITIONS
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>character</strong> - an observable feature or trait on a organism</p>
+<p><strong>character state</strong> - one of the variant conditions of a character (<em>e.g.</em> brown coat versus white coat in a species of field mouse)</p>
+</div>
+</div>
+<p>By simply noting what the character states are in your taxa of interest (terminal nodes), you can then use various methods to:</p>
+<ul>
+<li><p>infer the history of character evolution</p></li>
+<li><p>reconstruct ancestral character states</p></li>
+<li><p>determine the rate of evolution of character</p></li>
+<li><p>test hypotheses of character evolution using what is known as <strong>phylognetic independent contrasts</strong></p></li>
+</ul>
+<p>…among others.</p>
+<p>What kind of characters are we talking about? Just about any sort of characteristic that might be of interest. These characters can be molecular (DNA, RNA, proteins), biochemical, physiological, anatomical (both categorical and real), developmental, and even behavioral. I would argue that so long as the character has some genetic basis, just about anything can be mapped on an evolutionary tree, potentially leading to profound insights as to how these characteristics evolved.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Remember, what we are discussing here is not <em>building</em> an evolutionary tree, but once you have a reliable tree, how it can provide insights into how evolution works. As we will see later, what we are about to discuss is also relevant to estimating evolutionary trees, but for our purposes here, we are focusing on mapping characters on given tree.</p>
+</div>
+</div>
+<p>Before going deeper on mapping characters, consider the following logic using the figure below as a reference:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/CharMapBasis.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+</figure>
+</div>
+<p>Tree (A) is an evolutionary tree showing the relationship among 6 OTUs plus an outgroup. Let’s assume that we know that the ancestor as depicted at the root has a circle character state, as shown on the figure. If there are no changes to this character over time, then all the descendants from the root will also have the circle character state, including the internal nodes which represent the (putative) ancestors of the various lineages or groups on the tree.</p>
+<p>Now consider a different scenario. In tree (B), there is a mutation that occurs along one of lineages that converts the circle to a star. That mutation could occur at any time along the branch connecting the two internal nodes, it does not matter (in this example), but the bottom line is that now this internal node (ancestor) has a star character state. Assuming no other mutations occur, all the descendants from this internal node will also have a star character state, forming a monophyletic group.</p>
+<p>That all should make good sense understanding that evolution occurs via splitting from a common ancestor, as discussed above.</p>
+<p>Now consider if we do not know what the root ancestor’s character state was. All we know is the character states of the OTUs (taxa of interest; tree [C]). Based on the above paragraphs, by inference we would postulate that the reason that all the star taxa have that character state is because they inherited it from a shared common ancestor (tree [D]), a shared MRCA with each other than they do with the circle taxa, a reasonable supposition given our understanding of how evolution works. We show this on the tree by a tick mark along the branch to the MRCA, specifying a gain (mutation) to the star character state.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<em>Star bellied sneeches phylogeny</em>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This explains why “the Star-Bell Sneetches had bellies with stars. / The Plain-Belly Sneetches had none upon thars. / Those stars weren’t so big. They were really so small. / You might think such a thing wouldn’t matter at all.” (Seuss)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Sneeches.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>To formalize the above and help make sense of mapping characters,consider a made up tree consisting of 8 species of mythical small stream fish. These fishes appear to fall into three groups, plain finned, elongated fins, and flowing fins. Assume we have an evolutionary tree that was estimated using molecular data (using one of the techniques we will discuss later in the semester). Using this known tree, we want to study the evolution of fin size and structure in our 8 species, shown in the figure below.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/CharMapTmp.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+</figure>
+</div>
+<p>In other words, we wish to determine when a particular character evolved along our known tree. To do this we must first introduce the concept of <strong>parsimony</strong>. Parsimony is a derivative of Ockham’s Razor, which basically states that when presented with competing explanations or hypotheses for a phenomenon, one should prefer the simplest one that adequately explains the available evidence. In other words, the simplest explanation is probably the best explanation. Of course we know this is not always true, but it makes for a good starting point.</p>
+<p>With respect to character mapping (or when constructing evolutionary trees for that matter, but more on this later), <strong><em>the most parsimonious explanation for the evolution of a character is probably the best</em></strong>. What we mean by this is the explanation that requires the fewest number of character state changes along a tree is probably the best explanation for the evolution for that character.</p>
+<p>For example, let’s take a look at the character state “flowing dorsal fin” on the tree above. Using taxa 8 &amp; 7 as our outgroup (assumed <em>a priori</em> when constructing the tree), we can come up with all manner of possible scenarios (hypotheses) as to how “flowing dorsal fin” evolved, some more realistic than others, some more convoluted than others. The figure below gives just four possible scenarios.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/AltCharMapping.png" class="img-fluid figure-img" style="width:75.0%"></p>
+<figcaption>Four possible alternative hypotheses for evolution of flowing dorsal fin</figcaption>
+</figure>
+</div>
+<p>Remember everywhere you see a dark tick mark along a branch indicates a character state change. A (+) indicates a gain of the character (that particular character evolved some time along the lineage/branch), and a (-) indicates a loss of the character.</p>
+<p>In (A), you would interpret the first tick mark on the left as indicating that some time after the splitting of the ingoup and outgroup from the MRCA (root node 9), the character “flowing dorsal fin” evolved, and it did so prior to the node 10, the putative ancestor (also called a hypothetical taxonomic unit, or HTU) to all the fancy-finned fish. Based on this hypothesis, we would infer that the ancestor to all the fancy finned fish had a flowing dorsal fin. If this were true, than in order to explain the distribution of the character “flowing dorsal fin” in the terminal taxa, you need to lose that character some number of times to explain all the lineages that evolved from node 10 (their MRCA) do not have a “flowing dorsal fin”. Tree (A) shows one possible scenario of how that could have happened, specifically there was a loss of “flowing dorsal fin” in the ancestor connecting all the “elongated” species (4, 5, &amp; 6), and independently a loss of “flowing dorsal fin” along the branch leading to species 1 and the branch leading to species 3 in the “flowing” species. Counting up the total number of evolutionary events (the tick marks), we need 4 changes (steps) to account for the distribution of “flowing dorsal fin” in this scenario (tree[A]).</p>
+<p>Following the same logic as in tree (A) for other three trees, we see that:</p>
+<ul>
+<li><p>scenario B requires 3 changes</p></li>
+<li><p>scenario C requires 2 changes</p></li>
+<li><p>scenario D requires only 1 change, the evolution of “flowing dorsal fin” along the lineage leading to species 2</p></li>
+</ul>
+<p>Given these four scenarios (hypotheses), we would say that scenario (D) was the <em>most parsimonious explanation</em> for the evolution of “flowing dorsal fin” since it requires the fewest number of evolutionary events (changes/steps). It may not be the true explanation, but it certainly is the simplest, and therefore probably the correct one. And you have to agree, it intuitively just makes more sense than complicated alternative scenarios involving multiple independent character gain and loss considering how evolution works.</p>
+<p>Using the same logic as above, we can map all the fin characters along our known tree, which would look like the following:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/CharacterMappingFish.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Try going through the logic of character state gain and loss using alternative scenarios as we did above to assure you understand the logic being used here.</p>
+</div>
+</div>
+<p>Once you have mapped your characters on the tree, you are now in a very strong position to further study the evolution of fin morphology, perhaps leading to greater understanding of the evolution of complex fin morphology in fishes. This is pretty powerful stuff.</p>
+<p>Admittedly, this is a very simple example, with very simple and clear cut mapping of the characters on a very simple tree. Mapping characters can become much more complicated as the number of taxa and the number of characters increase. Today we rarely would map characters by hand except in the simplest of situations. There are specific programs designed to easily perform character mapping on large data sets incorporating more advanced statistical models than simple parsimony. Nonetheless, the fundamental basis of character mapping remains finding the most parsimonious explanation for the distribution of character along a tree.</p>
+</section>
+<section id="some-additional-information-concerning-interpreting-character-states-on-a-tree" class="level3" data-number="5.3.12">
+<h3 data-number="5.3.12" class="anchored" data-anchor-id="some-additional-information-concerning-interpreting-character-states-on-a-tree"><span class="header-section-number">5.3.12</span> Some additional information concerning interpreting character states on a tree</h3>
+<p>Mapping characters on a given phylogeny is very important in evolutionary biology. In fact, many of us would argue that it is one of the most important aspects of understanding evolution; we call it “tree thinking”, and it has been as pivotal in our understanding evolution today as Darwin’s “population thinking” discussed in an earlier chapter. Indeed this whole idea of constructing phylogenies and using that tree as a basis to understand the evolution of characteristics and the process of evolution has become a field by itself referred to as Phylogenetic Biology.</p>
+<p>The concept of evoking parsimony to understand how characters evolve is also the underlying principal for building phylogenies itself, a topic we will take up later when we discuss the actual methodologies (plural because there are more than a one) of constructing evolutionary trees. However, now is good time to mention a number of essential concepts associated with character mapping and parsimony since we will be using them on and off throughout the semester.</p>
+<section id="some-important-definitions-and-concepts" class="level4" data-number="5.3.12.1">
+<h4 data-number="5.3.12.1" class="anchored" data-anchor-id="some-important-definitions-and-concepts"><span class="header-section-number">5.3.12.1</span> Some important definitions and concepts</h4>
+<blockquote class="blockquote">
+<p><strong>homologous character</strong> : we discussed what a homologous character is in <a href="EvidenceForEvolution.html#sec-comanc" class="quarto-xref"><span>Section 3.6</span></a>.</p>
+<p><strong>analogous character</strong> : we also discussed analogous characters in that same section as homologous characters. These are characters that appear to be similar among lineages but not due to shared common ancestry. These types of characters are examples of convergent evolution, where for example similar ecological conditions lead to the same solution to the problem independently in seperate lineages not sharing a MRCA.</p>
+<p><strong>apomorphy</strong> : a <strong>derived character</strong> state, one different from the ancestral character state.</p>
+<p><strong>synapomorphy</strong> : a <strong>shared derived character</strong> state. When a group of lineages all share the same derived character state due to sharing the same MRCA. Synapomorphies define monophyletic lineages</p>
+<p><strong>autapomorphy</strong> : a derived character state unique to a singel lineage or single taxa under consideration. Apomorphies are important in defining individual taxa, however since they unique to a lineage, they are considered of no phylogenetic value in terms of helping to determine branching patterns among lineages. We say they are phylogenetically uninformative.</p>
+<p><strong>plesiomorphy</strong> : an ancestral character state. They are also called primitive character states by some authors.</p>
+<p><strong>symplesiomorphy</strong> : a plesiomorphic character shared by two or more taxa. Usually they are character states that are shared due to the sharing a deep common ancestor, oftentimes the root ancestor, so they too are not considered phylogenetically informative.</p>
+<p><strong>Homoplasy</strong> : a character state shared among independent lineages but not due to shared common descent. In other words, they share this character state not because they inherited it from a MRCA, but becasue it evolved independently in the two lineages. Homoplasies are very important from an evolutionary perspective, as they usually infer some sort of convergent evolution. However, from the perspective of estimating evolutionary trees, they can lead to misidentifying monophyletic clades since they are due to convergent evolution, not the sharing of a MRCA (like a synapomorphy). Homoplasies can also be due to evolutionary reversals, where a character state reverts back to a previous state. These are probably pretty rare in morphological or phenotypic characters (called Dollo’s Law), but probably more common with DNA or protein sequence data since there are a limited number of characters states that can be taken (4 in DNA, 20 in proteins).</p>
+</blockquote>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Though terms like sympleisiomorphy, synapomorphy, or homoplasy are kind of impressive sounding, do not let them intimidate you. They may be a little challenging, but actually if you remember the following, it is pretty easy to keep them straight. Just keep in mind what the various parts of the words mean: <em>syn-</em> or <em>sym-</em> means <em>shared</em> or <em>together</em>, <em>apo</em> means <em>away from</em> or <em>changed/derived</em>, <em>plesio</em> means <em>near to</em> or <em>ancient</em>, <em>aut</em> means <em>self</em> or <em>unique</em>, and <em>morphy</em> effectively means character. The figure below puts these all together as a convenient way to learn them.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/TypeOfCharacters.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+<p>My personal opinion, if you know what a shared derived character is, I could care less if you call it a “shared derived character” or a synapomorphy. It is more important to me that you are understand what they actually mean.</p>
+</div>
+</div>
+<p>The following figure is a graphical summary of what is meant by a synapomorphy, symplesiomorphy, autoapomorphy, and homoplasy.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/CharDefinitions.png" class="img-fluid figure-img" style="width:75.0%"></p>
+<figcaption>In this figure, the circle is the plesiomorphic or ancestral state, the star is the apomorphic or derived state. A tick mark along a branch marks an evolutionary change in the character along that branch.</figcaption>
+</figure>
+</div>
+</section>
+</section>
+</section>
+<section id="in-closing" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="in-closing"><span class="header-section-number">5.4</span> In closing</h2>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./EvolTreesAndPhylogenetics.html" class="pagination-link" aria-label="Evolutionary Trees and Phylogenetics">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Evolutionary Trees and Phylogenetics</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./EstimatingEvoTrees.html" class="pagination-link" aria-label="Estimating evolutionary trees">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Estimating evolutionary trees</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

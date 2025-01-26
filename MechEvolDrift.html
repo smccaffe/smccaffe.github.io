@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>9&nbsp; Genetic Drift – Evolution 303</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./MechEvolSelection.html" rel="next">
+<link href="./IntroEvolGenetics.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./EvolGenetics.html">Evolutionary Genetics</a></li><li class="breadcrumb-item"><a href="./MechEvolDrift.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Genetic Drift</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Evolution 303</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Evolution 303</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface - Evolution 303</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./IntroBasicConcepts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction: Basic Concepts</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./WhatEvolutionIs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">What evolution is</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./HistoricaPerspective.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">A brief history of evolutionary thought</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./EvidenceForEvolution.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Evidence for Evolution</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./HowNaturalSelectionWorks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">How Natural Selection Works</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./EvolTreesAndPhylogenetics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Evolutionary Trees and Phylogenetics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./UnderstandingEvolTrees.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Understanding Evolutionary Trees</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./EstimatingEvoTrees.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Estimating evolutionary trees</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./EvolGenetics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Evolutionary Genetics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./GenesMutationGeneticVariation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Genes, mutation, and genetic variation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./IntroEvolGenetics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Introduction: Evolutionary genetics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./MechEvolDrift.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Genetic Drift</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./MechEvolSelection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Mechanisms that drive evolution: natural selection</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./MechEvolMutation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Mutation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./MechEvolMigration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Migration and other factors</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./EvolPhenotype.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">The Evolution of Quantitative Traits</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">In Light Of Evolution</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./KinAndSexualSelection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Social Behavior and Sexual Selection</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Adaptations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Adaptation and Phenotypic Plasticity</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./SpeciesSpeciation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Species and Speciation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./EvolutionGenomicLevel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Evolution at the genomic level</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./EvoDevo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">EvoDevo</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Evolution At The Macro Level</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./EvoBiogeogrphy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Evolutionary Biogeography</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./DivLife.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Diversification and patterns of life through time</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true">
+ <span class="menu-text">What About Us</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./HumanEvol.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Human Evolution</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./EvolMed.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Evolutionary Medicine</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./EvolMedPartI.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title">Evolutionary Medicine I: Aging and Diseases of Civilization</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./EvolMedPartII.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title">Evolutionary Medicine II: Evolving Pathogens</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#what-is-genetic-drift" id="toc-what-is-genetic-drift" class="nav-link active" data-scroll-target="#what-is-genetic-drift"><span class="header-section-number">9.1</span> What is genetic drift?</a></li>
+  <li><a href="#drift-as-a-mechanism-in-evolution" id="toc-drift-as-a-mechanism-in-evolution" class="nav-link" data-scroll-target="#drift-as-a-mechanism-in-evolution"><span class="header-section-number">9.2</span> Drift as a mechanism in evolution</a>
+  <ul class="collapse">
+  <li><a href="#effects-of-population-size" id="toc-effects-of-population-size" class="nav-link" data-scroll-target="#effects-of-population-size"><span class="header-section-number">9.2.1</span> Effects of population size</a></li>
+  <li><a href="#fate-of-an-allele-under-drift" id="toc-fate-of-an-allele-under-drift" class="nav-link" data-scroll-target="#fate-of-an-allele-under-drift"><span class="header-section-number">9.2.2</span> Fate of an allele under drift</a></li>
+  <li><a href="#probability-of-an-allele-getting-fixed-by-drift" id="toc-probability-of-an-allele-getting-fixed-by-drift" class="nav-link" data-scroll-target="#probability-of-an-allele-getting-fixed-by-drift"><span class="header-section-number">9.2.3</span> Probability of an allele getting fixed by drift</a></li>
+  <li><a href="#fate-of-a-new-mutation-allele" id="toc-fate-of-a-new-mutation-allele" class="nav-link" data-scroll-target="#fate-of-a-new-mutation-allele"><span class="header-section-number">9.2.4</span> Fate of a new mutation (allele)</a></li>
+  <li><a href="#effects-on-the-rate-of-evoltion" id="toc-effects-on-the-rate-of-evoltion" class="nav-link" data-scroll-target="#effects-on-the-rate-of-evoltion"><span class="header-section-number">9.2.5</span> Effects on the rate of evoltion</a></li>
+  <li><a href="#effects-on-population-heterozygosity" id="toc-effects-on-population-heterozygosity" class="nav-link" data-scroll-target="#effects-on-population-heterozygosity"><span class="header-section-number">9.2.6</span> Effects on population heterozygosity</a></li>
+  <li><a href="#effective-population-size" id="toc-effective-population-size" class="nav-link" data-scroll-target="#effective-population-size"><span class="header-section-number">9.2.7</span> Effective population size</a></li>
+  <li><a href="#founder-effects" id="toc-founder-effects" class="nav-link" data-scroll-target="#founder-effects"><span class="header-section-number">9.2.8</span> Founder effects</a></li>
+  </ul></li>
+  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources"><span class="header-section-number">9.3</span> Additional resources</a></li>
+  <li><a href="#reflection-questions" id="toc-reflection-questions" class="nav-link" data-scroll-target="#reflection-questions"><span class="header-section-number">9.4</span> Reflection questions</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">9.5</span> References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./EvolGenetics.html">Evolutionary Genetics</a></li><li class="breadcrumb-item"><a href="./MechEvolDrift.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Genetic Drift</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-mechdrift" class="quarto-section-identifier"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Genetic Drift</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Recall from our discussion on the how selection works <a href="HowNaturalSelectionWorks.html" class="quarto-xref"><span>Chapter 4</span></a> in that selection is not random, but it does act on random mutations to cause evolution. Selection leads to adaptation by increasing the frequency of preexisting variants in a population that allow an individual to survive or reproduce better than others in the population that lack that variant. We will explore selection in a later chapter <span class="quarto-unresolved-ref">?sec-mechselec</span>. But before we do, we will be discussing another very important mechanism leading to evolution called <strong>genetic drift</strong> (or just drift). Drift is a non-selective sorting process that is random or stochastic in nature. It can cause evolution, but not adaptation.</p>
+<p>Recall in our discusion on HW equilibrium that one of the assumptions was an infinite population size. Clearly this is an unrealistic assumption in the real world. While many species on the planet do indeed have very large populations (in the order of millions and billions and even trillions), seemingly infinite in population size, others are comparatively rare. In fact, most Eukaryotic species have finite population sizes, and some quite small indeed. For example, the Northern Right Whale population off New England is currently estimated to be at around 370 individuals <a href="https://www.fisheries.noaa.gov/species/north-atlantic-right-whale?t">based on recent surveys</a>, with very little hope of ever returning to its historical pre-whaling sizes.</p>
+<p>Though the cause of such a small population size in Right Whales is due to us (anthropogenic causes), some rare species, usually with with historically restricted distributions, have naturally low populations sizes (<a href="#fig-devilshole" class="quarto-xref">Figure&nbsp;<span>9.1</span></a>). Species with small or declining population sizes are the focus of conservation biology, which applies evolutionary principles to develop strategies for population management.</p>
+<div id="fig-devilshole" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-devilshole-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<img src="images/devilshole.jpg" class="img-fluid figure-img">
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-devilshole-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.1
+</figcaption>
+</figure>
+</div>
+<section id="what-is-genetic-drift" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="what-is-genetic-drift"><span class="header-section-number">9.1</span> What is genetic drift?</h2>
+<p>When population sizes are finite—and especially when they are small—random chance affects evolutionary dynamics. These stochastic changes in allele frequencies across generations is what we refer to as <strong>genetic drift</strong>. While selection is differential reproductive success caused by differential performance of variants, genetic drift is differential reproductive success that just happens. In contrast to selection, which tends to increase average fitness across generations, genetic drift does not lead to adaptation. Due to the random nature of genetic drift, populations subject to it evolve on distinct trajectories. So, if you re-run simulations allowing for drift with the same parameters, you will get a unique evolutionary path every single time<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. The random nature of drift assures that no evolutionary trajectory is like another.</p>
+<p>At the most basic level, evolution by genetic drift happens as a consequence of sampling error across generations. If you imagine a locus with two alleles (<span class="math inline">\(A\)</span> and <span class="math inline">\(a\)</span>) of equal frequency (<span class="math inline">\(p=q=0.5\)</span>) in a population with an infinite population size, the theoretically predicted allele frequencies under Hardy-Weinberg conditions in the next and subsequent generations will of course remain at <span class="math inline">\(p=q=0.5\)</span>. However, if the population sizze is finite, chance might cause significant deviations from theoretical expectations. Every individual in the population essentially has a 50% chance to inherit the <span class="math inline">\(A\)</span>-allele on its first chromosome, and a 50% chance to inherit the <span class="math inline">\(A\)</span>-allele on its second chromosome. In other words, the genotype an individual inherits in absence of selection is equivalent to two coin tosses (one for each allele inherited), where the probability for receiving a particular genotype is dependent on the allele frequencies in the population. We can simulate this manually using a large jar of pennies or M&amp;Ms, but it is much more efficient using statistical software like R<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Without going into any further detail, we can use the <code>rbinom()</code> function to simulate a coin toss or choosing alleles from a population with (<span class="math inline">\(p=q=0.5\)</span>), setting a with the allele frequency (<span class="math inline">\(p\)</span>) and the population size (<span class="math inline">\(N\)</span>) as input variables. So for the Devil’s Hole pupfish (<a href="#fig-devilshole" class="quarto-xref">Figure&nbsp;<span>9.1</span></a>), with its very low population size of 38, the simulated allele frequency in the next generation is:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>N<span class="ot">=</span><span class="dv">38</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>p<span class="ot">=</span><span class="fl">0.5</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rbinom</span>(<span class="dv">1</span>, <span class="at">size=</span><span class="dv">2</span><span class="sc">*</span>N, <span class="at">prob=</span>p)<span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span>N)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.5394737</code></pre>
+</div>
+</div>
+<p>If we repeat this simulation 1,000 times, you can see that there can be substantial deviations from the predicted allele frequency of <span class="math inline">\(p=0.5\)</span> (<a href="#fig-random" class="quarto-xref">Figure&nbsp;<span>9.2</span></a>). Only about 10% of observations fall within the predicted 0.5-bin, and the frequency of <span class="math inline">\(A\)</span> can be as low as 0.3 and as high as 0.7 just because of random chance. That is a massive shift in allele frequency across a single generation.</p>
+<p>As you know from experience, the number of coin tosses impacts how close a result matches the theoretical predictions. If you toss your coin ten times, you may get tails eight times, which represents a 60% deviation from the theoretical prediction. However, the more often you toss your coin, the closer your overall frequency of tails will get to the predicted 50%. The same principle applies to the effects of genetic drift as a function of population size. When population sizes are small, genetic drift can induce substantial deviations from theoretical predictions, but the effects of drift get smaller as populations size increases. Using the same simulation as above—but with a population size <span class="math inline">\(N\)</span> of 1,000—reveals that observed allele frequencies align much better with theoretical predictions, with a spread of observed allele frequencies of <span class="math inline">\(A\)</span> between 0.46 and 0.54 (<a href="#fig-random" class="quarto-xref">Figure&nbsp;<span>9.2</span></a>).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-random" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-random-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="MechEvolDrift_files/figure-html/fig-random-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-random-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.2: Observed distributions of allele frequencies by randomly selecting alleles (<em>A</em> or <em>a</em>) from a pool with equal allele frequencies (<em>p</em>=0.5). The deviation from theoretical expectations are much larger for the small population (<em>N</em>=38) than for the larger population (<em>N</em>=1,000). This illustrates how the strenth of genetic drift declines as a function of population size.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>To summarize, in small populations, and to some extent in large populations as well, chance events produce outcomes which differ from the theoretical expectations based on HW equilibrium (in our HW model, a violation of the assumption of an infinite population size). This produces random discrepancies from expectation over repeated sampling, basically a sort of sampling error. This sampling error in the production of gametes in finite sized populations is what we call genetic drift. Because it is random, it becomes difficult to predict whether the frequency of an allele will increase or decrease in each generation. We can estimate the probabiity of some events happening, but we can not predict exactly what will happen from generation to generation. It is fundamentally a statistical phenomena. The larger the sample size, the greater the chance our sample will follow expectations. In genetics, the larger the sample of gametes (population size), the closer we will get to HW proportions.</p>
+<p>Because of this ongoing random change over generations, genetic drift does cause evolution (as defined), but it cannot produce adaptations. Only natural selection can lead to a directed increase in the frequency of adaptive variation in a population. Sometimes it can be difficult to differentiate drift from selection in terms of changes in allele frequencies, and for this reason it is important we understand how drift works, and how it can impact changes in allele frequencies even when selection is working on the same alleles.</p>
+</section>
+<section id="drift-as-a-mechanism-in-evolution" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="drift-as-a-mechanism-in-evolution"><span class="header-section-number">9.2</span> Drift as a mechanism in evolution</h2>
+<p>There are equations that model the effects of drift, but they can be a little intimidating. In my experience the best way to learn about drift, the effects of population size on drift, and the impact of drift on a population is through computer simulations, which we will be doing in lab. In lab we will set up a series of <em>in silico</em> experiments to address the topics below, but for now, we will just summarize the major points.</p>
+<section id="effects-of-population-size" class="level3" data-number="9.2.1">
+<h3 data-number="9.2.1" class="anchored" data-anchor-id="effects-of-population-size"><span class="header-section-number">9.2.1</span> Effects of population size</h3>
+<p>So how exactly does population size impact the strength of genetic drift? As we will see in lab, the smaller the population size, the more effective genetic drift is in changing allele frequencies among generations. Very small populations can experience drastic changes in allele frequencies across generations. Genetic drift can also impact large populations, it just is less effective in terms the extent of change in allele frequency between generations and it takes far longer for its effects to be felt.</p>
+</section>
+<section id="fate-of-an-allele-under-drift" class="level3" data-number="9.2.2">
+<h3 data-number="9.2.2" class="anchored" data-anchor-id="fate-of-an-allele-under-drift"><span class="header-section-number">9.2.2</span> Fate of an allele under drift</h3>
+<p>The fate of any allele in a population under drift is to either become fixed (defined as <span class="math inline">\(p=1.0\)</span>) or lost (defined as <span class="math inline">\(p=0.0\)</span>).<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> The speed at which this happens will depend on the population size. The smaller the population size, the faster an allele will become fixed or lost. The larger the population, the longer it takes. In very large populations it may take much too long to even detect a change in allele frequencies among generations, let alone the loss or fixation, but given enough patience, it will eventually happen.</p>
+</section>
+<section id="probability-of-an-allele-getting-fixed-by-drift" class="level3" data-number="9.2.3">
+<h3 data-number="9.2.3" class="anchored" data-anchor-id="probability-of-an-allele-getting-fixed-by-drift"><span class="header-section-number">9.2.3</span> Probability of an allele getting fixed by drift</h3>
+<p>The probabilility that an allele will be fixed (<span class="math inline">\(p=1.0\)</span>) in a population due to drift is equal to the frequency of that allele in the population at any one generation. Since the frequency of alleles will change randomly over time, then so does the probability that allele will become fixed. Clearly though, as an allele becomes more and more common just by chance, then the probability of it eventually becoming fixed increases as well. When you are really close to the boundaries of allele frequencies (<em>i.e.</em> <span class="math inline">\(p=0\)</span> and <span class="math inline">\(p=1.0\)</span>), then you can say with fair amount of certainty what the fate of that allele will be. However, because it is a stochastic process, you could find an allele well on the path to becoming fixed, only to suddenly begin decreasing in frequency and eventually becoming lost. Thus is randomness.</p>
+<p>It should go without mention that the probably of an allele being lost in a population is then <span class="math inline">\((1-p)\)</span> at any one time.</p>
+</section>
+<section id="fate-of-a-new-mutation-allele" class="level3" data-number="9.2.4">
+<h3 data-number="9.2.4" class="anchored" data-anchor-id="fate-of-a-new-mutation-allele"><span class="header-section-number">9.2.4</span> Fate of a new mutation (allele)</h3>
+<p>If a new <strong>neutral mutation</strong> (not under the effects of selection) arises in a population of diploid organisms with a population size of <span class="math inline">\(N\)</span>, the frequency of the new allele is <span class="math inline">\(\frac{1}{2N}\)</span>.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> Since each <strong>neutral allele</strong> drifting to fixation is equal to the allele frequency, then the likelihood that the a new allele gets fixed in a population is <span class="math inline">\(\frac{1}{2N}\)</span>. This means that new alleles are more likely to get fixed in a small population by chance than in a large population. This seems a little counter intuitive. One would think that a large population would tend to harbor more new variation than a small population, but one might think that is not true since the probability of a new mutation getting fixed in a large population is very small, so most new mutations should get lost. The solution to this conundrum is that drift is less effective in a large population, so larger populations should in fact carry a large number of neutral alleles segregating at low frequencies for longer periods of time. They will have a very low probably of becoming fixed.</p>
+<hr>
+<p><strong><em>UP TO THIS POINT</em></strong></p>
+</section>
+<section id="effects-on-the-rate-of-evoltion" class="level3" data-number="9.2.5">
+<h3 data-number="9.2.5" class="anchored" data-anchor-id="effects-on-the-rate-of-evoltion"><span class="header-section-number">9.2.5</span> Effects on the rate of evoltion</h3>
+<p>Rates of evolution caused by drift 1. rate at which new alleles caused by mutation are substituted for other alleles already present 2. w/o selection (i.e.&nbsp;only drift) rate of substitution should be equal to the mutation rate ▪ 2Nv new alleles created each generation ▪ frequency of a new allele will be 1/2N ▪ probablility that an allele will be fixed is equal to its frequency in a population ▪ therefore, 2Nv*1/2N = v = substitution rate 3. a. note the rate of substitution is independent of populationn size b. however a large population – generates and maintains more variation then small population other mechanisms then drift are acting on new mutations a. when a mutation appears it can be deleterious, neutral, or advantageous; what happens to the new allele depends on where it falls along this spectrum</p>
+<ol type="i">
+<li>deleterious alleles appear but are eliminated by selection</li>
+<li>neutral mutations appear and are fixed or lost by chance iii.advantageous alleles appear and are eventually fixed</li>
+</ol>
+<!-- -->
+<ol start="2" type="a">
+<li>the relative importance of neutral versus selection in determining substitution rates is an issue with a long history in the field of evolution, and continues to be controversial to this day</li>
+<li>neutral theory of molecular evolution – vast majority of mutations are effectively neutral, and therefore the rate of subst equals the mutation rate; selection acts only on deleterious mutations; very small role for the action of selection maintaining genetic variation; selection acts to purify population of deleterious mutants; allows for a limited amount of positive selection,which reach fixation quickly</li>
+<li>molecular clock</li>
+<li>selection theory – advantageous mutations are more common then predicted under the neutral model, and therefore rate of subst will reflect the action of natural selection; balancing selection; neutral mutations occur, but selection is more important then under neutral model</li>
+</ol>
+</section>
+<section id="effects-on-population-heterozygosity" class="level3" data-number="9.2.6">
+<h3 data-number="9.2.6" class="anchored" data-anchor-id="effects-on-population-heterozygosity"><span class="header-section-number">9.2.6</span> Effects on population heterozygosity</h3>
+<ol type="a">
+<li>see this if you think about the graph we made in lab heterozygotes at highest freq when p=0.5, and lower as p got larger or smaller • freq of heterozygotes is called the population heterozygosity • decreases in a finite population as: Hg+1=Hg[1-1/2N]</li>
+</ol>
+<p>e.g.&nbsp;fruit flies in lab; bw allele; 107 populations of 16 each, 19 generations — saw cjhange in allele freq over generations such that 30 populations became fixed for one allele, 28 the other — loss of heterozygosity fit expectations • why is this important: • loss of variability in population; evolution depends on variation • recall heterosis and overdominance role in maintaining variation • evidence for a relationship between levels of heterozygosity and fitness</p>
+<p>Rate of drift is dependent on population size 1. 2. small population size, faster allele will go to fixation/loss loss of heterozygosity depends on population size a. smaller the population the more rapid the loss of heterozygosity</p>
+<p>Summary: 1. small popn, drift leads to random fixation of alleles and reduced heterozygosity a. genetic variability if the fuel of evolution b. loss of heterozygosity entails an increase in homozygosity, which often leads to reduced fitness (in lab studies) c.&nbsp;due to inbreeding depression and the exposure of deleterious mutants</p>
+</section>
+<section id="effective-population-size" class="level3" data-number="9.2.7">
+<h3 data-number="9.2.7" class="anchored" data-anchor-id="effective-population-size"><span class="header-section-number">9.2.7</span> Effective population size</h3>
+<p>Effective population size 1. important to understand that the population size we need to consider is not the census population size (ecological measure); large error associated with measure a. we want the number of reproducing individuals, the number contributing to next generation b. some aspects of life history may act to reduce the actual numbers of breeding individual to far below census levels c.&nbsp;we call this effective population size Ne. i. size of an ideal theoretical population that would lose (or have) heterozygosity (Het) at the observed rate (or level) ii. e.g.&nbsp;Fig 6.15 – census population size; observed loss of Het which is greater then expected based on the census popn size; because some individual do not equally contribute to breeding, so the effective number of breeders is less then the census size 2. a number of factors are known to influence Ne a. sex ratios Ne=(4NmNf)/(Nm+Nf) where Nm= number of males Nf= number of females as the number of males and females get more different, the Ne decreases b. population fluctuations i. as popn fluctuates in size, H will decrease fast while popn goes through “bottleneck” ii. Ne is disproportionally effected by small N iii.Ne is the harmonic mean of N c.&nbsp;small breeding groups i. population divided into a number of small groups ii. Ne influenced by degree of subdivision and m among groups iii.as m increases, Ne approaches N d.&nbsp;variation in reproduction i. if k is the average number of gametes produced by a member of a popn, then vark is the variance Ne=(4N-2)/( vark+2) as the variance in reproductive success gets larger then random expectations, the Ne gets lower.</p>
+<p><em>by Dr.&nbsp;Michael Tobler</em></p>
+<div class="alert alert-block alert-info">
+<p><b>Effective Population Size</b></p>
+<p>The total population size (census population size) in natural populations is not the same as the effective population size (<em>N</em><sub>e</sub>), which is the size of the breeding population. Effective population size takes into consideration that many individuals that reach adulthood never breed in natural populations. Consequently, effective population size is almost always smaller than the census population size. Effective population size is particularly impacted by deviations from 1:1 sex ratios. In such cases, effective population size can be estimated as</p>
+<p><span class="math display">\[\begin{align}
+N_e = \frac{4N_mN_f}{N_m+N_f} (\#eq:24)
+\end{align}\]</span></p>
+<p>where <em>N</em><sub>m</sub> is the number of males and <em>N</em><sub>f</sub> the number of females. If you assume census population of 100 with equal sex ratio, <em>N</em><sub>e</sub> is 100. If you assume a sex ratio of 1:9, <em>N</em><sub>e</sub> drops to just 36. Distinguishing between <em>N</em> and <em>N</em><sub>e</sub> is important for conservation biology and many population genetic analyses related to genetic drift and inbreeding. For example, when <em>N</em><sub>e</sub> is significantly smaller than <em>N,</em> the probability of fixation of an allele in response to drift can be much higher than estimated by census population sizes.</p>
+</div>
+</section>
+<section id="founder-effects" class="level3" data-number="9.2.8">
+<h3 data-number="9.2.8" class="anchored" data-anchor-id="founder-effects"><span class="header-section-number">9.2.8</span> Founder effects</h3>
+<ol type="a">
+<li><p>not quite what founder effects encompass in evolution</p></li>
+<li><p>when a population gets founded based on a small number of individuals, the allele freq in these founders can be very different from source due to sampling error alone</p></li>
+<li><p>some degree of genetic differentiation between source and founding population is bound to occur</p></li>
+<li><p>establishment of new population</p></li>
+<li></li>
+<li><p>instanteous evolution of differences bw new population and old population</p></li>
+<li><p>see text page 167 for examples</p></li>
+</ol>
+<p>Besides sampling error, genetic drift can also have profound impacts on allele frequencies when there are rapid reductions in population size. In general, we distinguish between two scenarios: (1) <em>Population bottlenecks</em> occur when catastrophic events (large-scale wild fires, floods, <em>etc</em>.) drastically reduce the size of a population. In such instances, survival is less dependent on individuals’ traits (that would be selection) than individuals being in the right place at the right time. Hence, the allelic composition of the generation after a bottleneck largely reflects a random subsample of the original population. (2) <em>Founder effects</em> occur when a small subset of a population disperses into a new area and founds a new population. In that case, only a random subset of alleles travels along with the founding individuals. Founder effects are particularly important in island populations, where species expand their range in a step-wise fashion along island chains. This can lead to serial founder effects with continuous loss of genetic diversity (Figure @ref(fig:founder)).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="MechEvolDrift_files/figure-html/founder-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>Allelic richness in populations of monarch butterflies (<em>Danaus plexippus</em>). The original population from the United States exhibits the highest levels of allelic richness. Allelic richness declined in a step-wise fashion as butterflies first colonized Hawaii and then other islands throughout the Pacific. <a href="data/6_serial_founder.csv">Data</a> from Pierce et al.&nbsp;(2014).</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="additional-resources" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="additional-resources"><span class="header-section-number">9.3</span> Additional resources</h2>
+</section>
+<section id="reflection-questions" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="reflection-questions"><span class="header-section-number">9.4</span> Reflection questions</h2>
+</section>
+<section id="references" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="references"><span class="header-section-number">9.5</span> References</h2>
+<hr>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+temp notes summarizing effects of drift
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Evolution by genetic drift</p>
+<ol type="1">
+<li>because fluctuations in allele freq over generations is caused by random error, every popn (simulation) follows a unique evolutionary path</li>
+<li>drift causes greater changes in allele freq for small populations then large</li>
+<li>drift can produce substantial changes in allele freq even in fairly large popn</li>
+<li></li>
+</ol>
+<p>Summary 1. a. drift is non-adaptive evolutionary change due to stochastic processes strongest effect on small popn compounded over many generations b. ultimately leads to fixation/loss of alleles , decline in genetic diversity</p>
+<ol type="1">
+<li>Allele frequencies fluctuate at random within a population, and eventually one or another allele becomes fixed</li>
+<li>Therefore, the genetic variation at a locus declines and is eventually lost. As the frequency of one of the alleles approaches <span class="math inline">\(1.0\)</span>, the frequency of heterozygotes, <span class="math inline">\(H=p(1-p)\)</span> declines. The rate of decline in heterozygosity if often used as a measure of the rate of genetic drift in a population</li>
+<li>At any time, an allele’s probability of fixation equals is frequency at that time, and is not affected or predicted by its previous history of change in frequency</li>
+<li>Therefore, populations with the same initial frequency (<span class="math inline">\(p\)</span>) diverge, and a proportion (<span class="math inline">\(p\)</span>) of the populations is expected to become fixed for that allele. A proportion <span class="math inline">\((1-p)\)</span> of the populations becomes fixed for alternative allele.</li>
+<li>If an allele has just arisen by mutation, and is represented by only one among the <span class="math inline">\(2N\)</span> gene copies in a population, its frequency is <span class="math inline">\(\frac{1}{2N}\)</span>, and this is its likelihood of reaching <span class="math inline">\(p=1\)</span>. Clearly, it is more likely to be fixed in a small than a large population. Moreover, if the same mutation arises in each of many demes, each of size <span class="math inline">\(N\)</span>, the mutation should eventually be fixed in a proportion <span class="math inline">\((\frac{1}{2N})\)</span> of the demes. Similarly, of all the new mutations that arise in a population, a proportion <span class="math inline">\((\frac{1}{2N})\)</span> should eventually be fixed</li>
+<li>Evolution by genetic drift proceeds faster in small than in large populations. In a diploid population, the average time to fixation of a newly arisen neutral allele that does become fixed is <span class="math inline">\(4N\)</span> generations, on average. Long time in large population.</li>
+<li>Among a number of initially identical demes in a metapopulation, the average allele frequency p does not change, but since the allele frequency in each deme does change, eventually becoming <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>, the frequency of heterozygotes declines to zero in each deme and in the metapopulation as a whole.</li>
+</ol>
+</div>
+</div>
+
+
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>As we will see in lab.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>You will be introduced to R in lab later in the semester.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>This is also referred to as “an allele goign extinct”. I have found some students get confused by this language though, confusing the loss of an allele <span class="math inline">\(p=0\)</span> as the extinction of a population (called <em>extirpation</em> in case you have not been exposed to that term yet) or species. I will try to not use “allele becomes extinct”, but apologize ahead of time if it slips out every now and then.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>This is because mutations tend to rare and random. Maybe not so rare we are finding out, and not random as in they can occur anywhere in the genome. We will discuss this more when in chapter on mutation. However, when a mutation occurs in a population, it enters into a population on a single chromosome in a single individual. Despite all we are finding out concerning mutation with the advent of modern genomics, this seems to remain a truism. So, in diploid population, a new mutation will occur as a single allele copy in a population (with <span class="math inline">\(2N\)</span> allele copies), and thus its’ frequency will be <span class="math inline">\(\frac{1}{2N}\)</span>.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./IntroEvolGenetics.html" class="pagination-link" aria-label="Introduction: Evolutionary genetics">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Introduction: Evolutionary genetics</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./MechEvolSelection.html" class="pagination-link" aria-label="Mechanisms that drive evolution: natural selection">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Mechanisms that drive evolution: natural selection</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
