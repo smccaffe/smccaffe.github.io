@@ -415,7 +415,7 @@ Important
 <p>Throughout this OER I will be using the terms <strong>phylogenies</strong> and <strong>evolutionary trees</strong> interchangeably. They essentially mean the same thing, and I will use either one kind of arbitrarily depending on how it sounds or what is in my notes.</p>
 </div>
 </div>
-<p>There have been numerous Classification schemes proposed by natural historians over the last century or so, some seemingly more”arbritrary” than others. Today we pretty much rely on a system based on shared characteristics, the so-called Linnaean system, which organizes organisms into hierarchical categories such as Kingdom, Phylum, Class, Order, Family, Genus, and species. I am confident you are comfortable with the Linnaean system, so will not go into much detail.</p>
+<p>There have been numerous Classification schemes proposed by natural historians over the last century or so, some seemingly more “arbritrary” than others. Today we pretty much rely on a system based on shared characteristics, the so-called Linnaean system, which organizes organisms into hierarchical categories such as Kingdom, Phylum, Class, Order, Family, Genus, and species. I am confident you are comfortable with the Linnaean system, so will not go into much detail.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -484,8 +484,8 @@ Note
 <ul>
 <li><p><strong>topology</strong> : this is the branching pattern of tree. It indicates evolutionary relatedness. For example, in th figure above species A and B share a recent common ancestor that was not shared by the other species and are therefore called “<strong>sister taxa</strong>.” Similarly, species D and E are sister taxa. Species F is the most distantly related of the sample of species and is known as the “outgroup.”</p></li>
 <li><p><strong>clade</strong> : a relative term for a group of taxa that are related by a common ancestor, or from the opposite perspective, it is all the lineages derived from a single recent common ancestor. For example, in the figure above, A and B can be considered a clade. Likewise A, B, and C can also be considered a clade. D and E can be considered a clade, as can A, B, C, D, &amp; E. However, A and D can not be considered a valid clade, since you are excluding other lineages that are derived from the common ancestor connecting A &amp; D.</p></li>
-<li><p><strong>Common Ancestor (CA)</strong> :</p></li>
-<li><p><strong>More Recent Common Ancestor</strong> (MRCA) :</p></li>
+<li><p><strong>Common Ancestor (CA)</strong> : A lineage (often designated as a taxon) from which two or more descendant lineages evolved. Internal nodes mark common ancestors between two lineages.</p></li>
+<li><p><strong>More Recent Common Ancestor</strong> (MRCA) : The youngest ancestor shared by all members of a specific set of taxa. This ancestor represents the point in evolutionary history where the lineages of the taxa diverged from one another, represented by the internal node where the branches of the descendent lineages meet.</p></li>
 </ul>
 </div>
 </div>
@@ -815,7 +815,7 @@ Caution
 </div>
 <p>Tree (A) is an evolutionary tree showing the relationship among 6 OTUs plus an outgroup. Let’s assume that we know that the ancestor as depicted at the root has a circle character state, as shown on the figure. If there are no changes to this character over time, then all the descendants from the root will also have the circle character state, including the internal nodes which represent the (putative) ancestors of the various lineages or groups on the tree.</p>
 <p>Now consider a different scenario. In tree (B), there is a mutation that occurs along one of lineages that converts the circle to a star. That mutation could occur at any time along the branch connecting the two internal nodes, it does not matter (in this example), but the bottom line is that now this internal node (ancestor) has a star character state. Assuming no other mutations occur, all the descendants from this internal node will also have a star character state, forming a monophyletic group.</p>
-<p>That all should make good sense understanding that evolution occurs via splitting from a common ancestor, as discussed above.</p>
+<p>The above should make good sense understanding that evolution occurs via splitting from a common ancestor, as discussed above.</p>
 <p>Now consider if we do not know what the root ancestor’s character state was. All we know is the character states of the OTUs (taxa of interest; tree [C]). Based on the above paragraphs, by inference we would postulate that the reason that all the star taxa have that character state is because they inherited it from a shared common ancestor (tree [D]), a shared MRCA with each other than they do with the circle taxa, a reasonable supposition given our understanding of how evolution works. We show this on the tree by a tick mark along the branch to the MRCA, specifying a gain (mutation) to the star character state.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -823,16 +823,17 @@ Caution
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<em>Star bellied sneeches phylogeny</em>
+<em>Star bellied Sneetches phylogeny</em>
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This explains why “the Star-Bell Sneetches had bellies with stars. / The Plain-Belly Sneetches had none upon thars. / Those stars weren’t so big. They were really so small. / You might think such a thing wouldn’t matter at all.” (Seuss)</p>
+<p>If it helps to visulaize circles/stars as phenotypic characters, perhaps the distribution of stars on Sneetch bellies might help.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/Sneeches.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
 </figure>
 </div>
+<p><em>The Star-Bell Sneetches had bellies with stars. / The Plain-Belly Sneetches had none upon thars. / Those stars weren’t so big. They were really so small. / You might think such a thing wouldn’t matter at all.</em> (Seuss)</p>
 </div>
 </div>
 <p>To formalize the above and help make sense of mapping characters,consider a made up tree consisting of 8 species of mythical small stream fish. These fishes appear to fall into three groups, plain finned, elongated fins, and flowing fins. Assume we have an evolutionary tree that was estimated using molecular data (using one of the techniques we will discuss later in the semester). Using this known tree, we want to study the evolution of fin size and structure in our 8 species, shown in the figure below.</p>

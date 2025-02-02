@@ -407,8 +407,9 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#estimating-phylogenetic-distance" id="toc-estimating-phylogenetic-distance" class="nav-link" data-scroll-target="#estimating-phylogenetic-distance"><span class="header-section-number">6.6.1</span> Estimating phylogenetic distance</a></li>
   <li><a href="#the-models" id="toc-the-models" class="nav-link" data-scroll-target="#the-models"><span class="header-section-number">6.6.2</span> The models</a></li>
-  <li><a href="#clustering-algorithms" id="toc-clustering-algorithms" class="nav-link" data-scroll-target="#clustering-algorithms"><span class="header-section-number">6.6.3</span> Clustering algorithms</a></li>
-  <li><a href="#pros-and-cons" id="toc-pros-and-cons" class="nav-link" data-scroll-target="#pros-and-cons"><span class="header-section-number">6.6.4</span> Pros and cons</a></li>
+  <li><a href="#additional-corrections" id="toc-additional-corrections" class="nav-link" data-scroll-target="#additional-corrections"><span class="header-section-number">6.6.3</span> Additional corrections</a></li>
+  <li><a href="#clustering-algorithms" id="toc-clustering-algorithms" class="nav-link" data-scroll-target="#clustering-algorithms"><span class="header-section-number">6.6.4</span> Clustering algorithms</a></li>
+  <li><a href="#pros-and-cons" id="toc-pros-and-cons" class="nav-link" data-scroll-target="#pros-and-cons"><span class="header-section-number">6.6.5</span> Pros and cons</a></li>
   </ul></li>
   <li><a href="#minimum-evolution-methods" id="toc-minimum-evolution-methods" class="nav-link" data-scroll-target="#minimum-evolution-methods"><span class="header-section-number">6.7</span> Minimum evolution methods</a></li>
   <li><a href="#discrete-inferenceoptimality-methods" id="toc-discrete-inferenceoptimality-methods" class="nav-link" data-scroll-target="#discrete-inferenceoptimality-methods"><span class="header-section-number">6.8</span> Discrete (Inference/Optimality) Methods</a>
@@ -902,10 +903,16 @@ Important&nbsp;6.1: Various models of DNA sequence evolution
 </div>
 </div>
 <p>Without going into too much detail, below we will very briefly discuss some the more useful models you will find in the literature. We will avoid just about all the theory and equations, but understanding the various models and what they correct for will be helpful to understand the whats and whys when reading papers.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">p</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">JC</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">K2P</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">F81</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false">HKY85</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-6-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-6" role="tab" aria-controls="tabset-1-6" aria-selected="false">GTR</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <section id="sec-p" class="level4" data-number="6.6.2.1">
 <h4 data-number="6.6.2.1" class="anchored" data-anchor-id="sec-p"><span class="header-section-number">6.6.2.1</span> Percent divergence</h4>
 <p>The simplest estimate of pairwise divergence between two sequence is the <strong>percent sequence divergence</strong> <span class="math inline">\(p\)</span>. This is simply taking the total number of nucleotide positions that differ between two sequences divided by the total number of nucleotide sites compared. It is a simple percentage, uncorrected, and at first blush makes good sense. However, we know quite a lot about how DNA evolves over time, and it turns out simply calculating the percent sequence divergence can be quite problematical. One primary reason is multiple substitution problem referred to above which results in a nonlinear relationship between time and sequence divergence. For that reason alone <span class="math inline">\(p\)</span> should really only be used for very closely related sequences, for example from within a population.</p>
 </section>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <section id="sec-jc" class="level4" data-number="6.6.2.2">
 <h4 data-number="6.6.2.2" class="anchored" data-anchor-id="sec-jc"><span class="header-section-number">6.6.2.2</span> Jukes-Cantor (JC)</h4>
 <p>The JC model is one of the simplest models. It is referred to as a <em>single parameter model</em> since it effectively makes a single correction, for <em>multiple substitutions</em>. It assumes all substitutions are equally likely, all nucleotides occur at same frequency, and has a single parameter - the rate of substitution (<span class="math inline">\(\alpha\)</span>). I promise, this will be one of the few where we will show the equation and the substitution matrix, just so you can get a sense of how we use the matrices when calculating the level of divergence.</p>
@@ -924,6 +931,8 @@ Figure&nbsp;6.11: The equation for calculating JC is given above, where <span cl
 </figure>
 </div>
 </section>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <section id="sec-k2p" class="level4" data-number="6.6.2.3">
 <h4 data-number="6.6.2.3" class="anchored" data-anchor-id="sec-k2p"><span class="header-section-number">6.6.2.3</span> Kimura’s 2 Parameter (K2P)</h4>
 <p>The JC model corrects for multiple hits, but unfortunately is not the able to correct for some of the other known biases that can lead to non-linearity. For that we need more complex models estimating other parameters to correct for know biases. The K2P model was proposed to account for the transition-transversion bias previously discussed. It does so by adding parameters to account for the difference between transitions (<span class="math inline">\(\alpha\)</span>) and transversions (<span class="math inline">\(\beta\)</span>), and assumes that the nucleotides occur in equal frequencies</p>
@@ -943,14 +952,20 @@ Figure&nbsp;6.12: The equation for calculating Kimura’s 2 parameter model is g
 </figure>
 </div>
 </section>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
 <section id="sec-f81" class="level4" data-number="6.6.2.4">
 <h4 data-number="6.6.2.4" class="anchored" data-anchor-id="sec-f81"><span class="header-section-number">6.6.2.4</span> Felsenstein 1981 (F81)</h4>
 <p>The F81 model was also proposed around the same time as K2P. It attemoted to address a known bias caused by unequal frequencies of nucleotides. It assumes the rate of transitions equal transversions similar to the JC model. The model allows for different frequencies of nucleotides by having different rates in the <span class="math inline">\(f\)</span> vector such that <span class="math inline">\(f=[\pi_A \; \pi_C \; \pi_G \; \pi_T]\)</span>.</p>
 </section>
+</div>
+<div id="tabset-1-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-5-tab">
 <section id="sec-hky85" class="level4" data-number="6.6.2.5">
 <h4 data-number="6.6.2.5" class="anchored" data-anchor-id="sec-hky85"><span class="header-section-number">6.6.2.5</span> Hasegawa, Kishino, and Yano 1985 (HKY85)</h4>
 <p>This model is sort of a hybrid of the K2P and F81 since it accounts for different rates of transitions (<span class="math inline">\(\alpha\)</span>) and transversions (<span class="math inline">\(\beta\)</span>) as well as unequal nucleotide frequencies <span class="math inline">\(f=[\pi_A \; \pi_C \; \pi_G \; \pi_T]\)</span>.</p>
 </section>
+</div>
+<div id="tabset-1-6" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-6-tab">
 <section id="sec-gtr" class="level4" data-number="6.6.2.6">
 <h4 data-number="6.6.2.6" class="anchored" data-anchor-id="sec-gtr"><span class="header-section-number">6.6.2.6</span> General Time Reversible Model (GTR)</h4>
 <p>The <strong>GTR</strong> model is similar to the HKY85 model except that it allows different rates of substitutions between the various nucleotides such that you do have a total six different substitution parameters, one for each of the possible pathways of substitution for the different nucleotides. For example, looking at <span class="citation" data-cites="SubstMatrix">(<a href="#ref-SubstMatrix" role="doc-biblioref"><strong>SubstMatrix?</strong></a>)</span>, <span class="math inline">\(P_{AG} = P_{GA}\)</span> and <span class="math inline">\(P_{CT} = P_{TA}\)</span>; there are 4 parameters for the transversion changes, 2 for the transition changes. Unequal frequency of nucleotides are also corrected for.</p>
@@ -958,6 +973,10 @@ Figure&nbsp;6.12: The equation for calculating Kimura’s 2 parameter model is g
 <section id="sec-gtrplus" class="level4" data-number="6.6.2.7">
 <h4 data-number="6.6.2.7" class="anchored" data-anchor-id="sec-gtrplus"><span class="header-section-number">6.6.2.7</span> Parameter rich GTR</h4>
 <p>This version of the GTR model has a total of 12 paramters, one for each path between nucleotides in both directions. For example, looking at <span class="citation" data-cites="SubstMatrix">(<a href="#ref-SubstMatrix" role="doc-biblioref"><strong>SubstMatrix?</strong></a>)</span>, <span class="math inline">\(P_{AG} \neq P_{GA}\)</span> and <span class="math inline">\(P_{CT} \neq P_{TA}\)</span>.</p>
+</section>
+</div>
+</div>
+</div>
 <p>The figure below sumarizes these 5 different models and what they account for.</p>
 <div id="fig-substmodsum" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure">
@@ -973,10 +992,10 @@ Figure&nbsp;6.13: Interrelationships among the five models for estimating the nu
 </figcaption>
 </figure>
 </div>
-<p>There are other models that are also routinely used as well. For example, the <a href="https://www.megasoftware.net/web_help_10/index.htm#t=Models_for_estimating_distances.htm">help files in MEGA</a> is a convenient resource for describing the above models as well as some others. Wikipaedia has a pretty thorough entry for <a href="https://en.wikipedia.org/wiki/Models_of_DNA_evolution">Models of DNA evolution</a> you can also check out.</p>
+<p>There are other models that are also routinely used as well. For example, the <a href="https://www.megasoftware.net/web_help_10/index.htm#t=Models_for_estimating_distances.htm">help files in MEGA</a> is a convenient resource for describing the above models plus a few others. Wikipaedia has a pretty thorough entry for <a href="https://en.wikipedia.org/wiki/Models_of_DNA_evolution">Models of DNA evolution</a> you can also check out.</p>
 </section>
-<section id="additional-corrections" class="level4" data-number="6.6.2.8">
-<h4 data-number="6.6.2.8" class="anchored" data-anchor-id="additional-corrections"><span class="header-section-number">6.6.2.8</span> Additional corrections</h4>
+<section id="additional-corrections" class="level3" data-number="6.6.3">
+<h3 data-number="6.6.3" class="anchored" data-anchor-id="additional-corrections"><span class="header-section-number">6.6.3</span> Additional corrections</h3>
 <p>All the above models have the following inherent assumptions:</p>
 <ul>
 <li><p>All nucleotide sites change independently</p></li>
@@ -1007,7 +1026,7 @@ Caution
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>At this point you may also be curious as to whether there are methods for calculated pairwise distance matrices from morphological data? The answer is most definitely, but the distance measures (<em>i.e.</em> the models) are completely different. In addition, it is not recommended that you use morphological data for these type of distance matrix/clustering methods to estimate evolutionary relationships. Yes, you can get a very nice tree, but theory argues the resulting are not optimal for estimating phylogenies for reasons I really do not want to go into (HINT: think about homoplasies). You can analyze morphological data this way, just do not call the resulting trees phylogenies.</p>
+<p>At this point you may also be curious as to whether there are methods for calculated pairwise distance matrices from morphological data? The answer is most definitely, but the distance measures (<em>i.e.</em> the models) are completely different. In addition, it is not recommended that you use morphological data for these type of distance matrix/clustering methods <strong><em>to estimate evolutionary relationships</em></strong>. Yes, you can get a very nice tree, but theory argues the resulting are not optimal for estimating phylogenies for reasons I really do not want to go into (HINT: think about homoplasies). You can analyze morphological data this way, just do not call the resulting trees phylogenies.</p>
 </div>
 </div>
 <p>The end result of calculating a pair-wise distance matrix is exactly what it sounds like, a matrix, usually the lower right diagonal, containing all possible pair-wise estimates of phylogenetic distance based on the evolutionary model used. Below is an example of a distance matrix in case you are not familiar with them.</p>
@@ -1028,11 +1047,10 @@ Note
 </div>
 <p>Once you have calculated the distance matrix, the next step in this group of methods would be to calculate the evolutionary tree using a clustering algorithm.</p>
 </section>
-</section>
-<section id="clustering-algorithms" class="level3" data-number="6.6.3">
-<h3 data-number="6.6.3" class="anchored" data-anchor-id="clustering-algorithms"><span class="header-section-number">6.6.3</span> Clustering algorithms</h3>
+<section id="clustering-algorithms" class="level3" data-number="6.6.4">
+<h3 data-number="6.6.4" class="anchored" data-anchor-id="clustering-algorithms"><span class="header-section-number">6.6.4</span> Clustering algorithms</h3>
 <p>Clustering algorithms are programs that take the pair-wise distance matrix and based on a set algorithm estimate an evolutionary tree that best reflects the data. The difference between clustering algorithm and other tree estimation algorithms like MP or Minimum Evolution (ME) is that the clustering algorithm will always result in a single tree being returned. The same tree will always be output regardless how often you run the program on the same dataset. This most definitely is not the case of other tree estimate strategies, but we will get to them. There are many different clustering algorithms that have their pros and cons. The two most common methods are called UPGMA (Unwighted Pair Group Mean Average) and Neighbor Joining (NJ).</p>
-<p>Note that the actual math behind these algorithms goes beyond the scope of this text, but if you are interested, there are plenty of sources out there, texts, YouTube videos, and even wiki entries for the different approaches (<a href="https://en.wikipedia.org/wiki/Neighbor_joining">neighbor-joining methods</a>, <a href="https://en.wikipedia.org/wiki/UPGMA">UPGMA</a>, and <a href="https://en.wikipedia.org/wiki/WPGMA">WPGMA</a>). A really good explanation of how UPGMA works can be found <a href="http://www.slimsuite.unsw.edu.au/teaching/upgma/">here</a>. A decent YouTube video for NJ can be found <a href="https://www.youtube.com/watch?v=7tn90VWGmV4&amp;list=PLjPAsbaa7pgGOrSPNBojU6lFCsJj7pvdJ&amp;index=8">here</a>.</p>
+<p>Note that the actual math behind these algorithms goes beyond the scope of this text, but if you are interested, there are plenty of sources, texts, YouTube videos, and even wiki entries out ther for the different approaches (<a href="https://en.wikipedia.org/wiki/Neighbor_joining">neighbor-joining methods</a>, <a href="https://en.wikipedia.org/wiki/UPGMA">UPGMA</a>, and <a href="https://en.wikipedia.org/wiki/WPGMA">WPGMA</a>). A really good explanation of how UPGMA works can be found <a href="http://www.slimsuite.unsw.edu.au/teaching/upgma/">here</a>. A decent YouTube video for NJ can be found <a href="https://www.youtube.com/watch?v=7tn90VWGmV4&amp;list=PLjPAsbaa7pgGOrSPNBojU6lFCsJj7pvdJ&amp;index=8">here</a>.</p>
 <p>For this type of analysis, NJ appears to be the preferred method for a couple of reasons:</p>
 <ul>
 <li><p>yields a unique tree</p></li>
@@ -1041,8 +1059,8 @@ Note
 </ul>
 <p>Regardless of the method you use, the end result is an evolutionary tree that shows the relationship among the various taxa based on the evolutionary model used.</p>
 </section>
-<section id="pros-and-cons" class="level3" data-number="6.6.4">
-<h3 data-number="6.6.4" class="anchored" data-anchor-id="pros-and-cons"><span class="header-section-number">6.6.4</span> Pros and cons</h3>
+<section id="pros-and-cons" class="level3" data-number="6.6.5">
+<h3 data-number="6.6.5" class="anchored" data-anchor-id="pros-and-cons"><span class="header-section-number">6.6.5</span> Pros and cons</h3>
 <p>As with all the methods discussed here, distance-clustering methods have their pros and cons.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1133,29 +1151,6 @@ P(tree|data)=\frac{P(data|tree)P(tree)}{P(data)}
 </section>
 <section id="evaluating-confidence-in-phylogenies" class="level2" data-number="6.9">
 <h2 data-number="6.9" class="anchored" data-anchor-id="evaluating-confidence-in-phylogenies"><span class="header-section-number">6.9</span> Evaluating Confidence in Phylogenies</h2>
-<ul>
-<li><table class="caption-top table">
-<thead>
-<tr class="header">
-<th>liability of inferred tree</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>- how reliable is my tree, confidence</td>
-</tr>
-<tr class="even">
-<td>- bootstrapping</td>
-</tr>
-<tr class="odd">
-<td>- parametric bootstrapping</td>
-</tr>
-<tr class="even">
-<td>- Bayesian analyses</td>
-</tr>
-</tbody>
-</table></li>
-</ul>
 <p>Phylogenetic analyses also involve assessing how confident we are in the results. There actually are two ways to think about what we mean by confidence in a tree: (1) How well does my tree reflect the true tree, and (2) how much confidence can I have in my tree. When you think about it, these are two very different questions.</p>
 <section id="how-well-does-my-tree-reflect-the-true-tree" class="level3" data-number="6.9.1">
 <h3 data-number="6.9.1" class="anchored" data-anchor-id="how-well-does-my-tree-reflect-the-true-tree"><span class="header-section-number">6.9.1</span> How well does my tree reflect the true tree</h3>
@@ -1187,8 +1182,7 @@ P(tree|data)=\frac{P(data|tree)P(tree)}{P(data)}
 </section>
 <section id="uses-of-phylogenies" class="level2" data-number="6.10">
 <h2 data-number="6.10" class="anchored" data-anchor-id="uses-of-phylogenies"><span class="header-section-number">6.10</span> Uses of phylogenies</h2>
-<p><em>to be added</em></p>
-<p><strong><em>IN PROGRESS</em></strong></p>
+<p><strong><em>IN PROGRESS to be completed later</em></strong></p>
 <p>molecular clock history of genes reconstructing ancestors studying adaptations (the comparative method) biodiversity identifying pathoges and evolutionary epidemiology coevolution</p>
 <p>Classification: Phylogenetics based on sequence data provides us with more accurate descriptions of patterns of relatedness than was available before the advent of molecular sequencing. Phylogenetics now informs the Linnaean classification of new species.</p>
 <p>Forensics: Phylogenetics is used to assess DNA evidence presented in court cases to inform situations, e.g.&nbsp;where someone has committed a crime, when food is contaminated, or where the father of a child is unknown.</p>

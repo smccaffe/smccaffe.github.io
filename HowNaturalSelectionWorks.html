@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -401,7 +421,7 @@ Note
 </div>
 <div class="callout-body-container callout-body">
 <p><b>Explore More</b></p>
-<p>To learn about the famous fox experiment, check out <a href="https://www.amazon.com/How-Tame-Fox-Build-Dog/dp/022659971X"><em>How to Tame a Fox (and Build a Dog): Visionary Scientists and a Siberian Tale of Jump-Started Evolution</em></a> by Lee Dugatkin and Lyudmila Trut.</p>
+<p>To learn about the famous fox experiment, check out <a href="https://www.amazon.com/How-Tame-Fox-Build-Dog/dp/022659971X"><em>How to Tame a Fox (and Build a Dog): Visionary Scientists and a Siberian Tale of Jump-Started Evolution</em></a> by Lee Dugatkin and Lyudmila Trut, or <span class="citation" data-cites="dugatkin2018">(<a href="#ref-dugatkin2018" role="doc-biblioref">Dugatkin 2018</a>)</span>The Silver Fox Domestication Experiment by the same first author.</p>
 </div>
 </div>
 <p>Darwin, through his experience with pigeon breeding, was not only aware of the power of selective breeding and domestication, but he was also able to relate that process to the patterns of evolutionary change he observed in nature. This chapter will take you through Darwin’s logic of natural selection.</p>
@@ -465,12 +485,23 @@ Note
 <p>Darwin’s final proposition was that winners and losers in the struggle for existence are not determined by chance. Instead, specific traits and trait combinations lead to a higher probability of survival and reproduction. In a landscape plagued by drought, it is the plant with the deepest roots that has the best chance of persisting. In an stream rich in predators, the fish with the fastest escape response is most likely to dodge imminent attacks. In a forest with limited food resources, the parrot with the most efficient foraging strategy can garner enough food resources to produce and feed a clutch of young. Depending on the challenge at hand, individuals with specific traits or trait combinations will have a slight advantage over others.</p>
 <p>Importantly, natural selection is not random. That does not mean natural selection is guided by conscious intent, as sometimes is insinuated. Rather, natural selection just happens because some variants have a disproportionate likelihood to survive and reproduce. As a consequence of natural selection’s non-random nature, evolution by natural selection increases adaptation from one generation to the next.</p>
 <p>A concept related to natural selection is fitness, which is used to describe the strength of natural selection on different variants. Fitness in biology is not a measure of an individual’s physical prowess or health, but rather the relative contribution of a particular phenotype to the gene pool of the next generation.</p>
-<p>::: callout-note {#nte-fitness} #### Some definitions</p>
+<div id="nte-fitness" class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note&nbsp;4.1: Some definitions
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p><strong>Natural selection</strong> -a difference on average between survival and fecundity of individuals with certain phenotypes compared with individuals of other phenotypes.</p>
 <p><strong>Fitness</strong> - The relative ability of individuals to survive and reproduce in its environment. Fitness quantifies individual reproductive success and represents the average contribution to the gene pool of the next (and subsequent) generation(s) by individuals <em>of the specified phenotype</em> in a given environment either via differential survival or reproductive success.</p>
-<p><strong>Adaptation</strong> - Character that increases the ability of an individual to survive or reproduce compared with some alternative trait or form of the character; trait that increases fitness relative to individuals lacking that trait.</p>
+<p><strong>Adaptation</strong> - Character that increases the ability of an individual to survive or reproduce better compared with some alternative trait or form of the character; trait that increases fitness relative to individuals lacking that trait.</p>
 <p><strong>Preadaptation (exaptation)</strong> - Pre-existing character whose function changes to serve a new adaptive purpose.</p>
-<p><strong>Maladaptation</strong> - :::</p>
+<p><strong>Maladaptation</strong> - a trait or characteristic that decreases the overall fitness of an organism, population, or species, either in absolute terms or relative to an optimal state. It is usually used to describe a trait that has become more harmful than beneficial over time, either due to changing environments or trade-offs with other traits. It contrasts with adaptation, which enhances fitness.</p>
+</div>
+</div>
 <p>Fitness is relative in the sense that it is typically expressed for one phenotype in relation to another. For example, the fitness of mouse with a dark fur coat is higher relative to the fitness of a mouse with a light fur coat, because the darker coat color increases crypsis against the dark leaf litter of the forest habitat. Fitness is also context-dependent, and the relative fitness of two phenotypes may change depending on the environmental conditions. For example, in a mouse population inhabiting beaches, the light colored phenotype may have higher fitness, because it is better camouflaged against the light sand.</p>
 </section>
 </section>
@@ -652,6 +683,11 @@ Note
 </ul>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-dugatkin2018" class="csl-entry" role="listitem">
+Dugatkin, Lee Alan. 2018. <span>“The Silver Fox Domestication Experiment.”</span> <em>Evolution: Education and Outreach</em> 11 (1). <a href="https://doi.org/10.1186/s12052-018-0090-x">https://doi.org/10.1186/s12052-018-0090-x</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
