@@ -50,7 +50,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./EvolGenetics.html" rel="next">
+<link href="./GenesMutationGeneticVariation.html" rel="next">
 <link href="./UnderstandingEvolTrees.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -130,7 +130,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./EvolTreesAndPhylogenetics.html">Evolutionary Trees and Phylogenetics</a></li><li class="breadcrumb-item"><a href="./EstimatingEvoTrees.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Estimating evolutionary trees</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./UnderstandingEvolTrees.html">Working With Evolutionary Trees</a></li><li class="breadcrumb-item"><a href="./EstimatingEvoTrees.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Estimating evolutionary trees</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -169,8 +169,8 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./IntroBasicConcepts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction: Basic Concepts</span></a>
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Basic Concepts</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -204,8 +204,8 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./EvolTreesAndPhylogenetics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Evolutionary Trees and Phylogenetics</span></a>
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Working With Evolutionary Trees</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -227,7 +227,7 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./EvolGenetics.html" class="sidebar-item-text sidebar-link">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Evolutionary Genetics</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -418,6 +418,7 @@ window.Quarto = {
   <li><a href="#maximum-likelihood" id="toc-maximum-likelihood" class="nav-link" data-scroll-target="#maximum-likelihood"><span class="header-section-number">6.8.2</span> Maximum Likelihood</a></li>
   <li><a href="#minimum-evolution-me" id="toc-minimum-evolution-me" class="nav-link" data-scroll-target="#minimum-evolution-me"><span class="header-section-number">6.8.3</span> Minimum Evolution (ME)</a></li>
   <li><a href="#bayesian-inference-analysis" id="toc-bayesian-inference-analysis" class="nav-link" data-scroll-target="#bayesian-inference-analysis"><span class="header-section-number">6.8.4</span> Bayesian Inference analysis</a></li>
+  <li><a href="#differences-in-the-methods" id="toc-differences-in-the-methods" class="nav-link" data-scroll-target="#differences-in-the-methods"><span class="header-section-number">6.8.5</span> Differences in the methods</a></li>
   </ul></li>
   <li><a href="#evaluating-confidence-in-phylogenies" id="toc-evaluating-confidence-in-phylogenies" class="nav-link" data-scroll-target="#evaluating-confidence-in-phylogenies"><span class="header-section-number">6.9</span> Evaluating Confidence in Phylogenies</a>
   <ul class="collapse">
@@ -437,7 +438,7 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./EvolTreesAndPhylogenetics.html">Evolutionary Trees and Phylogenetics</a></li><li class="breadcrumb-item"><a href="./EstimatingEvoTrees.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Estimating evolutionary trees</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./UnderstandingEvolTrees.html">Working With Evolutionary Trees</a></li><li class="breadcrumb-item"><a href="./EstimatingEvoTrees.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Estimating evolutionary trees</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span id="sec-estevoltrees" class="quarto-section-identifier"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Estimating evolutionary trees</span></span></h1>
 </div>
@@ -573,7 +574,7 @@ Figure&nbsp;6.2: Molecular phylogenetics methods
 <div>
 
 </div>
-<div class="quarto-layout-panel" data-layout="[[1,1], [1]]" style="font-size: 12px; color: grey;">
+<div class="quarto-layout-panel" style="font-size: 12px; color: grey;" data-layout="[[1,1], [1]]">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img src="images/AbudFasta.png" class="img-fluid"></p>
@@ -591,20 +592,23 @@ Figure&nbsp;6.2: Molecular phylogenetics methods
 <p>Constructing MSAs operationally is quite easy today due to the ready availability of user friendly programs, but it is not a trivial exercise by any means. Almost all of the various methods weigh the differences found among sequences taking into consideration the types of nucleotide (or amino acid) differences, as well as insertions and deletions. Some also take into consideration structural characteristics and other properties associated with the genomic region being considered.</p>
 <p>The technical details of the various alogorithms used in constructing a MSA are far beyond this text. You can get a sense of the complexity of MSA from this <a href="https://en.wikipedia.org/wiki/Multiple_sequence_alignment">Wikipaedia entry</a>. Rather than getting too lost in the weeds of this complex and not without controversy topic, let’s just leave it that there are numerous approaches to constructing a MSA with various approaches and and philosophical underpinnings. It is my experience that most researchers today pay little attention to the algorithm they use or its assumptions for making a MSA, and simply fall back on the industry favorites with default options.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Some widely used program for performing a MSA
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Below is a list of some of the most widely used programs for performing multiple sequence alignment:</p>
 <p>1. <strong>Clustal Omega</strong>: A progressive alignment tool known for its speed and scalability, suitable for large datasets.</p>
 <p>1. <strong>MUSCLE</strong>: Provides high accuracy and speed, often used for protein and nucleotide alignments.</p>
 <p>1. <strong>MAFFT</strong>: A progressive-iterative alignment tool that supports large-scale alignments with high accuracy.</p>
 <p>1. <strong>Mauve</strong>: Designed for aligning whole genomes, especially useful for microbial genomes.</p>
+</div>
 </div>
 </div>
 <p>Implementations of these programs can be easily found online for download to run on your desktop, in online web apps (for example, <a href="https://www.ebi.ac.uk/jdispatcher/">EMBL Explore Sequence Analysis Tools</a> has instances of most of these program available for free), or as part of GUI packages like <a href="https://ugene.net">Unipro UGENE</a> or <a href="https://www.megasoftware.net">MEGA</a>. Both these GUI apps are free, tend to be incredibly easy to use, and perform most of what we will be discussing in this chapter.</p>
@@ -769,7 +773,7 @@ Listing&nbsp;6.1: MP analysis
 <p>A couple of closing points on maximum parsimony before moving on.</p>
 <ul>
 <li><p><strong>Equally parsimonious trees</strong> : It is entirely possible and not at all uncommon that using a heuristic search will result in not one but multiple trees of equal total length. We refer to these trees as <em>equally parsimonious</em>. Since they are equally parsimonious, we have no way of determining which is a better representation of our given dataset. To deal with these, we have a series methods to produce what is called a <strong>consensus tree</strong>. This is exactly as it sounds, it is a consensus of all the equally most parsimonious trees. There are different types of consensus criteria, though the one you are probably most familiar with would be “majority rules” consensus. Most programs the perform MP give options for different consensus criteria. Regardless, the end result is a tree that contains polytomies for the unresolved nature of the equally parsimonious trees. Polytomies may not be desirable, but if that is what the data says, it is what is says. There are recommendations for trying to resolve polytomies, but this usually involves reanalyzing your dataset using some other model, or collecting more data.</p></li>
-<li><p>There are different flavors of parsimony out there, none of which are really worth our time to go over for this class. One worth mentioning though is called <strong>Weighted Parsimony</strong>. In Weighted Parsimony, you <em>a prioir</em> assign numerical weights to the various characters and/or type of changes (character states) for those characters. When determining the tree length, the values being summed are not just changes on the tree, but weighted changes (<em>e.g.</em> change times the weight assigned). For example, with molecular data, when looking at a protein coding region of a genome, you might want to assign different weighting factors to first, second, and third codon positions since we know that the three codon positions tend to evolve at different rates. Or you might want to weight transitions differently than transversions, or one gene region more than another in your dataset. It is a little more difficult to assign weights to morphological characters, but it certainly is justifiable. By taking a weighted parsimony approach, you are inherently using a (potentially) more realistic model of character state changes, which can result in more accurate results in terms of finding the shortest tree. And again, you do all this using options in the software you are using.</p></li>
+<li><p>There are different flavors of parsimony out there, the details of which are really beyond the scope of this class. One worth mentioning though is called <strong>Weighted Parsimony</strong>. In Weighted Parsimony, you <em>a priori</em> assign numerical weights to the various characters and/or type of changes (character states) for those characters. When determining the tree length, the values being summed are not just changes on the tree, but weighted changes (<em>e.g.</em> change times the weight assigned). For example, with molecular data, when looking at a protein coding region of a genome, you might want to assign different weighting factors to first, second, and third codon positions since we know that the three codon positions tend to evolve at different rates. Or you might want to weight transitions differently than transversions, or one gene region more than another in your dataset. It is a little more difficult to assign weights to morphological characters, but it certainly is justifiable. By taking a weighted parsimony approach, you are inherently using a (potentially) more realistic model of character state changes, which can result in more accurate results in terms of finding the shortest tree. And again, you do all this using options in the software you are using.</p></li>
 </ul>
 <p>We discussed MP with respect to both morphological and molecular data, but today it seems that MP is rarely used for molecular data to estimate phylogenies. Due to the nature of DNA sequence data and the increasing size of most datasets today, MP is not the preferred or most efficient way to estimate phylogenies. Today the recommended best practices for constructing evolutionary trees is using either distance based, maximum likelihood, or Baysian analyses, which is where we will be going next.</p>
 </section>
@@ -782,7 +786,7 @@ Listing&nbsp;6.1: MP analysis
 2. calculate a pair-wise distance among taxa using a specified model of sequence evolution
 3. use an algorithm to cluster taxa by overall similarity/distance into groups of more similar taxa
 4. goal: minimize the total distance among all taxa, *i.e.* total length of the tree</code></pre>
-<p>Generally speaking, distance methods group species based on genetic similarity, with similar species clustering closely together on a phylogenetic tree and dissimilar species being separated by longer branches. In phylogenetics, the degree of genetic similarity is often called the phylogenetic distance, which is the number of nucleotide (or amino acid) differences between two species. To infer phylogenetic trees, pair-wise phylogenetic distances are first calculated among all species in a data set, yielding a phylogenetic distance matrix. The distance matrix can then be converted into a bifurcating tree with various algorithms.</p>
+<p>Generally speaking, distance methods group taxa based on genetic similarity, with similar taxa clustering closely together on a phylogenetic tree and dissimilar taxa being separated by longer branches (exchange the word species for taxa if you find the use of this term confusing). In phylogenetics, the degree of genetic similarity is often called the phylogenetic distance, which is the number of nucleotide (or amino acid) differences between two taxa. To infer phylogenetic trees, pair-wise phylogenetic distances are first calculated among all species in a data set, yielding a phylogenetic distance matrix. The distance matrix can then be converted into a bifurcating tree with various algorithms.</p>
 <section id="estimating-phylogenetic-distance" class="level3" data-number="6.6.1">
 <h3 data-number="6.6.1" class="anchored" data-anchor-id="estimating-phylogenetic-distance"><span class="header-section-number">6.6.1</span> Estimating phylogenetic distance</h3>
 <p>Once you have a MSA of your sequence data, the next step is to calculate a pairwise distance among the taxa using an appropriate model of DNA evolution. (NOTE: we can easily use protein sequence as well, but for brevity’s sake let’s just focus on DNA sequence for the time being.) A DNA pairwise distance is <em>a quantitative measure of the genetic difference between two DNA sequences</em>. It is typically expressed as the proportion of nucleotide sites at which the sequences differ, or as the number of substitutions per site. You are effectively comparing the level of sequence divergence between all possible pairs of taxa in your dataset.</p>
@@ -794,7 +798,7 @@ Listing&nbsp;6.1: MP analysis
 <div>
 
 </div>
-<div class="quarto-layout-panel" data-layout="[100]" style="font-size: 12px; color: grey;">
+<div class="quarto-layout-panel" style="font-size: 12px; color: grey;" data-layout="[100]">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
 <p><img src="images/MultipleSubst.png" class="img-fluid"></p>
@@ -806,7 +810,7 @@ Listing&nbsp;6.1: MP analysis
 </div>
 </div>
 </div>
-<p>The end result of multiple substitutions is that over time there will be a tendency for the relationship between sequence divergence versus time will begin deviating from linear, eventually plateauing out such that you can no longer estimate how long two sequences have diverged from each other. We can see this in the figure below.</p>
+<p>The end result of multiple substitutions is that over time there will be a tendency for the relationship between sequence divergence versus time to deviate from linearity, eventually plateauing out such that you can no longer estimate how long two sequences have diverged from each other. We can see this in the figure below.</p>
 <div id="fig-substplot" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-substplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -842,8 +846,8 @@ Figure&nbsp;6.8: Different rates of substitutions among nucleotide bases. Notice
 </figcaption>
 </figure>
 </div>
-<p>According to this figure, we should expect to find twice as many possible transversions than transition (8 vs.&nbsp;4) if mutation is random. However, this is not the case; generally we find transitions appear to outnumber transversions in real data. We have a pretty good why this is the case, but the explanation lies beyond the scope of this text. The important message here is that there is a transition-transversion bias that we need to take into consideration as well to accurately model patterns of DNA evolution.</p>
-<p>In addition, the data also suggests that rates of transitions more quickly begin plateau out over time due to multiple hits compared to transversions.</p>
+<p>According to this figure, we should expect to find twice as many possible transversions than we would transitions (8 vs.&nbsp;4) if mutation is random. However, this is not the case; generally we find transitions appear to outnumber transversions in real data. We have a pretty good idea why this is the case, but the explanation lies beyond the scope of this text. The important message here is that there is a transition-transversion bias that we need to take into consideration as well to accurately model patterns of DNA evolution.</p>
+<p>In addition, the data also suggests that rates of transitions more quickly begin to plateau out over time due to multiple hits compared to transversions.</p>
 <div id="fig-tstvrates" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-tstvrates-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -862,7 +866,7 @@ Figure&nbsp;6.9
 </section>
 <section id="rates-of-change-among-nucleotides-can-vary" class="level4" data-number="6.6.1.3">
 <h4 data-number="6.6.1.3" class="anchored" data-anchor-id="rates-of-change-among-nucleotides-can-vary"><span class="header-section-number">6.6.1.3</span> Rates of change among nucleotides can vary</h4>
-<p>Not only is <a href="#fig-subst" class="quarto-xref">Figure&nbsp;<span>6.8</span></a> is a good heuristic for visualizing transitions and transversions, it provides a road map to begin modeling substitution rates among the various nucleotides. <a href="#fig-subst" class="quarto-xref">Figure&nbsp;<span>6.8</span></a> does not suggest that there are any differences among the substitution rates (<em>e.g</em> <span class="math inline">\(P_{AG}\)</span> compared to <span class="math inline">\(P_{GA}\)</span>), but obviously that could be the case. We can represent these rates of substitutions as a matrix that can then be used in various maths (matrix algebra) to analyze various models that accounts for differing rates in nucleotide substitutions (<a href="#fig-submat" class="quarto-xref">Figure&nbsp;<span>6.10</span></a>).</p>
+<p>Not only is <a href="#fig-subst" class="quarto-xref">Figure&nbsp;<span>6.8</span></a> is a good heuristic for visualizing transitions and transversions, it provides a road map to begin modeling substitution rates among the various nucleotides. <a href="#fig-subst" class="quarto-xref">Figure&nbsp;<span>6.8</span></a> does not suggest that there are any differences among the substitution rates (<em>e.g</em> <span class="math inline">\(P_{AG}\)</span> compared to <span class="math inline">\(P_{GA}\)</span>), but obviously that could be the case. We can represent these rates of substitutions as a matrix that can then be used in various maths (matrix algebra) to develop various models that account for differing rates in nucleotide substitutions (<a href="#fig-submat" class="quarto-xref">Figure&nbsp;<span>6.10</span></a>).</p>
 <div id="fig-submat" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-submat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -893,12 +897,12 @@ Important&nbsp;6.1: Various models of DNA sequence evolution
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li><p>Percent divergence (p; <a href="#sec-p" class="quarto-xref"><span>Section 6.6.2.1</span></a>)</p></li>
-<li><p>Jukes-Cantor (JC; <a href="#sec-jc" class="quarto-xref"><span>Section 6.6.2.2</span></a>)</p></li>
-<li><p>Kimura’s 2 Parameter (K2P; <a href="#sec-k2p" class="quarto-xref"><span>Section 6.6.2.3</span></a>)</p></li>
-<li><p>Felsenstein 1981 (F81; <a href="#sec-f81" class="quarto-xref"><span>Section 6.6.2.4</span></a>)</p></li>
-<li><p>Hasegawa, Kishino, and Yano (HKY85; <a href="#sec-hky85" class="quarto-xref"><span>Section 6.6.2.5</span></a>)</p></li>
-<li><p>General Time Reversible Model (GTR; <a href="#sec-gtr" class="quarto-xref"><span>Section 6.6.2.6</span></a>)</p></li>
+<li><p>Percent divergence (p)</p></li>
+<li><p>Jukes-Cantor (JC)</p></li>
+<li><p>Kimura’s 2 Parameter (K2P)</p></li>
+<li><p>Felsenstein 1981 (F81)</p></li>
+<li><p>Hasegawa, Kishino, and Yano (HKY85)</p></li>
+<li><p>General Time Reversible Model (GTR)</p></li>
 </ul>
 </div>
 </div>
@@ -977,7 +981,7 @@ Figure&nbsp;6.12: The equation for calculating Kimura’s 2 parameter model is g
 </div>
 </div>
 </div>
-<p>The figure below sumarizes these 5 different models and what they account for.</p>
+<p>The figure below summarizes these 5 different models and what they account for.</p>
 <div id="fig-substmodsum" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-substmodsum-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -992,7 +996,7 @@ Figure&nbsp;6.13: Interrelationships among the five models for estimating the nu
 </figcaption>
 </figure>
 </div>
-<p>There are other models that are also routinely used as well. For example, the <a href="https://www.megasoftware.net/web_help_10/index.htm#t=Models_for_estimating_distances.htm">help files in MEGA</a> is a convenient resource for describing the above models plus a few others. Wikipaedia has a pretty thorough entry for <a href="https://en.wikipedia.org/wiki/Models_of_DNA_evolution">Models of DNA evolution</a> you can also check out.</p>
+<p>There are other models that are also routinely used. A good source to earn more about these models is the <a href="https://www.megasoftware.net/web_help_10/index.htm#t=Models_for_estimating_distances.htm">help files in MEGA</a>.. Wikipaedia has a pretty thorough entry for <a href="https://en.wikipedia.org/wiki/Models_of_DNA_evolution">Models of DNA evolution</a> as well if you are interested.</p>
 </section>
 <section id="additional-corrections" class="level3" data-number="6.6.3">
 <h3 data-number="6.6.3" class="anchored" data-anchor-id="additional-corrections"><span class="header-section-number">6.6.3</span> Additional corrections</h3>
@@ -1007,14 +1011,39 @@ Figure&nbsp;6.13: Interrelationships among the five models for estimating the nu
 <ol type="1">
 <li><p><strong><em>Variation in substitution rates.</em></strong> We will hopefully get to discuss this a little more in the chapter on molecular and genomic evolution, but for now, we find different rates of substitution across the genome, and should try to account for these. Some genes evolve faster that others. Some genomic regions evolve faster than others (e.g.&nbsp;third position exon sites have much slower rates of substitutions than do introns or pseudogenes). Without going in to any details, the correction for rate variation is estimated by what is referred to as a gamma shape parameter termed <span class="math inline">\(\alpha\)</span>. Low <span class="math inline">\(\alpha\)</span> corresponds to a large rate variation; as <span class="math inline">\(\alpha\)</span> gets larger, the range of rate variation diminishes. There are ways to estimate the parameter <span class="math inline">\(\alpha\)</span> given the data, and most programs will allow the option to include the gamma correction. When this correction is used, you will usually see the authors make reference to using <em>e.g.</em> the GTR+<span class="math inline">\(\Gamma\)</span> model, meaning these used the General Time Reversible model correcting for variation in substitution rates.</p></li>
 <li><p><strong><em>The proportion of invariant sites</em></strong>, <em>i.e.</em> the percent of nucleotide sites that are free to vary, can very much impact the difference between observed levels of divergence and divergence time. The higher the percentage of nucleotide sites free to vary, the closer the relationship gets to linearity (that correction zone shown in <a href="#fig-substplot" class="quarto-xref">Figure&nbsp;<span>6.7</span></a>). Most program will allow for this corrections as well.</p></li>
-<li><p><strong><em>Codon position</em></strong>. The last model correction we will mention is not really a correction <em>per se</em>, but a modification of the K2P model specifically used for protein coding regions where you can identify the codon position where a substitution occurs. Again we will not go into any of the details, but this is a very useful model for protein coding regions since it allows for distiguishing between rates of synonymous (do not result in an amino acid change) versus nonsynonymous (results in an amino acid change) substitutions. There are a couple of different models to take substitution types into consideration, one of the most common is the Li-Wu-Luo method (for more information on this model, see the <a href="https://www.megasoftware.net/web_help_10/index.htm#t=Li-Wu-Luo_Method.htm">following link to the MEGA help files</a>).</p></li>
+<li><p><strong><em>Codon position</em></strong>. The last model correction we will mention is not really a correction <em>per se</em>, but a modification of the K2P model specifically used for protein coding regions where you can identify the codon position where a substitution occurs. Again we will not go into any of the details, but this is a very useful model for protein coding regions since it allows for distinguishing between rates of synonymous (do not result in an amino acid change) versus nonsynonymous (results in an amino acid change) substitutions. There are a couple of different models to take substitution types into consideration. One of the most common is the Li-Wu-Luo method (for more information on this model, see the <a href="https://www.megasoftware.net/web_help_10/index.htm#t=Li-Wu-Luo_Method.htm">following link to the MEGA help files</a>).</p></li>
 </ol>
-<p>At this juncture you may be asking yourself why we have so many different models, why not just use the model that corrects for all the know biases (<em>e.g.</em> the parameter rich GTR+<span class="math inline">\(\Gamma\)</span> correcting for invariant sites), and if not that how do I choose what model to use? What about protein sequence data?</p>
+<p>At this juncture you may be asking yourself why we have so many different models, why not just use the model that corrects for all the know biases (<em>e.g.</em> the parameter rich GTR+<span class="math inline">\(\Gamma\)</span> correcting for invariant sites? If not, than how do I choose what model to use? What about protein sequence data?</p>
 <ul>
-<li><p><strong>Why we have so many different models?</strong> I think we already went over this one, to correct for the various known biases associated with DNA sequence data. Really though, it reflects a progression of more complex models being developed over time as molecular evolution theory advanced. The JC model was derived in the late 60s, with the increasingly more complicated models beibg developed throughout the 70s and 80s. So it is a historical thing.</p></li>
+<li><p><strong>Why we have so many different models?</strong> I think we already went over this one: to correct for the various known biases associated with DNA sequence data. Really though, it reflects a progression of more complex models being developed over time as molecular evolution theory advanced. The JC model was derived in the late 60s, with the increasingly more complicated models being developed throughout the 70s and 80s. So it is sort of a historical thing as well.</p></li>
 <li><p><strong>Why not just use the most complex model that corrects for everything?</strong> That is a good question, and the answer lies in the number of parameters that need to be estimated. All these rates, frequencies, distributions, <em>etc</em> have to be estimated from the data set itself. Though we have some idea of the range of values we would expect for the various parameters, the actual values are very much dataset dependent, with parameter estimates influenced by the number and type of taxa, the genomic regions used, and number of basepairs sequenced. There is a tradeoff between the reliability of the estimated parameter values and the number of parameters that need to be estimated. For any given dataset, the more parameters, the less confidence we can place on the estimated values; you sacrifice accuracy in terms of parameter estimation as you increase the number of parameters estimated. If you have a lot of parameters (like say 14+ parameters from the “parameter rich GTR+<span class="math inline">\(\Gamma\)</span> correcting for invariant sites” model), you may have a model that could potentially best fit the data, but the parameter estimates are not very reliable. So the goal is to try to use the least complex model with the fewest number of parameters you can without sacrificing model accuracy.</p></li>
 <li><p><strong>How do I choose what model to use?</strong> : It used to be you just tried a few to see what happens. Now there are a number of programs that can help choose the best model for a dataset in a systematic way. We will not go into these at all other than to mention one of the most popular apps, jModelTest2 (<span class="citation" data-cites="darriba2012">Darriba et al. (<a href="#ref-darriba2012" role="doc-biblioref">2012</a>)</span>). It is pretty much state of the art as of 2025, and is included in many of the GUI based molecular phylogenetic packages.</p></li>
-<li><p><strong>What about protein sequence data?</strong> : Yes, their models for analyzing protein sequence as well that follow the same sort of philosophy, but are quite different. These are beyond the scope of this text, and are more appropraite for a molecular evolution course (which I no longer get to teach at Wheaton).</p></li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Some additional programs used for model selection
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li><a href="https://www.nature.com/articles/nmeth.4285"><strong>ModelFinder</strong></a>: A fast tool for selecting nucleotide, amino acid, and codon substitution models.</li>
+<li><a href="https://github.com/brettc/partitionfinder"><strong>PartitionFinder 2</strong></a>: Used for molecular evolution model selection for both nucleotide and amino acid data.</li>
+<li><a href="https://github.com/ddarriba/prottest3"><strong>ProtTest 3</strong></a>: Specifically designed for amino acid substitution model selection.</li>
+<li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5850602/"><strong>SMS (Smart Model Selection)</strong></a>: Integrated into PhyML for nucleotide and amino acid model selection.</li>
+<li><a href="https://github.com/ddarriba/modeltest"><strong>ModelTest-NG</strong></a>: A reimplementation of jModelTest and ProtTest, supporting both nucleotide and amino acid models.</li>
+<li><a href="https://github.com/shiranab/ModelTeller"><strong>ModelTeller</strong></a>: A machine learning-based approach for phylogenetic model selection, optimized for branch-length estimation.</li>
+</ul>
+</div>
+</div>
+</div>
+<ul>
+<li><strong>What about protein sequence data?</strong> : Yes, their models for analyzing protein sequence as well that follow the same sort of philosophy, but are quite different. These are beyond the scope of this text, and are more appropriate for a molecular evolution course (which I no longer get to teach at Wheaton). Examples are mentioned in the callout above.</li>
 </ul>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1026,23 +1055,23 @@ Caution
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>At this point you may also be curious as to whether there are methods for calculated pairwise distance matrices from morphological data? The answer is most definitely, but the distance measures (<em>i.e.</em> the models) are completely different. In addition, it is not recommended that you use morphological data for these type of distance matrix/clustering methods <strong><em>to estimate evolutionary relationships</em></strong>. Yes, you can get a very nice tree, but theory argues the resulting are not optimal for estimating phylogenies for reasons I really do not want to go into (HINT: think about homoplasies). You can analyze morphological data this way, just do not call the resulting trees phylogenies.</p>
+<p>At this point you may also be curious as to whether there are methods for calculated pairwise distance matrices from morphological data? The answer is most definitely, but the distance measures (<em>i.e.</em> the models) are completely different. In addition, it is not recommended that you use morphological data for these type of distance matrix/clustering methods <strong><em>to estimate evolutionary relationships</em></strong>. These are incredibly useful analyses, and you can get a very nice tree, but theory argues the resulting trees are not optimal for estimating phylogenies for reasons I really do not want to go into (HINT: think about homoplasies). You can analyze morphological data this way, just do not call the resulting trees phylogenies.</p>
 </div>
 </div>
 <p>The end result of calculating a pair-wise distance matrix is exactly what it sounds like, a matrix, usually the lower right diagonal, containing all possible pair-wise estimates of phylogenetic distance based on the evolutionary model used. Below is an example of a distance matrix in case you are not familiar with them.</p>
 <p><img src="images/k2pexample.png" class="img-fluid" style="width:75.0%"></p>
-<p>Note that the above is a convenient representation of the distance matrix, making it easy for humans to interpret. Many programs use different formats to store and work with the distance matrix, but almost always have an option to view it like above. The diagonal elements of the matrix is the sample compared to itself, and is usually empty. The lower keft off diagonal elements are then the pair-wise distances. The upper right diagonal is usually left empty as well, but if we did include the values they would be a mirror image of the lower left diagonal.</p>
+<p>Note that the above is a convenient representation of the distance matrix, making it easy for humans to interpret. Many programs use different formats to store and work with the distance matrix, but almost always have an option to view it like above. The diagonal elements of the matrix is the sample compared to itself, and is usually empty. The lower left off diagonal elements are then the pair-wise distances. The upper right diagonal is usually left empty as well, but if we did include the values they would be a mirror image of the lower left diagonal.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+A reminder of where we are at.
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>As a reminder of where we are at. Refering back to <span class="citation" data-cites="phylowork">(<a href="#ref-phylowork" role="doc-biblioref"><strong>phylowork?</strong></a>)</span>, we discussed the first step in estimating a phylogeny (after generating your data) was constructing a multiple sequence alignment (MSA). This MSA was then analyzed to construct a pairwise phylogenetic distance matrix using one of the DNA evolution models just discussed (if you were very careful, you would have used jModelTest2 to figure out which model was the best one to use for your data).</p>
+<p>Referring back to <span class="citation" data-cites="phylowork">(<a href="#ref-phylowork" role="doc-biblioref"><strong>phylowork?</strong></a>)</span>, we discussed the first step in estimating a phylogeny (after generating your data) was constructing a multiple sequence alignment (MSA). This MSA was then analyzed to construct a pairwise distance matrix using one of the DNA evolution models just discussed. If you were careful, you would have used a program like jModelTest2 to figure out which model was the best one to use for your data.</p>
 </div>
 </div>
 <p>Once you have calculated the distance matrix, the next step in this group of methods would be to calculate the evolutionary tree using a clustering algorithm.</p>
@@ -1094,14 +1123,14 @@ Note
 </section>
 <section id="minimum-evolution-methods" class="level2" data-number="6.7">
 <h2 data-number="6.7" class="anchored" data-anchor-id="minimum-evolution-methods"><span class="header-section-number">6.7</span> Minimum evolution methods</h2>
-<p>Referring back to <a href="#fig-meth" class="quarto-xref">Figure&nbsp;<span>6.2</span></a>, though the usual pipeline for distance based approaches is to use one of the clustering algorithms discussed above to estimate an evolutionary tree, there is another approach to tree estimation from distance data that takes a different appoach to tree estimation, referred to as Minimum Evolution (ME) methods. ME aims to identify the phylogenetic tree with the smallest total sum of the branch lengths rather than a specific algorithm that results in a single tree.</p>
+<p>Referring back to <a href="#fig-meth" class="quarto-xref">Figure&nbsp;<span>6.2</span></a>, though the usual pipeline for distance based approaches is to use one of the clustering algorithms discussed above to estimate an evolutionary tree, there is another approach to tree estimation from distance data that takes a different approach to tree estimation, referred to as <strong>Minimum Evolution</strong> (ME) methods. ME aims to identify the phylogenetic tree with the smallest total sum of the branch lengths rather than a specific algorithm that results in a single tree.</p>
 <p>In general, the ME method evaluates all possible tree topologies for the given taxa. For each topology, branch lengths are assigned using a least-squares method, which minimizes the discrepancy between observed distances (from the matrix) and predicted distances (from the tree). The tree with the smallest sum of branch lengths across all topologies is selected as the ME tree. Similar to parsimony, this criterion assumes that the true phylogeny minimizes evolutionary changes.</p>
 <p>The ME approach is computationally intensive due to the need to evaluate numerous topologies. Recalling the discussion above for Maximum Parsimony and the number of possible trees for a given number of OTUs, obviously an exhaustive search is only possible with relatively small datasets before having to resort to heuristic search strategies. There are implementations for performing heuristic searches with ME, for example the program <a href="http://www.atgc-montpellier.fr/fastme/">FASTME</a> (<span class="citation" data-cites="lefort2015">Lefort, Desper, and Gascuel (<a href="#ref-lefort2015" role="doc-biblioref">2015</a>)</span>). The program MEGA also implements the ME approach.</p>
-<p>ME approaches have been criticized in the past for being computationally complex, its dependence on distance estimates (but this is true of all distance based methods), that it can produce negative branch lengths, can take a long time to find an optimal solution, and that the results are usually no better than obtained using NJ methods. For these and other reasons, ME is not commonly used, and certainly less so with the switch to whole genome sequencing and other Next Generation Sequencing strategies.</p>
+<p>ME approaches have been criticized in the past for being computationally complex, its dependence on distance estimates (but this is true of all distance based methods), that it can produce negative branch lengths, can take a long time to find an optimal solution, and that the results are usually no better than obtained using NJ methods. For these and other reasons, ME is not commonly used today, and certainly less so with the switch to whole genome sequencing and other Next Generation Sequencing (NGS) strategies.</p>
 </section>
 <section id="discrete-inferenceoptimality-methods" class="level2" data-number="6.8">
 <h2 data-number="6.8" class="anchored" data-anchor-id="discrete-inferenceoptimality-methods"><span class="header-section-number">6.8</span> Discrete (Inference/Optimality) Methods</h2>
-<p>Again referring back to <a href="#fig-meth" class="quarto-xref">Figure&nbsp;<span>6.2</span></a>, the second broad class of molecular phylogenetic methods are referred to as <strong>Character based Inference/Optimality methods</strong>: character based as in the discrete characters themselves are used rather than a distance matrix, and inference/optimality since the nature of the analyses are very similar to that already discussed for Maximum Parsimony, i.e.&nbsp;infer a tree, then evaluate the tree using some criteria (e.g.&nbsp;the shortest tree length as assessed using parsimony).</p>
+<p>Again referring back to <a href="#fig-meth" class="quarto-xref">Figure&nbsp;<span>6.2</span></a>, the second broad class of molecular phylogenetic methods are referred to as <strong>Character based Inference/Optimality methods</strong>: character based as in the discrete characters themselves are used rather than a distance matrix, and inference/optimality since the nature of the analyses are very similar to that already discussed for Maximum Parsimony, <em>i.e.</em> infer a tree, then evaluate the tree using some criteria (<em>e.g.</em> the shortest tree length as assessed using parsimony).</p>
 <p>Similar to what we did with MP analysis road map <a href="#lst-mpalgo" class="quarto-xref">Listing&nbsp;<span>6.1</span></a>, the same type of road map describing the generalized Inference/Optimality approach is:</p>
 <pre class="{#lst-ioalgo}"><code>1. guess at a tree
 2. evaluate the tree using some defined **optimality criteria** which gives you a value defining how well the tree and data agree (X)
@@ -1141,34 +1170,40 @@ Tip
 </section>
 <section id="bayesian-inference-analysis" class="level3" data-number="6.8.4">
 <h3 data-number="6.8.4" class="anchored" data-anchor-id="bayesian-inference-analysis"><span class="header-section-number">6.8.4</span> Bayesian Inference analysis</h3>
-<p>Bayesian Inference is also a statistical technique. Like ML, it can get a little complicated to explain. While ML calculated for each candidate tree the probability of the given aligned data set given the tree and an evolutionary model (<span class="math inline">\(P(data|tree)\)</span>), Bayesian analysis asks a slightly different question: what is the probability of the tree given an aligned dataset and an evolutionary model (<span class="math inline">\(P(tree|data)\)</span>). This intuitively makes better sense, but it can be difficult to actually estimate. In Bayesian statistics, the probability of a tree given the data is known as the <strong>posterior probability</strong> of the tree, and it kind of is what we really want to know. We will not go too far into Bayesian theory since it can get a little sticky. The formula for how this would work is:</p>
+<p>Bayesian Inference is also a statistical technique. Like ML, it can get a little complicated to explain. While ML calculated for each candidate tree the probability of the given aligned data set given the tree and an evolutionary model (<span class="math inline">\(P(data|tree)\)</span>), Bayesian analysis asks a slightly different question: what is the probability of the tree given an aligned dataset and an evolutionary model (<span class="math inline">\(P(tree|data)\)</span>). This intuitively makes better sense, but it can be difficult to actually estimate. In Bayesian statistics, the probability of a tree given the data is known as the <strong>posterior probability</strong> of the tree, and it kind of is what we really want to know. We will not go too far into Bayesian theory since it can get more than a little sticky. The generalized formula for how this would work is:</p>
 <p><span class="math display">\[
 P(tree|data)=\frac{P(data|tree)P(tree)}{P(data)}
 \]</span> Notice that <span class="math inline">\(P(data|tree)\)</span> is the likelihood of the tree (we discussed this briefly under ML section). The term <span class="math inline">\(P(tree)\)</span> is what is called the <strong>prior probability</strong> of the tree. This gets assigned for the tree. The denominator <span class="math inline">\(P(data)\)</span> is the prior probability of the data, which is the sum of the values obtained by multiplying each tree’s likelihood by its prior probability. the above shows that if we are willing to take a guess (or know) the two prior probabilities for all possible trees, then we can calculate what we want, the probability of getting a particular tree given our dataset. This is where the problem comes in. How do we estimate the prior probabilities? And here is where we fall back on our now familiar escape clause, how this is done is beyond the scope of this text.</p>
 <p>As with all the methods discussed here, you would use a computer program to perform a Bayesian analysis, which takes care of all the complexity neatly and cleanly (the most commonly used is called MrBayes). The benefits of using Bayesian Inference is that results tend to be a little easier to interpret: a single tree with clade credibility values assigned to each branching point indicating how confident you can be of that particular branching pattern. Bayesian methods are computationally intensive but often yield reliable results, but in my experience the results are often no much different from a ML analysis.</p>
-<p>Differences in the methods - Maximum likelihood, Bayesian analysis, and parsimony explicitly evoke models of evolution - Distance methods sort of, but not from phylogenetic perspective - useful in a lot of circumstances, e.g.&nbsp;very large data sets, like comparing whole genomes - Used to be controversy over which method is best - now generally accepted that ML (or Bayesian) methods are best; most sensitive to large evolutionary distances, but most are computationally time consuming and results depend on the specific model of evolution used; all but impossible to use for some data sets - Most commonly used packages contain different methods; - normally analyze data using multiple methods</p>
+</section>
+<section id="differences-in-the-methods" class="level3" data-number="6.8.5">
+<h3 data-number="6.8.5" class="anchored" data-anchor-id="differences-in-the-methods"><span class="header-section-number">6.8.5</span> Differences in the methods</h3>
+<p>Generally speaking, Maximum likelihood, Bayesian analysis, and parsimony (less so) explicitly evoke models of evolution, which is a good thing. The more accurate the model, potentially the higher the chance of determining a reliable tree. Distance methods sort of do something similar, but by reducing a large amount of sequence data into a single value comparing two taxa risks losing important patterns that may exist in the data, which may impact the reliability of the resulting evolutionary tree. However, distance type methods are incredibly useful in a lot of circumstances, in particular when you have very large data sets like comparing whole genomes.</p>
+<p>There used to be fair amount of controversy over which class of methods result in the most robust results, but today it is generally accepted that ML (or Bayesian) methods are probably your best bet. However, both ML amd Bayesian methods tend to be sensitive to large evolutionary distances, are computationally time consuming, and the results may depend on the specific model of evolution used. In addition they are all but impossible to use for some very large data sets, though that is changing rapidly with the improvements in the algorithms and CPU/GPU power.</p>
+<p>There are numerous online, command line, and GUI packages available for performing ML and Bayesian analyses.</p>
+<p><strong><em>NOTE: list some here in a callout.</em></strong></p>
 </section>
 </section>
 <section id="evaluating-confidence-in-phylogenies" class="level2" data-number="6.9">
 <h2 data-number="6.9" class="anchored" data-anchor-id="evaluating-confidence-in-phylogenies"><span class="header-section-number">6.9</span> Evaluating Confidence in Phylogenies</h2>
-<p>Phylogenetic analyses also involve assessing how confident we are in the results. There actually are two ways to think about what we mean by confidence in a tree: (1) How well does my tree reflect the true tree, and (2) how much confidence can I have in my tree. When you think about it, these are two very different questions.</p>
+<p>An important part of phylogenetic analyses involve assessing how confident we are in the results. There actually are two ways to think about what we mean by confidence in a tree: (1) How well does my tree reflect the true tree, and (2) how much confidence can I have in my tree. When you think about it, these are two very different questions.</p>
 <section id="how-well-does-my-tree-reflect-the-true-tree" class="level3" data-number="6.9.1">
 <h3 data-number="6.9.1" class="anchored" data-anchor-id="how-well-does-my-tree-reflect-the-true-tree"><span class="header-section-number">6.9.1</span> How well does my tree reflect the true tree</h3>
-<p>This is usually unanswerable since one rarely knows the true evolutionary relationship among the taxa we are interested in. However, we can rephrase this question a little to “how good is a particular method for returning the true tree when it is know?” This can potentially be addressed experimentally using simulated datasets or by simulating diverging populations using an experimental organism that can be grown in the lab and reproduces rapidly, for example independent cultures of bacteria.</p>
-<p>In terms of simulated datasets, simlated data can be generated based on the models of sequence divergence we discuss above. In brief, you set a known tree, then simulate data sets based on this tree using an evolutionary model, and then use various methods to see how well they do reconstructing the known tree from the simulated data. This was (and continues to be ) an important aspect of what is know theoretical phylogenetics, though sort of niche area in evolutionary biology as you probably can imagine.</p>
+<p>This is usually unanswerable since one rarely knows the true evolutionary relationship among the taxa we are interested in. However, we can rephrase this question a little to “how good is a particular method for returning the true tree when it is know?” This can potentially be addressed experimentally using simulated datasets or by simulating diverging populations using an experimental organism that can reproduce rapidly and be grown in the lab, for example independent cultures of bacteria.</p>
+<p>In terms of simulated datasets, data can be generated based on the models of sequence divergence we discuss above. In brief, you set a known tree, simulate data sets based on this tree using an evolutionary model, and then use various methods to see how well they do reconstructing the known tree from the simulated data. This was (and continues to be ) an important aspect of what is know theoretical phylogenetics, which is sort of niche area in evolutionary biology as you probably can imagine.</p>
 </section>
 <section id="how-much-confidence-can-i-have-in-the-topology" class="level3" data-number="6.9.2">
 <h3 data-number="6.9.2" class="anchored" data-anchor-id="how-much-confidence-can-i-have-in-the-topology"><span class="header-section-number">6.9.2</span> How much confidence can I have in the topology</h3>
 <p>Another way to word this question might be <em>given the data set used, how well does my tree reflect the original data</em>. This is a little easier to address, though the methods are not without controversy. Generally these are statistical methods, akin to those used in general data analysis, that are employed to test the robustness of the tree against randomness. The main techniques are used:</p>
 <section id="bootstrapping" class="level4" data-number="6.9.2.1">
 <h4 data-number="6.9.2.1" class="anchored" data-anchor-id="bootstrapping"><span class="header-section-number">6.9.2.1</span> Bootstrapping</h4>
-<p>Bootstrapping is a statistical resampling method used to asssess the relaibility of inferred trees. It works by resampling the data with replacement to create new datasets (called <em>pseudo-replication</em>). By repeatedly reconstructing trees from these “bootstrapped” datasets using the method, we can estimate the robustness of each node by how often it shows up in the bootstrapped replicates. For example, a bootstrap value of 0.7 means that clade appeared in 70% of the pseudreplicates. The results are usually shown as a bootstrap consensus tree, with bootstrap values tagged to various branch points. A high bootstrap value (e.g., 98%) indicates strong confidence in a particular relationship.</p>
-<p>Note that bootstrap values are not probabilities, though they may look like it at first glance. They are a measure of confidence given the data set used. Bootstrapping can be performed routinely, with just about every program that estimates evolutionary trees providing an option to estimate bootstrap support values. They can take quite a bit of time for complex datasets or models. Nonetheless, they are pretty much standard practice for any phylogenetics analysis.</p>
+<p>Bootstrapping is a statistical resampling method used to assess the reliability of inferred trees. It works by resampling the data with replacement to create new datasets (called <em>pseudo-replication</em>). By repeatedly reconstructing trees from these “bootstrapped” datasets using the same methodology, we can estimate the robustness of each node by how often it shows up in the bootstrapped replicates. For example, a bootstrap value of 0.7 means that clade appeared in 70% of the pseudreplicates. The results are usually shown as a bootstrap consensus tree, with bootstrap values tagged to various branch points. A high bootstrap value (e.g., 98%) indicates strong confidence in a particular relationship.</p>
+<p>Note that bootstrap values are not probabilities, though they may look like it at first glance. They are a measure of confidence given the data set used. Bootstrapping can be performed routinely, with just about every program that estimates evolutionary trees providing an option to estimate bootstrap support values. They can take quite a bit of time for complex datasets or models. Nonetheless, they are pretty much standard practice for any phylogenetic analysis.</p>
 </section>
 <section id="parametric-bootstrapping" class="level4" data-number="6.9.2.2">
 <h4 data-number="6.9.2.2" class="anchored" data-anchor-id="parametric-bootstrapping"><span class="header-section-number">6.9.2.2</span> Parametric bootstrapping</h4>
-<p>Parametric bootstrapping is related to regular bootstrapping (technically called <em>nonparametric bootstrapping</em>), but differs in that it simulates new datasets based on a model and parameters estimated from the original data rather than resampling the original data. This works by estimating the parameters for a particular evolutionary model, then simulate synthetic data sets by simulating sequence evolution along a given tree. Each simulated dataset is then analyzed to infer a phylogenetic tree using the same methods applied to the original dataset, and the resulting trees compared to the original tree to determine the frequency of simulated trees that support the branching pattern of the original tree.</p>
-<p>Parametric bootstrapping is not widely used since it tends to be extremely computationally intensive, and suffers from other limitations. Most standard phylogenetics packages do not support it, so it usually requires a fair degree of experience to run the specific programs for performing the simulations and incorporate them into a work flow.</p>
+<p>Parametric bootstrapping is related to regular bootstrapping (technically called <em>nonparametric bootstrapping</em>), but differs in that it simulates new datasets based on a model and parameters estimated from the original data rather than resampling the original data. This works by estimating the parameters for a particular evolutionary model, then simulating synthetic sequence data sets along the given tree. Each simulated dataset is then analyzed to infer a phylogenetic tree using the same methods applied to the original dataset, and the resulting trees compared to the original tree to determine the frequency of simulated trees that support the branching pattern of the original tree.</p>
+<p>Parametric bootstrapping is not widely used since it tends to be extremely computationally intensive, and suffers from other limitations. Most standard phylogenetic packages do not support it, so it usually requires a fair degree of coding skills and experience to run the specific programs for performing the simulations and incorporate them into a manageable work flow.</p>
 </section>
 <section id="likelihoodbayesian-estimates" class="level4" data-number="6.9.2.3">
 <h4 data-number="6.9.2.3" class="anchored" data-anchor-id="likelihoodbayesian-estimates"><span class="header-section-number">6.9.2.3</span> Likelihood/Bayesian estimates</h4>
@@ -1183,13 +1218,20 @@ P(tree|data)=\frac{P(data|tree)P(tree)}{P(data)}
 <section id="uses-of-phylogenies" class="level2" data-number="6.10">
 <h2 data-number="6.10" class="anchored" data-anchor-id="uses-of-phylogenies"><span class="header-section-number">6.10</span> Uses of phylogenies</h2>
 <p><strong><em>IN PROGRESS to be completed later</em></strong></p>
-<p>molecular clock history of genes reconstructing ancestors studying adaptations (the comparative method) biodiversity identifying pathoges and evolutionary epidemiology coevolution</p>
-<p>Classification: Phylogenetics based on sequence data provides us with more accurate descriptions of patterns of relatedness than was available before the advent of molecular sequencing. Phylogenetics now informs the Linnaean classification of new species.</p>
-<p>Forensics: Phylogenetics is used to assess DNA evidence presented in court cases to inform situations, e.g.&nbsp;where someone has committed a crime, when food is contaminated, or where the father of a child is unknown.</p>
-<p>Identifying the origin of pathogens: Molecular sequencing technologies and phylogenetic approaches can be used to learn more about a new pathogen outbreak. This includes finding out about which species the pathogen is related to and subsequently the likely source of transmission. This can lead to new recommendations for public health policy.</p>
-<p>Conservation: Phylogenetics can help to inform conservation policy when conservation biologists have to make tough decisions about which species they try to prevent from becoming extinct.</p>
-<p>Bioinformatics and computing: Many of the algorithms developed for phylogenetics have been used to develop software in other fields.</p>
-<p>With the advent of newer, faster sequencing technologies, it is now possible to take a sequencing machine out to the field and sequence species of interest in situ. Phylogenetics is needed to add biological meaning to the data.</p>
+<ul>
+<li><p>molecular clock</p></li>
+<li><p>history of genes</p></li>
+<li><p>reconstructing ancestors</p></li>
+<li><p>studying adaptations (the comparative method)</p></li>
+<li><p>coevolution</p></li>
+<li><p>Classification: Phylogenetics based on sequence data provides us with more accurate descriptions of patterns of relatedness than was available before the advent of molecular sequencing. Phylogenetics now informs the Linnaean classification of new species.</p></li>
+<li><p>Forensics: Phylogenetics is used to assess DNA evidence presented in court cases to inform situations, e.g.&nbsp;where someone has committed a crime, when food is contaminated, or where the father of a child is unknown.</p></li>
+<li><p>identifying pathogens and evolutionary epidemiology</p></li>
+<li><p>Identifying the origin of pathogens: Molecular sequencing technologies and phylogenetic approaches can be used to learn more about a new pathogen outbreak. This includes finding out about which species the pathogen is related to and subsequently the likely source of transmission. This can lead to new recommendations for public health policy.</p></li>
+<li><p>biodiversity</p></li>
+<li><p>Conservation: Phylogenetics can help to inform conservation policy when conservation biologists have to make tough decisions about which species they try to prevent from becoming extinct.</p></li>
+<li><p>With the advent of newer, faster sequencing technologies, it is now possible to take a sequencing machine out to the field and sequence species of interest in situ.</p></li>
+</ul>
 </section>
 <section id="in-closing" class="level2" data-number="6.11">
 <h2 data-number="6.11" class="anchored" data-anchor-id="in-closing"><span class="header-section-number">6.11</span> In closing</h2>
@@ -1665,8 +1707,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./EvolGenetics.html" class="pagination-link" aria-label="Evolutionary Genetics">
-        <span class="nav-page-text">Evolutionary Genetics</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./GenesMutationGeneticVariation.html" class="pagination-link" aria-label="Genes, mutation, and genetic variation">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Genes, mutation, and genetic variation</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

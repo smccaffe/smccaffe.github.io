@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="S. Shawn McCafferty and Michael Tobler">
+<meta name="author" content="Modified by S. Shawn McCafferty with permission from Michael Tobler">
 <meta name="dcterms.date" content="2025-01-27">
 
 <title>Evolution 303</title>
@@ -121,8 +121,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./IntroBasicConcepts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction: Basic Concepts</span></a>
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Basic Concepts</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -156,8 +156,8 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./EvolTreesAndPhylogenetics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Evolutionary Trees and Phylogenetics</span></a>
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Working With Evolutionary Trees</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -179,7 +179,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./EvolGenetics.html" class="sidebar-item-text sidebar-link">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Evolutionary Genetics</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -349,7 +349,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Evolution 303</h1>
-<p class="subtitle lead">a primer for BIO303 Evolution at Wheaton College</p>
+<p class="subtitle lead">A modified version of Michael Tobler’s A Primer of Evolution for BIO303 Evolution at Wheaton College</p>
 </div>
 
 
@@ -359,7 +359,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>S. Shawn McCafferty and Michael Tobler </p>
+             <p>Modified by S. Shawn McCafferty with permission from Michael Tobler </p>
           </div>
   </div>
     
@@ -380,12 +380,14 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="evolution-303" class="level1 unnumbered">
 <h1 class="unnumbered">Evolution 303</h1>
-<p><em>by S. Shawn McCafferty</em></p>
-<p>Welcome to the <strong>beta draft (v0.1)</strong> of the <strong>OER-like text</strong> for BIO303 Evolution at Wheaton College. I put this OER-like text together specifically for the students in my BIO303 Evolution course for the S25 term. This text was based on lecture notes and slides developed over the twenty years of teaching BIO303 at Wheaton College, and was built off Michael Tobler’s outstanding OER text <a href="https://michitobler.github.io/primer-of-evolution/index.html">A Primer of Evolution</a>.</p>
-<p><strong>Why “OER-like”?</strong> It is not my intention to make this document publicly available; it is being written specifically for the students at Wheaton College. That being the case, since it is based on my notes and slides from over twenty years, including many images and ideas from numerous different commercial texts, some of the material may not be properly cited, or at least at a level expected from a public OER under the Creative Commons guidelines. It simply is not worth my time to reach out to the publishers and authors to gain approval to use the images and ideas, so I use these images and ideas under the Fair Use doctrine with no intention of commercial value or copyright violation. It is my opinion that makes this not an OER document to be made publicly available, but an OER-like document akin to me making my slides available to my students.</p>
-<p><strong>Why “beta draft (v0.1)”?</strong> Following Michi’s lead using Bookdown, I am writing this document using <a href="https://quarto.org">Quarto</a> (the next generation of Bookdown), which is taking a bit longer to work through than I anticipated. That plus getting kind of a late start on it translates into me not being able to complete the document and proof it properly before the start of the the upcoming S25 term. So, in my opinion, not really ready for prime time…yet.</p>
+<p><em>A modified version of Michael Tobler’s <a href="https://michitobler.github.io/primer-of-evolution/index.html">A Primer of Evolution</a></em></p>
+<p>Modified by S. Shawn McCafferty <em>for BIO303 Evolution at Wheaton College</em>,</p>
+<p>with permission from Michael Tobler</p>
+<p>Welcome to the <strong>beta draft (v0.1)</strong> of the <strong>OER-like text</strong> for BIO303 Evolution at Wheaton College. I put this OER-like text together specifically for the students in my BIO303 Evolution course for the S25 term. This text was based on lecture notes and slides developed over the twenty years of teaching BIO303 at Wheaton College, and was built around Michael Tobler’s outstanding OER text <a href="https://michitobler.github.io/primer-of-evolution/index.html">A Primer of Evolution</a>.</p>
+<p><strong>Why “OER-like”?</strong> It is not my intention to make this document publicly available; it is being written specifically for the students at Wheaton College. That being the case, since it is based on my notes and slides from over twenty years, including many images and ideas from various commercial texts and other resources. Some of the material may not be properly cited, or at least at a level expected from a public OER under the Creative Commons guidelines. It simply is not worth my time to reach out to the publishers and authors to gain approval to use the various images and ideas, which I make use of under the Fair Use Doctrine with no intention of commercial value or copyright violation. It is my opinion that makes this document more equivent to making my slides available to my students than a true OER text under Creative Commons.</p>
+<p><strong>Why “beta draft (v0.1)”?</strong> Following Michi’s lead using Bookdown, I am writing this document using <a href="https://quarto.org">Quarto</a> (the next generation of Bookdown), which is taking a bit longer to work through than I anticipated. That plus getting kind of a late start on it translates into me not being able to complete the document and proof it properly before the start of the the upcoming S25 term.</p>
 <p>The entire text is written using Quarto, formatted to HTML, and optimized for online use. If you would prefer a PDF version, just let me know and I can render one for you, but the formatting will be a little off.</p>
-<p>I would like to thank Michael Tobler sharing his hard work with me and allowing me to “have at it”. In that spirit, I retain Michi’s name on the document as a co-author, though any errors are my own doing. Below I have included the <strong>Front Matters</strong> and <strong>Acknowledgments</strong> from his original OER since in my opinion they are just as relevant here.</p>
+<p>I would like to thank Michael Tobler for sharing his hard work with me and allowing me to “have at it”. In that spirit, I retain Michi’s name on the document as a co-author, though any errors are my own doing. Below I have included the <strong>Front Matters</strong> and <strong>Acknowledgments</strong> from his original OER since in my opinion they are just as relevant here.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
