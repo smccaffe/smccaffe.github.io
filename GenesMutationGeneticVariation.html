@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -31,7 +51,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./IntroEvolGenetics.html" rel="next">
-<link href="./EvolGenetics.html" rel="prev">
+<link href="./EstimatingEvoTrees.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -69,6 +89,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -81,7 +130,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./EvolGenetics.html">Evolutionary Genetics</a></li><li class="breadcrumb-item"><a href="./GenesMutationGeneticVariation.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Genes, mutation, and genetic variation</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./GenesMutationGeneticVariation.html">Evolutionary Genetics</a></li><li class="breadcrumb-item"><a href="./GenesMutationGeneticVariation.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Genes, mutation, and genetic variation</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -120,8 +169,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./IntroBasicConcepts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction: Basic Concepts</span></a>
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Basic Concepts</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -155,8 +204,8 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./EvolTreesAndPhylogenetics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Evolutionary Trees and Phylogenetics</span></a>
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Working With Evolutionary Trees</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -178,7 +227,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./EvolGenetics.html" class="sidebar-item-text sidebar-link">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Evolutionary Genetics</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -338,13 +387,19 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#the-genotype-phenotype-gap" id="toc-the-genotype-phenotype-gap" class="nav-link active" data-scroll-target="#the-genotype-phenotype-gap"><span class="header-section-number">7.1</span> The Genotype-Phenotype Gap</a></li>
+  <li><a href="#the-genotype-phenotype-gap" id="toc-the-genotype-phenotype-gap" class="nav-link active" data-scroll-target="#the-genotype-phenotype-gap"><span class="header-section-number">7.1</span> The Genotype-Phenotype Gap</a>
+  <ul class="collapse">
+  <li><a href="#the-expanded-central-dogma" id="toc-the-expanded-central-dogma" class="nav-link" data-scroll-target="#the-expanded-central-dogma"><span class="header-section-number">7.1.1</span> The Expanded Central Dogma</a></li>
+  <li><a href="#genome-anatomy" id="toc-genome-anatomy" class="nav-link" data-scroll-target="#genome-anatomy"><span class="header-section-number">7.1.2</span> Genome Anatomy</a></li>
+  <li><a href="#number-of-genes-associated-with-many-phenotypic-characters" id="toc-number-of-genes-associated-with-many-phenotypic-characters" class="nav-link" data-scroll-target="#number-of-genes-associated-with-many-phenotypic-characters"><span class="header-section-number">7.1.3</span> Number of genes associated with many phenotypic characters</a></li>
+  </ul></li>
   <li><a href="#mutation-the-fundamental-source-of-novelty" id="toc-mutation-the-fundamental-source-of-novelty" class="nav-link" data-scroll-target="#mutation-the-fundamental-source-of-novelty"><span class="header-section-number">7.2</span> Mutation: The Fundamental Source of Novelty</a>
   <ul class="collapse">
   <li><a href="#point-mutations" id="toc-point-mutations" class="nav-link" data-scroll-target="#point-mutations"><span class="header-section-number">7.2.1</span> Point Mutations</a></li>
-  <li><a href="#inversions" id="toc-inversions" class="nav-link" data-scroll-target="#inversions"><span class="header-section-number">7.2.2</span> Inversions</a></li>
-  <li><a href="#gene-duplication" id="toc-gene-duplication" class="nav-link" data-scroll-target="#gene-duplication"><span class="header-section-number">7.2.3</span> Gene Duplication</a></li>
-  <li><a href="#genome-duplication" id="toc-genome-duplication" class="nav-link" data-scroll-target="#genome-duplication"><span class="header-section-number">7.2.4</span> Genome Duplication</a></li>
+  <li><a href="#structural-variants" id="toc-structural-variants" class="nav-link" data-scroll-target="#structural-variants"><span class="header-section-number">7.2.2</span> Structural variants</a></li>
+  <li><a href="#inversions" id="toc-inversions" class="nav-link" data-scroll-target="#inversions"><span class="header-section-number">7.2.3</span> Inversions</a></li>
+  <li><a href="#gene-duplication" id="toc-gene-duplication" class="nav-link" data-scroll-target="#gene-duplication"><span class="header-section-number">7.2.4</span> Gene Duplication</a></li>
+  <li><a href="#genome-duplication" id="toc-genome-duplication" class="nav-link" data-scroll-target="#genome-duplication"><span class="header-section-number">7.2.5</span> Genome Duplication</a></li>
   </ul></li>
   <li><a href="#mutation-rates" id="toc-mutation-rates" class="nav-link" data-scroll-target="#mutation-rates"><span class="header-section-number">7.3</span> Mutation Rates</a></li>
   <li><a href="#quantifying-genetic-variation" id="toc-quantifying-genetic-variation" class="nav-link" data-scroll-target="#quantifying-genetic-variation"><span class="header-section-number">7.4</span> Quantifying Genetic Variation</a></li>
@@ -357,9 +412,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./EvolGenetics.html">Evolutionary Genetics</a></li><li class="breadcrumb-item"><a href="./GenesMutationGeneticVariation.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Genes, mutation, and genetic variation</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./GenesMutationGeneticVariation.html">Evolutionary Genetics</a></li><li class="breadcrumb-item"><a href="./GenesMutationGeneticVariation.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Genes, mutation, and genetic variation</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Genes, mutation, and genetic variation</span></h1>
+<h1 class="title"><span id="sec-mutvar" class="quarto-section-identifier"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Genes, mutation, and genetic variation</span></span></h1>
 </div>
 
 
@@ -376,38 +431,102 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><em>DRAFT 20250113</em></p>
-<p><strong><em>PERSONAL NOTE: first round editing 20241211</em></strong></p>
 <p>So far, we have primarily explored the process of evolution from a phenotypic perspective. We considered how ecological sources of selection impact the survival and reproduction of individuals expressing different heritable traits, and how fitness differences of variants in turn impact the phenotypic composition of subsequent generations. While there is nothing inherently wrong with this approach, it ignores the mechanisms that underlie the expression of phenotypic traits and inheritance. Darwin was also agnostic about these aspects, largely treating what we call “genetics” as a black box. He was unaware of the work of his contemporary, Gregor Mendel, an Augustinian friar that established some of the basic tenets of heredity. It was not until the 1930s and 1940s that genetics and Darwinian evolution were integrated into a unified theory. The fusion of the two fields is known as the Modern Synthesis.</p>
 <p>A number of biologists made critical contributions to the Modern Synthesis. Ronald Fisher, Jack Haldane, and Sewall Wright are credited with developing the theoretical basis of population genetics. Theodosius Dobzhansky pioneered evolutionary genetic studies in natural populations, chiefly using <em>Drosophila</em> fruit flies to provide empirical evidence that supported the theoretical developments. Ernst Mayr shaped the modern definition of species and framed critical hypotheses about how speciation occurs. And finally, George Gaylord Simpson integrated findings from paleontology with those in genetics and natural selection.</p>
-<p>The Modern Synthesis largely strengthened Darwin’s notion of evolution by closing critical gaps associated with the mechanisms of heredity. This allowed for a more complete and nuanced understanding of evolutionary processes. Rather than just investigating how selection shapes phenotypic variation, a modern view of evolution takes into account how genes and the environment interact to shape developmental and physiological processes that give rise to phenotypic traits of functioning organisms (Figure @ref(fig:beyondphenotype)). The environment also tests phenotypic variants, causing fitness differences that ultimately change the genetic composition of subsequent generations (Figure @ref(fig:beyondphenotype)). In the following chapters, we will explore the genetic basis of evolutionary change and discuss how the many facets of ecology shape trait expression and evolution.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/g2p2.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption>Conceptual framework of a modern perspective on evolution that includes the genetic basis of phenotypic traits.</figcaption>
+<p>The Modern Synthesis largely strengthened Darwin’s notion of evolution by closing critical gaps associated with the mechanisms of heredity. This allowed for a more complete and nuanced understanding of evolutionary processes. Rather than just investigating how selection shapes phenotypic variation, a modern view of evolution takes into account how genes and the environment interact to shape developmental and physiological processes that give rise to phenotypic traits of functioning organisms (Figure @ref(fig:beyondphenotype)). The environment also tests phenotypic variants, causing fitness differences that ultimately change the genetic composition of subsequent generations (<a href="#fig-beyondphenotype" class="quarto-xref">Figure&nbsp;<span>7.1</span></a>). In the following chapters, we will explore the genetic basis of evolutionary change and discuss how the many facets of ecology shape trait expression and evolution.</p>
+<div id="fig-beyondphenotype" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-beyondphenotype-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<img src="images/g2p2.png" class="img-fluid figure-img">
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-beyondphenotype-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.1: Conceptual framework of a modern perspective on evolution that includes the genetic basis of phenotypic traits.
+</figcaption>
 </figure>
-</div>
-</div>
 </div>
 <p>The first task in exploring evolution from a genetic perspective is to establish how genomic variation translates to phenotypic variation. We will then discuss the fundamental sources of genetic variation, how we can quantify such variation in natural populations, and how we can use knowledge of genetic variation to test simple evolutionary hypotheses.</p>
 <section id="the-genotype-phenotype-gap" class="level2" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="the-genotype-phenotype-gap"><span class="header-section-number">7.1</span> The Genotype-Phenotype Gap</h2>
 <p>A common misconception about the origin of novel phenotypic variants is that they are primarily caused by mutations in protein-coding regions of the genome, which change the structure and function of a protein and ultimately create variation in a particular trait. In reality, the ways by which genetic variation can impact phenotypic traits are much more diverse and complex. While technological breakthroughs over the past decades have made it relatively easy to quantify genetic variation across the genome (see below), connecting mutations at particular loci to phenotypic traits has proven much more challenging. We call this the genotype-phenotype gap, and closing this gap is one of the biggest challenges in modern biology.</p>
-<p>Part of the complexity arises from the sheer number of genes in a genome. The human genome, for example, consists of over 30,000 genes. More importantly, one-to-one mapping—where one gene causes the expression of a specific phenotypic trait or at least an aspect of it—is relatively rare; rather, genes and their derivative products (different RNAs, proteins, and ultimately metabolites) interact in complex ways, such that the mapping is really many-to-many (many genes affect multiple traits at ones). These complexities become evident when we consider a simple genotype-phenotype framework, such as illustrated in Figure @ref(fig:g2p).</p>
-<div class="cell">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/g2p.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption>Emergent phenotypic traits are the product of variation in the genome and the environmentally-dependent expression of that genomic variation. Figure adopted from Ritchie et al.&nbsp;(2005). Beetle photo by <a href="https://www.flickr.com/photos/coleoptera-us/">Udo Schmidt</a>, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>.</figcaption>
-</figure>
+<p>What is the cause of this oftentimes complex connection between genotype (genome) and phenotype (phenome)? Not surprising, because it can be…complicated. To get a sense of this complexity, let’s consider three important aspects: the connection between genome to phenome as described in what I like to call the Expanded Central Dogma, the complexity of genome structure and function, and the large number of genes associated with many phenotypic characters.</p>
+<section id="the-expanded-central-dogma" class="level3" data-number="7.1.1">
+<h3 data-number="7.1.1" class="anchored" data-anchor-id="the-expanded-central-dogma"><span class="header-section-number">7.1.1</span> The Expanded Central Dogma</h3>
+<p>It has been well accepted for many years now that Crick’s original Central Dogma of Molecular Biology (<span class="citation" data-cites="crick1958">(<a href="#ref-crick1958" role="doc-biblioref">Crick 1958</a>)</span>; <a href="https://en.wikipedia.org/wiki/Central_dogma_of_molecular_biology">also see the Wikipedia link here</a>), though revolutionary when first proposed as the flow of information from DNA to protein synthesis, does little justice to the true complexity that characterizes the connection between genes and phenotypes. Recently there has been an emphasis on expanding or extending the Central Dogma to incorporate new findings like the role of noncoding RNAs, the regulation of gene expression, and epigenetics (see for example <span class="citation" data-cites="perkins2004">(<a href="#ref-perkins2004" role="doc-biblioref">Perkins, Jeffries, and Sullivan 2004</a>)</span>; <span class="citation" data-cites="haseltine2024">(<a href="#ref-haseltine2024" role="doc-biblioref">Haseltine and Patarca 2024</a>)</span>). These complexities become evident when we consider the numerous steps involved in going from the genome to the phenome from a molecular biology perspective as we understand it today, shown in the callout below.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+The Expanded Central Dogma of Molecular Biology
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><img src="images/ExpCenrtralDogma.jpg" class="img-fluid"></p>
+<p>A rough sketch of The Expanded Central Dogma that I use as an introduction and roadmap in one of my courses at Wheaton College, BIO316 Molecular Biology and Genomics. Note that this is a very Eukaryotic centered approach, with the addition of the processes of genome replication (mitosis and meiosis) along with the sources of genomic variation like mutation, independent assortment, and recombination, an emphasis on accessing the genome (chromatin structure and epigenetics), the division of the mechanisms of replication, transcription, and translation into the steps of initiation, elongation, and elongation to emphasize the role of regulation, taking a more -omic view of the processes (<em>e.g.</em> genome, transcriptome, proteome), and the processing of RNA and proteins. All these additional steps expand on Crick’s proposal to incorporate our evolving understanding of how we go from genome to phenome, and help appreciate the multiple ways a mutation can potentially impact protein expression and potentially the phenotype.</p>
 </div>
 </div>
 </div>
 <p>RNA is transcribed from DNA by RNA polymerase, which produces messenger RNAs (mRNAs) that serve as templates for protein synthesis. After transcription, introns are removed by RNA splicing, and alternative splicing can recombine different exons from the same gene, which allows a single gene to code for multiple proteins with different functions. In addition, not all RNAs transcribed from DNA lead to functional proteins. Micro RNAs (miRNA) are short, non-coding RNA molecules that can silence mRNAs, and thus play a role in the post-transcriptional regulation of gene expression. Essentially, miRNAs bind to mRNAs with complementary sequences, which causes those mRNAs to degrade and interrupts the translation of mRNAs into functional proteins. In summary, RNAs play a critical role in multiple processes, not only because they encode templates for protein synthesis, but also because they can regulate the amount of protein produced by other genes.</p>
-<p>Similar complexities are also evident at the proteome level. Sometimes, a single type of mRNA gives rise to a functional protein after translation. But many enzymes are actually multi-protein complexes and require information from multiple genes to make one functional unit. A great example are the enzymes associated with the oxidative phosphorylation (OxPhos) pathway in mitochondria, which produce the majority of the ATP needed for maintenance of cellular function. All five OxPhos enzymes are multi-protein complexes, and complex I (NADH dehydrogenase) is composed of 45 subunits, not counting the proteins involved in the assembly of the enzyme. Furthermore, some proteins actually act as transcription factors (TF in Figure @ref(fig:g2p)). These transcription factors bind to transcription factor binding sites (TFbs) in the genome, either enhancing or suppressing the expression of other genes. So proteins are also involved in complex feedback loops that regulate gene expression in response to various internal and external stimuli.</p>
+<p>Similar complexities are also evident at the proteome level. Sometimes, a single type of mRNA gives rise to a functional protein after translation. But many enzymes are actually multi-protein complexes and require information from multiple genes to make one functional unit. A great example are the enzymes associated with the oxidative phosphorylation (OxPhos) pathway in mitochondria, which produce the majority of the ATP needed for maintenance of cellular function. All five OxPhos enzymes are multi-protein complexes, and complex I (NADH dehydrogenase) is composed of 45 subunits, not counting the proteins involved in the assembly of the enzyme. Furthermore, some proteins actually act as transcription factors (TF in <a href="#fig-g2p" class="quarto-xref">Figure&nbsp;<span>7.2</span></a>). These transcription factors bind to transcription factor binding sites (TFbs) in the genome, either enhancing or suppressing the expression of other genes. So proteins are also involved in complex feedback loops that regulate gene expression in response to various internal and external stimuli.</p>
+<p>Note what is missing in the above figure: the final connection of proteome to phenome. A simplified view of this genotype-phenotype framework is illustrated in both <a href="#fig-beyondphenotype" class="quarto-xref">Figure&nbsp;<span>7.1</span></a> from above as well as <a href="#fig-g2p" class="quarto-xref">Figure&nbsp;<span>7.2</span></a> from Michi Tobler’s OER.</p>
+<div id="fig-g2p" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-g2p-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<img src="images/g2p.png" class="img-fluid figure-img">
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-g2p-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.2: Emergent phenotypic traits are the product of variation in the genome and the environmentally-dependent expression of that genomic variation. Figure adopted from Ritchie et al.&nbsp;(2005). Beetle photo by <a href="https://www.flickr.com/photos/coleoptera-us/">Udo Schmidt</a>, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>.
+</figcaption>
+</figure>
+</div>
+<p>This loopback between patterns of protein expression and interaction, filtered through the environment (which can impact gene expression at multiple levels), ecology, development, and mechanisms that drive evolution clearly demonstrate how complex the connection between genomic variation and phenotype can be.</p>
+</section>
+<section id="genome-anatomy" class="level3" data-number="7.1.2">
+<h3 data-number="7.1.2" class="anchored" data-anchor-id="genome-anatomy"><span class="header-section-number">7.1.2</span> Genome Anatomy</h3>
+<p>Another complexity to factor into our understanding of how variation in the genome can result in variation in the phenotype is the anatomy and structure of genomes. Genomes consist of much more than just genes <em>per se</em> (using a modern definition of a gene as any region of the genome that is transcribed into a functional product; see <span class="citation" data-cites="gerstein2007">(<a href="#ref-gerstein2007" role="doc-biblioref">Gerstein et al. 2007</a>)</span> and <a href="https://en.wikipedia.org/wiki/Gene">the Wiki link on Gene</a>). The figure below summarizes briefly the anatomy of a Eukaryotic genome using the human genome as an example.</p>
+<div id="fig-genomeanat" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-genomeanat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<img src="images/GenomeAnatComplete.png" class="img-fluid figure-img">
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-genomeanat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.3: Simplified view of the human genome anatomy. Note that only <em>ca.</em> 35% of the genome is gene and gene related, with only <em>ca.</em> 1.5% actually coding for polypeptides. Within the gene related we also have introns, 5’ and 3’ UTRs, pseudogenes, noncoding RNAs, and cis and trans regulatory elements. The remaining <em>ca.</em> 65% of the genome consists of tandem (<em>e.g.</em> microsatellites and minisatellites, including centromeric and telemeric regions) and dispersed repeats (including DNA transposons, retrotransposons, and endogenous retroviruses). With this level of “anatomical” complexity, where and what type of mutation clearly impacts how that mutation can potentially effect the phenotype and fitness of an organism.
+</figcaption>
+</figure>
+</div>
+<p>Though this genomic complexity is fascinating in of itself, going into the details is beyond the scope of this text. Understanding that this complexity exists however is essential to truly begin to wrap one’s head around the entire concept of a mutation, leading to much more nuanced view than is usually presented in most introductory biology and genetic courses.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+For more information
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For more detailed information on genomes and genome anatomies, see this <a href="https://en.wikipedia.org/wiki/Genome">Wikipedia entry</a> for a general discussion and <a href="https://en.wikipedia.org/wiki/Human_genome">here for a human-genome specific</a> view. <span class="citation" data-cites="oudelaar2020">(<a href="#ref-oudelaar2020" role="doc-biblioref">Oudelaar and Higgs 2020</a>)</span> provides a thorough review of structure/function, and most modern molecular biology texts like <a href="https://www.routledge.com/Genomes-5/Brown/p/book/9780367674076?srsltid=AfmBOorPyn9CyTH0QPFz-E-UG2see87P_jIcOpHQYsernu5BeEt1Xymv">Brown’s Genomes 5th Ed</a> or <a href="https://www.amazon.com/Human-Molecular-Genetics-Tom-Strachan/dp/0815345895">Strachan’s Human Molecular genetics</a> provide outstanding overviews of our current knowledge on genome anatomies.</p>
+</div>
+</div>
+</section>
+<section id="number-of-genes-associated-with-many-phenotypic-characters" class="level3" data-number="7.1.3">
+<h3 data-number="7.1.3" class="anchored" data-anchor-id="number-of-genes-associated-with-many-phenotypic-characters"><span class="header-section-number">7.1.3</span> Number of genes associated with many phenotypic characters</h3>
+<p>A final part of the complexity between genome and phenome arises from the sheer number of genes in a genome. The human genome, for example, consists of over 30,000 genes. More importantly, one-to-one mapping—where one gene causes the expression of a specific phenotypic trait or at least an aspect of it—is relatively rare; rather, genes and their derivative products (different RNAs, proteins, and ultimately metabolites) interact in complex ways, such that the mapping is really many-to-many (many genes affect multiple traits at ones).</p>
 <p>Finally, different enzymes are organized into interconnected pathways that process the metabolites required for the maintenance of organismal function. Figure @ref(fig:metabolism) provides a glimpse at some of the metabolic pathways in human cells. As you can imagine, these metabolic networks are full of redundancy, such that similar phenotypic outcomes may actually be caused by different underlying mechanisms.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -434,6 +553,7 @@ Explore more
 </div>
 </div>
 </section>
+</section>
 <section id="mutation-the-fundamental-source-of-novelty" class="level2" data-number="7.2">
 <h2 data-number="7.2" class="anchored" data-anchor-id="mutation-the-fundamental-source-of-novelty"><span class="header-section-number">7.2</span> Mutation: The Fundamental Source of Novelty</h2>
 <p>Mutation is the fundamental source of variation that selection can act upon to create evolutionary change. Any change in the nucleotide sequence of a genome is considered a mutation. Mutations can involve single nucleotide substitutions, insertions and deletions (also called indels), inversions of chromosome segments, duplication of chromosome segments, and partial and complete genome duplications. Different types of mutations have different molecular origins and different consequences for the expression of phenotypic traits. Consequently, they also have different evolutionary implications.</p>
@@ -452,7 +572,7 @@ Definition: Mutation
 </div>
 <section id="point-mutations" class="level3" data-number="7.2.1">
 <h3 data-number="7.2.1" class="anchored" data-anchor-id="point-mutations"><span class="header-section-number">7.2.1</span> Point Mutations</h3>
-<p>Point mutations are changes in a single nucleotide of DNA. They include transitions and transversions that cause single nucleotide substitutions as well as single nucleotide insertions and deletions. Point mutations cause single nucleotide polymorphisms (SNPs; single base-pair differences in the DNA sequence), which are the basis for many population genetic analyses.</p>
+<p>Point mutations are changes in a single nucleotide of DNA. They include transitions and transversions that cause single nucleotide substitutions as well as single nucleotide insertions and deletions. Point mutations cause Single Nucleotide Polymorphisms (SNPs; single base-pair differences in the DNA sequence), which are the basis for many population genetic analyses. You may also see these type of small scale variantions referred to as Single Nucleotide Variants (SNV).</p>
 <section id="origins" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="origins">Origins</h4>
 <p>Point mutations primarily arise from mistakes during DNA replication. The mutations are either caused by random errors made by DNA polymerase (which copies the DNA during replication) or by random errors made by enzymes involved in DNA repair.</p>
@@ -487,66 +607,100 @@ Definition: Mutation
 <p>Finally, putatively non-functional genomic regions (pseudogenes and repeat sequences caused by transposons and retrotransposons) can make up large portions of a genome. Point mutations in these genomic regions largely have no fitness consequences; hence, they tend to be selectively neutral.</p>
 </section>
 </section>
-<section id="inversions" class="level3" data-number="7.2.2">
-<h3 data-number="7.2.2" class="anchored" data-anchor-id="inversions"><span class="header-section-number">7.2.2</span> Inversions</h3>
-<p>Inversions are regions of chromosomes that are flipped in direction. These mutations do not change the amount or kind of genetic material in the genome, only its sequential arrangement (Figure @ref(fig:inversion)).</p>
-<div class="cell">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/inversion.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption>Inversions are caused when double breaks in the DNA (indicated by asterisks) are fixed upon a central element flipping in direction.</figcaption>
+<section id="structural-variants" class="level3" data-number="7.2.2">
+<h3 data-number="7.2.2" class="anchored" data-anchor-id="structural-variants"><span class="header-section-number">7.2.2</span> Structural variants</h3>
+<p>Recent advances in Next Generation Sequencing (NGS) technologies has led to an emerging appreciation that many adaptations may be due not to simple SNVs, but rather larger sized chromosomal changes referred to as Structural Variants (SV; for example see <span class="citation" data-cites="mérot2020">(<a href="#ref-mérot2020" role="doc-biblioref">Mérot et al. 2020</a>)</span>). The types of SVs commonly found are summarized in <a href="#fig-structvar" class="quarto-xref">Figure&nbsp;<span>7.4</span></a>, which includes insertions/deletions (referred to as INDELS), duplications, inversions, and even grander scale genomic changes such as reciprocal translocation and Robertsonian fusions. Interestingly enough, transposable elements may play a very important role in causing various SVs.</p>
+<div id="fig-structvar" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-structvar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<img src="images/StructuralVariants2.jpg" class="img-fluid figure-img">
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-structvar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.4: SV defined as <em>genomic variation between individuals affecting the presence, abundance, position, and/or direction of a nucleotide sequence</em> (<span class="citation" data-cites="mérot2020">Mérot et al. (<a href="#ref-mérot2020" role="doc-biblioref">2020</a>)</span>]), and usually vary from &gt;50kb regions of the genome on up to hundreds-of-Mb-long. In the figure, balanced SVs change the position and/or order of genomic areas, where as unbalanced SVs involve a gain or loss of sequence. Abbreviations: CNV, copy number variant; MNV, multiple nucleotide variant; SNV, single nucleotide variant.
+</figcaption>
 </figure>
 </div>
+</section>
+<section id="inversions" class="level3" data-number="7.2.3">
+<h3 data-number="7.2.3" class="anchored" data-anchor-id="inversions"><span class="header-section-number">7.2.3</span> Inversions</h3>
+<p>Inversions are regions of chromosomes that are flipped in direction. These mutations do not change the amount or kind of genetic material in the genome, only its sequential arrangement (Figure @ref(fig:inversion)).</p>
+<div id="fig-inversion" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-inversion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<img src="images/inversion.png" class="img-fluid figure-img">
 </div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-inversion-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.5: Inversions are caused when double breaks in the DNA (indicated by asterisks) are fixed upon a central element flipping in direction.
+</figcaption>
+</figure>
 </div>
 <section id="origins-1" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="origins-1">Origins</h4>
-<p>Inversions are caused by double DNA breaks, in which the broken central piece is flipped before the DNA strands are joined back together by DNA ligase. While inversions can be only a few base pairs long (in which case they can act like point mutations), some are very large (&gt;4 megabases) and contain multiple functional genes.</p>
+<p>Inversions are caused by double DNA breaks, in which the broken central piece is flipped before the DNA strands are joined back together by DNA ligase. While inversions can be only a few base pairs long (in which case they can act like point mutations), some are very large (&gt;4 megabases) and contain multiple functional genes. It is thought the inverted repeats, including transposable elements, in concert with nonhomologous recombination may result in the formation of large inversion polymorphisms.</p>
 </section>
 <section id="phenotypic-impact-and-evolutionary-consequences-1" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="phenotypic-impact-and-evolutionary-consequences-1">Phenotypic Impact and Evolutionary Consequences</h4>
-<p>If the break points are located within a functional gene, inversions can cause the loss of function and corresponding negative impacts on phenotypic expression and fitness. In most cases, however, break points are located in intergenic regions, such that inversions have no visible phenotypic repercussions. Nonetheless, inversions can play an important role in evolution, especially if they contain multiple functional genes. In heterozygous individuals that have one copy of the chromosome with and one without the inversion, the likelihood of recombination within the inversion is reduced because of mechanical pairing issues associated with non-complimentary DNA. As a result, genes within an inversion are often inherited in blocks and have a reduced chance to be reshuffled during sex and recombination.</p>
+<p>If the break points are located within a functional gene, inversions can cause the loss of function and corresponding negative impacts on phenotypic expression and fitness. In most cases, however, break points are located in intergenic regions, such that inversions have no visible phenotypic repercussions. Nonetheless, inversions can play an important role in evolution, especially if they contain multiple functional genes. In heterozygous individuals that have one copy of the chromosome with and one without the inversion, the likelihood of recombination within the inversion is greatly reduced because of mechanical pairing issues associated with non-complimentary DNA. As a result, genes within an inversion are often inherited in blocks and have a reduced chance to be reshuffled during sex and recombination. A very interesting example of impacts of large scale inversion polymorphisms found in field mice (<em>Peromyscus maniculatus</em>) is described in <span class="citation" data-cites="hager2022">(<a href="#ref-hager2022" role="doc-biblioref">Hager et al. 2022</a>)</span>. These sorts of inversion polymorphsms have been referred to as <strong>supergenes</strong>, and may play a very important role in rapid evolution and adaptations (see for example <span class="citation" data-cites="tigano2022">(<a href="#ref-tigano2022" role="doc-biblioref">Tigano 2022</a>)</span> and <span class="citation" data-cites="sodeland2022">(<a href="#ref-sodeland2022" role="doc-biblioref">Sodeland et al. 2022</a>)</span> for a specific example in Atlantic Cod).</p>
 </section>
 </section>
-<section id="gene-duplication" class="level3" data-number="7.2.3">
-<h3 data-number="7.2.3" class="anchored" data-anchor-id="gene-duplication"><span class="header-section-number">7.2.3</span> Gene Duplication</h3>
+<section id="gene-duplication" class="level3" data-number="7.2.4">
+<h3 data-number="7.2.4" class="anchored" data-anchor-id="gene-duplication"><span class="header-section-number">7.2.4</span> Gene Duplication</h3>
 <p>Gene duplication occurs when entire segments of a chromosome containing functional genes are duplicated, creating novel copies in the genome.</p>
 <section id="origins-2" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="origins-2">Origins</h4>
 <p>Most gene duplications arise from unequal crossing-overs during meiosis, where misalignment of homologous chromosomes leads to daughter chromosomes of different lengths. One daughter chromosome contains a duplicated segment that is missing from the other (Figure @ref(fig:uneqcross)). Gene duplications can also be associated with replication slippage and retrotransposon activity.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/duplication.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption>Crossing-over between misaligned chromosomes during meiosis (A) causes DNA segments to be deleted in one and inserted in the other chromosome (B).</figcaption>
+<div id="fig-uneqcross" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-uneqcross-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<img src="images/duplication.png" class="img-fluid figure-img">
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-uneqcross-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.6: Crossing-over between misaligned chromosomes during meiosis (A) causes DNA segments to be deleted in one and inserted in the other chromosome (B).
+</figcaption>
 </figure>
-</div>
-</div>
 </div>
 </section>
 <section id="phenotypic-impact-and-evolutionary-consequences-2" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="phenotypic-impact-and-evolutionary-consequences-2">Phenotypic Impact and Evolutionary Consequences</h4>
-<p>Individuals that inherit a chromosome with a deleted essential gene may suffer from negative phenotypic and fitness effects. Those that inherit a chromosome with a duplication, however, are unlikely to suffer from adverse consequences. There are two possible evolutionary consequences for the genes within a duplication. First, a duplicated gene may accumulate a variety of mutations, even deleterious ones. But since a functional copy is still present in the genome, individual carriers will not face any fitness reductions. As deleterious mutations accumulate in the duplicated gene, it will eventually become a non-functional pseudogene. These pseudogenes are passed on across generations, as discussed in <a href="evidence-for-evolution.html">Chapter 2</a>. Alternatively, a duplicated gene may accumulate mutations that change the structure and function of the resulting protein in a beneficial way, enhancing the fitness of the carrier. As such, gene duplication can be a major source of genomic novelty, and many gene families have arisen through duplication.</p>
+<p>Individuals that inherit a chromosome with a deleted essential gene may suffer from negative phenotypic and fitness effects. Those that inherit a chromosome with a duplication, however, are unlikely to suffer from adverse consequences (but that is still a possibiity). There are two possible evolutionary consequences for the genes within a duplication. First, a duplicated gene may accumulate a variety of mutations, even deleterious ones. But since a functional copy is still present in the genome, individual carriers will not face any fitness reductions. As deleterious mutations accumulate in the duplicated gene, it will eventually become a non-functional pseudogene. These pseudogenes are passed on across generations, as discussed in <a href="evidence-for-evolution.html">Chapter 2</a>. Alternatively, a duplicated gene may accumulate mutations that change the structure and function of the resulting protein in a beneficial way, enhancing the fitness of the carrier. As such, gene duplication can be a major source of genomic novelty, and many gene families have arisen through duplication.</p>
 <p>Hemoglobin genes, for example, have duplicated repeatedly during vertebrate evolution. Different hemoglobin genes in the human genome vary in their functional properties and expression depending on developmental stage or environmental conditions. Hemoglobins expressed during fetal development have a higher oxygen affinity than the mother’s hemoglobin, allowing the fetus to extract oxygen from the mother’s blood. Similarly, our bodies express different types of hemoglobins during acclimation to low oxygen concentrations at high altitudes. Shifting to the expression of alternative hemoglobins takes time, which explains why you may experience altitude sickness on the first days of your Colorado vacation. Once you are acclimated, the higher oxygen binding capacity of alternative hemoglobins allows you to perform normally even at higher altitudes, which is why some athletes use high-elevation training to gain an advantage for competitions close to sea level. Consequently, gene duplication is an important source of novelty in the genome and allows for the evolution of specialized functions that are constrained by the number of loci.</p>
 </section>
+<section id="copy-number-variants-cnv" class="level4" data-number="7.2.4.1">
+<h4 data-number="7.2.4.1" class="anchored" data-anchor-id="copy-number-variants-cnv"><span class="header-section-number">7.2.4.1</span> Copy number variants (CNV)</h4>
+<p>A very important consequence of gene duplication that warrants more attention are copy number variants (CNV). CNVs are defined as a DNA segment of one kilobase (kb) or larger that is present at a variable copy number in comparison with a reference genome (<span class="citation" data-cites="redon2006">(<a href="#ref-redon2006" role="doc-biblioref">Redon et al. 2006</a>)</span>). The easiest way to think about them is multiple copies of a gene, almost always right next to each other (in tandem) in the genome. The mechanisms by which CNVs are formed are varied and an area of active research, though we have a pretty good idea how at least some of them work. As with most of these large scale SVs, recent advances in NGS and in particular long read sequencing using PacBio or Oxford Nanopore sequencing platforms are providing new insights into the importance in CNV in our understanding of the genomic basis of adaptations and speciation (e.g. <span class="citation" data-cites="stalder2022">(<a href="#ref-stalder2022" role="doc-biblioref">Stalder et al. 2022</a>)</span>), as well as in modern genomic medicine (<span class="citation" data-cites="lauer2019">(<a href="#ref-lauer2019" role="doc-biblioref">Lauer and Gresham 2019</a>)</span>).</p>
 </section>
-<section id="genome-duplication" class="level3" data-number="7.2.4">
-<h3 data-number="7.2.4" class="anchored" data-anchor-id="genome-duplication"><span class="header-section-number">7.2.4</span> Genome Duplication</h3>
+</section>
+<section id="genome-duplication" class="level3" data-number="7.2.5">
+<h3 data-number="7.2.5" class="anchored" data-anchor-id="genome-duplication"><span class="header-section-number">7.2.5</span> Genome Duplication</h3>
 <p>Genome duplications occur when additional copies of the entire genome are generated, leading to polyploidy. In some instances, genome duplications can be partial, if only a subset of chromosomes are duplicated.</p>
 <section id="origins-3" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="origins-3">Origins</h4>
 <p>Partial and complete genome duplications occur because of segregation errors during meiosis. Non-disjunction during the anaphase of meiosis I or II leads to a failure of correct chromosome separation into daughter cells, resulting in gametes with extra or missing chromosomes.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/nondisjunction.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption>Metaphase: Chromosomes line up in the middle plane, the meiotic spindle forms, and the kinetochores (black) of sister chromatids attach to the microtubules (blue lines). Anaphase: Sister chromatids separate and the microtubules pull them in opposite directions. The chromosome shown in purple fails to separate properly, with its sister chromatids sticking together and getting pulled to the same side. This results in nondisjunction of the chromosome.</figcaption>
+<div id="fig-nondisjunction" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-nondisjunction-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<img src="images/nondisjunction.png" class="img-fluid figure-img">
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-nondisjunction-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.7: Metaphase: Chromosomes line up in the middle plane, the meiotic spindle forms, and the kinetochores (black) of sister chromatids attach to the microtubules (blue lines). Anaphase: Sister chromatids separate and the microtubules pull them in opposite directions. The chromosome shown in purple fails to separate properly, with its sister chromatids sticking together and getting pulled to the same side. This results in nondisjunction of the chromosome.
+</figcaption>
 </figure>
-</div>
-</div>
 </div>
 </section>
 <section id="phenotypic-impact-and-evolutionary-consequences-3" class="level4 unnumbered">
@@ -558,7 +712,7 @@ Definition: Mutation
 </section>
 <section id="mutation-rates" class="level2" data-number="7.3">
 <h2 data-number="7.3" class="anchored" data-anchor-id="mutation-rates"><span class="header-section-number">7.3</span> Mutation Rates</h2>
-<p>Point mutations are by far the most common mutations in the genome. Estimation of mutation rates is not trivial, and estimates vary depending on how these rates are actually quantified. The earliest estimates came from experimental mutation accumulation lines, where mutation rates were estimated based on visible phenotypic mutations that were likely caused by loss of function mutations (<em>e.g.</em>, premature stop-codons, frame-shift mutations, etc.). These experiments estimated mutations rates per genome per generation, and revealed values between 0.0025 in <em>E. coli</em> and 1.6 in humans (Table 4.1).</p>
+<p>Point mutations are by far the most common mutations in the genome in terms of numbers. Estimation of mutation rates is not trivial, and estimates vary depending on how these rates are actually quantified. The earliest estimates came from experimental mutation accumulation lines, where mutation rates were estimated based on visible phenotypic mutations that were likely caused by loss of function mutations (<em>e.g.</em>, premature stop-codons, frame-shift mutations, etc.). These experiments estimated mutations rates per genome per generation, and revealed values between 0.0025 in <em>E. coli</em> and 1.6 in humans (Table 4.1).</p>
 <p>The 640-fold variation in the organisms listed in Table 4.1 is primarily caused by two factors. Per-genome mutation rates roughly scale with genome size; larger genomes tend to have have a higher likelihood of accruing copy errors. More importantly, however, mutation rates are higher in multicellular organisms. In unicellular organisms, every round of DNA replication represents a new generation. In contrast, mutations also occur during mitosis as multicellular bodies develop. Any mutation within the germ line will be passed on to the next generation.</p>
 <table class="caption-top table">
 <caption>Table 4.1: Mutation rates for different taxa.</caption>
@@ -599,21 +753,25 @@ Definition: Mutation
 </tr>
 </tbody>
 </table>
-<p>While these mutation rates seem small, it is important to remember that a population typically consists of many genomes (<em>i.e.</em>, individuals). For example, an industrial batch of beer is estimated to harbor about 100 billion (10<sup>11</sup>) yeast cells. Given a mutation rate of 0.0027 (Table 4.1), that includes 270 million (2.7*10<sup>8</sup>) mutations. Considering that yeast has a genome size of about 12 Mb (1.2*10<sup>7</sup> base pairs), that means that every nucleotide in the genome might mutate up to 20 times in every generation. You can conduct the same calculation with humans (population size: 7.9 billion; genome size: 3.2*10<sup>9</sup> base pairs), and you will find that every nucleotide may mutate about twice in each generation. So while the likelihood for a particular mutation to occur in an individual is very small, the mutational input—especially in large populations—can be considerable.</p>
+<p>While these mutation rates seem small, it is important to remember that a population typically consists of many genomes (<em>i.e.</em>, individuals). For example, an industrial batch of beer is estimated to harbor about 100 billion (<span class="math inline">\(10^{11}\)</span>) yeast cells. Given a mutation rate of 0.0027 (Table 4.1), that includes 270 million (<span class="math inline">\(2.7*10^8\)</span>) mutations. Considering that yeast has a genome size of about 12 Mb (<span class="math inline">\(1.2*10^7\)</span> base pairs), that means that every nucleotide in the genome might mutate up to 20 times in every generation. You can conduct the same calculation with humans (population size: 7.9 billion; genome size: <span class="math inline">\(3.2*10^9\)</span> base pairs), and you will find that every nucleotide may mutate about twice in each generation. So while the likelihood for a particular mutation to occur in an individual is very small, the mutational input—especially in large populations—can be considerable.</p>
 <p>More importantly, mutation rate estimates based on mutation accumulation experiments vastly underestimate actual mutation rates. As discussed above, many mutations have no or only minute phenotypic effects, and are thus impossible to detect during phenotype screens. Unsurprisingly, mutation rate estimates based on DNA sequencing have revealed much higher mutation rates. For example, the rate of nucleotide substitutions in humans is estimated at about 1 in 10<sup>8</sup> in every generation. Extrapolated for the size of the human genome, this means that every gamete produced exhibits about 30 mutations.</p>
 </section>
 <section id="quantifying-genetic-variation" class="level2" data-number="7.4">
 <h2 data-number="7.4" class="anchored" data-anchor-id="quantifying-genetic-variation"><span class="header-section-number">7.4</span> Quantifying Genetic Variation</h2>
 <p>As mutation continuously introduces new genetic variation into a population’s gene pool, biologists want to quantify the distribution and changes in genetic variation across generations. With the massive improvements of DNA sequencing technologies over the past two decades, we can now directly sequence partial or whole genomes to detect single nucleotide polymorphisms (SNPs; Figure @ref(fig:snps)) that are the consequence of point mutations.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/SNP.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption>A Single Nucleotide Polymorphism (SNP) is a change of nucleotides at a single base-pair location on DNA.</figcaption>
+<div id="fig-snps" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-snps-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<img src="images/SNP.png" class="img-fluid figure-img">
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-snps-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.8: A Single Nucleotide Polymorphism (SNP) is a change of nucleotides at a single base-pair location on DNA.
+</figcaption>
 </figure>
-</div>
-</div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -634,11 +792,58 @@ Explore More
 </section>
 <section id="reflection-questions" class="level2" data-number="7.6">
 <h2 data-number="7.6" class="anchored" data-anchor-id="reflection-questions"><span class="header-section-number">7.6</span> Reflection questions</h2>
+<ol type="1">
+<li>Do you think mutation rates evolve? Explain your answer in the context of Darwin’s postulates about natural selection. Under what circumstances do you envision high or low mutation rates to be adaptive?</li>
+<li>Can you concisely synthesize the causes and consequences of different types of mutations? You can use <a href="exercises/mutation_worksheet.pdf">this worksheet</a> to work through all the options.</li>
+<li>Compare the definition of evolution in this chapter to the one in Chapter 1? Why is this new definition valid? In what way does it improve the definition we worked with so far?</li>
+<li>In all organisms, genes are not just free-floating in the nucleus, but they are organized into chromosomes. Chromosome numbers are highly variable. For example, fruit flies have just four pairs of chromosomes while some polyploid ferns can have well over 1,000. What evolutionary forces do you think determine the number of chromosomes in an organism? What do you think is the potential adaptive benefit of having few or many chromosomes?</li>
+</ol>
 </section>
 <section id="references" class="level2" data-number="7.7">
 <h2 data-number="7.7" class="anchored" data-anchor-id="references"><span class="header-section-number">7.7</span> References</h2>
+<ul>
+<li>Ritchie, MD, ER Holzinger, R Li, SA Pendergrass, D Kim (2015). <a href="https://www.nature.com/articles/nrg3868">Methods of integrating data to uncover genotype-phenotype interactions</a>. <em>Nature Reviews Genetics</em> 16, 85–97.</li>
+</ul>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-crick1958" class="csl-entry" role="listitem">
+Crick, F. H. 1958. <span>“On Protein Synthesis.”</span> <em>Symp Soc Exp Biol.</em> 12 (1): 138–63.
+</div>
+<div id="ref-gerstein2007" class="csl-entry" role="listitem">
+Gerstein, Mark B., Can Bruce, Joel S. Rozowsky, Deyou Zheng, Jiang Du, Jan O. Korbel, Olof Emanuelsson, Zhengdong D. Zhang, Sherman Weissman, and Michael Snyder. 2007. <span>“What Is a Gene, Post-ENCODE? History and Updated Definition.”</span> <em>Genome Research</em> 17 (6): 669–81. <a href="https://doi.org/10.1101/gr.6339607">https://doi.org/10.1101/gr.6339607</a>.
+</div>
+<div id="ref-hager2022" class="csl-entry" role="listitem">
+Hager, Emily R., Olivia S. Harringmeyer, T. Brock Wooldridge, Shunn Theingi, Jacob T. Gable, Sade McFadden, Beverly Neugeboren, Kyle M. Turner, Jeffrey D. Jensen, and Hopi E. Hoekstra. 2022. <span>“A Chromosomal Inversion Contributes to Divergence in Multiple Traits Between Deer Mouse Ecotypes.”</span> <em>Science</em> 377 (6604): 399–405. <a href="https://doi.org/10.1126/science.abg0718">https://doi.org/10.1126/science.abg0718</a>.
+</div>
+<div id="ref-haseltine2024" class="csl-entry" role="listitem">
+Haseltine, William A., and Roberto Patarca. 2024. <span>“The RNA Revolution in the Central Molecular Biology Dogma Evolution.”</span> <em>International Journal of Molecular Sciences</em> 25 (23): 12695. <a href="https://doi.org/10.3390/ijms252312695">https://doi.org/10.3390/ijms252312695</a>.
+</div>
+<div id="ref-lauer2019" class="csl-entry" role="listitem">
+Lauer, Stephanie, and David Gresham. 2019. <span>“An Evolving View of Copy Number Variants.”</span> <em>Current Genetics</em> 65 (6): 1287–95. <a href="https://doi.org/10.1007/s00294-019-00980-0">https://doi.org/10.1007/s00294-019-00980-0</a>.
+</div>
+<div id="ref-mérot2020" class="csl-entry" role="listitem">
+Mérot, Claire, Rebekah A. Oomen, Anna Tigano, and Maren Wellenreuther. 2020. <span>“A Roadmap for Understanding the Evolutionary Significance of Structural Genomic Variation.”</span> <em>Trends in Ecology &amp; Evolution</em> 35 (7): 561–72. <a href="https://doi.org/10.1016/j.tree.2020.03.002">https://doi.org/10.1016/j.tree.2020.03.002</a>.
+</div>
+<div id="ref-oudelaar2020" class="csl-entry" role="listitem">
+Oudelaar, A. Marieke, and Douglas R. Higgs. 2020. <span>“The Relationship Between Genome Structure and Function.”</span> <em>Nature Reviews Genetics</em> 22 (3): 154–68. <a href="https://doi.org/10.1038/s41576-020-00303-x">https://doi.org/10.1038/s41576-020-00303-x</a>.
+</div>
+<div id="ref-perkins2004" class="csl-entry" role="listitem">
+Perkins, D O, C Jeffries, and P Sullivan. 2004. <span>“Expanding the <span>‘</span>Central Dogma<span>’</span>: The Regulatory Role of Nonprotein Coding Genes and Implications for the Genetic Liability to Schizophrenia.”</span> <em>Molecular Psychiatry</em> 10 (1): 69–78. <a href="https://doi.org/10.1038/sj.mp.4001577">https://doi.org/10.1038/sj.mp.4001577</a>.
+</div>
+<div id="ref-redon2006" class="csl-entry" role="listitem">
+Redon, Richard, Shumpei Ishikawa, Karen R. Fitch, Lars Feuk, George H. Perry, T. Daniel Andrews, Heike Fiegler, et al. 2006. <span>“Global Variation in Copy Number in the Human Genome.”</span> <em>Nature</em> 444 (7118): 444–54. <a href="https://doi.org/10.1038/nature05329">https://doi.org/10.1038/nature05329</a>.
+</div>
+<div id="ref-sodeland2022" class="csl-entry" role="listitem">
+Sodeland, Marte, Sissel Jentoft, Per Erik Jorde, Morten Mattingsdal, Jon Albretsen, Alf Ring Kleiven, Ann-Elin Wårøy Synnes, et al. 2022. <span>“Stabilizing Selection on Atlantic Cod Supergenes Through a Millennium of Extensive Exploitation.”</span> <em>Proceedings of the National Academy of Sciences</em> 119 (8). <a href="https://doi.org/10.1073/pnas.2114904119">https://doi.org/10.1073/pnas.2114904119</a>.
+</div>
+<div id="ref-stalder2022" class="csl-entry" role="listitem">
+Stalder, Luzia, Ursula Oggenfuss, Norfarhan Mohd-Assaad, and Daniel Croll. 2022. <span>“The Population Genetics of Adaptation Through Copy Number Variation in a Fungal Plant Pathogen.”</span> <em>Molecular Ecology</em> 32 (10): 2443–60. <a href="https://doi.org/10.1111/mec.16435">https://doi.org/10.1111/mec.16435</a>.
+</div>
+<div id="ref-tigano2022" class="csl-entry" role="listitem">
+Tigano, Anna. 2022. <span>“Evolution of Cod Supergenes.”</span> <em>Nature Ecology &amp; Evolution</em> 6 (4): 355–56. <a href="https://doi.org/10.1038/s41559-022-01662-w">https://doi.org/10.1038/s41559-022-01662-w</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -1064,8 +1269,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./EvolGenetics.html" class="pagination-link" aria-label="Evolutionary Genetics">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Evolutionary Genetics</span>
+      <a href="./EstimatingEvoTrees.html" class="pagination-link" aria-label="Estimating evolutionary trees">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Estimating evolutionary trees</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

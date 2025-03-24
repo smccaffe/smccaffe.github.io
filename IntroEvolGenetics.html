@@ -110,7 +110,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./EvolGenetics.html">Evolutionary Genetics</a></li><li class="breadcrumb-item"><a href="./IntroEvolGenetics.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Introduction: Evolutionary genetics</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./GenesMutationGeneticVariation.html">Evolutionary Genetics</a></li><li class="breadcrumb-item"><a href="./IntroEvolGenetics.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Introduction: Evolutionary genetics</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -149,8 +149,8 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./IntroBasicConcepts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction: Basic Concepts</span></a>
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Basic Concepts</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -184,8 +184,8 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./EvolTreesAndPhylogenetics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Evolutionary Trees and Phylogenetics</span></a>
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Working With Evolutionary Trees</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -207,7 +207,7 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./EvolGenetics.html" class="sidebar-item-text sidebar-link">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Evolutionary Genetics</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -376,7 +376,7 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./EvolGenetics.html">Evolutionary Genetics</a></li><li class="breadcrumb-item"><a href="./IntroEvolGenetics.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Introduction: Evolutionary genetics</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./GenesMutationGeneticVariation.html">Evolutionary Genetics</a></li><li class="breadcrumb-item"><a href="./IntroEvolGenetics.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Introduction: Evolutionary genetics</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span id="sec-intropopgen" class="quarto-section-identifier"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Introduction: Evolutionary genetics</span></span></h1>
 </div>
@@ -395,10 +395,9 @@ window.Quarto = {
 </header>
 
 
-<p><em>DRAFT 20250113</em></p>
 <section id="section-summary" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="section-summary"><span class="header-section-number">8.1</span> Section Summary</h2>
-<p>In <a href="WhatEvolutionIs.html" class="quarto-xref"><span>Chapter 1</span></a>, we discussed that one way to define evolution was the <em>change in allele frequencies in a population over time</em>. We also discussed in <a href="HistoricaPerspective.html" class="quarto-xref"><span>Chapter 2</span></a> the role natural selection plays in the evolution of adaptations, but that there also exists other mechanisms the drive evolution in addition to natural selection. In the following chapters we will explore how the various mechanisms that drive evolution work by focusing on how they effect the change in the frequency of alleles in a population. We will do this by modeling the various mechanisms with a focus on the how they work individually and in concert. This takes us into the field of <a href="https://en.wikipedia.org/wiki/Population_genetics">population genetics</a>, also referred to as evolutionary genetics. Though evolutionary genetics can get more than a little math and statistics heavy, our attempt here is not for you to get lost in the maths and equations, but to come to a more deeper understanding of the how evolution works by understanding the fundamentals of the various mechanisms work<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. We will be discussing various equations and statistical principles as necessary, but will try to keep them to a minimum.</p>
+<p>In <a href="WhatEvolutionIs.html" class="quarto-xref"><span>Chapter 1</span></a>, we discussed that one way to define evolution was the <em>change in allele frequencies in a population over time</em>. We also discussed in <a href="HistoricaPerspective.html" class="quarto-xref"><span>Chapter 2</span></a> the role natural selection plays in the evolution of adaptations, but that there also exists other mechanisms the drive evolution in addition to natural selection. In the following chapters we will explore how the various mechanisms that drive evolution work by focusing on how they effect the change in the frequency of alleles in a population. We will do this by modeling the various mechanisms with a focus on the how they work individually and in concert. This takes us into the field of <a href="https://en.wikipedia.org/wiki/Population_genetics">population genetics</a>, also referred to as <strong>evolutionary genetics</strong>. Though evolutionary genetics can get more than a little math and statistics heavy, our attempt here is not for you to get lost in the maths and equations, but to come to a more deeper understanding of the how evolution works by understanding the fundamentals of the various mechanisms work. We will be discussing various equations and statistical principles as necessary, but will try to keep them to a minimum.</p>
 <p>What are the mechanisms that drive evolution? To be specific, they are:</p>
 <div id="imp-evolmechs" class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -420,14 +419,14 @@ Important&nbsp;8.1: Mechanisms that drive evolution
 <p><strong><em>Not in order of importance!</em></strong></p>
 </div>
 </div>
-<p>In <span class="quarto-unresolved-ref">?sec-mutvar</span> we discussed the fuel that drives the evolutionary engine, variation in the genome. Later on we will expand these ideas to phenotypic variation, but for the next couple of chapters we will focus on what happens to that variation over time.</p>
-<p>We will begin our discussion here by first clarifying how allele frequencies are calculated. We will then discuss the <strong>null model</strong> of evolution that will be essential to understanding how the various mechanisms work to drive evolution, Hardy-Weinberg equilibrium<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Understanding HW equilibrium will then allow us to explore how the various mechanisms work individually and in concert, starting with the concept of genetic drift (<a href="MechEvolDrift.html" class="quarto-xref"><span>Chapter 9</span></a>). Most texts would begin the discussion on evolutionary genetics with natural selection, but in my opinion genetic drift, which we will refer as just drift for brevity’s sake, is much more important than it is usually given credit for. That is not to say that it is more important than selection or migration or any of the the other mechanisms, just that it is more important than usually presented in introductory biology texts or many introductory evolution texts. Plus it will give us an opportunity to move beyond the deterministic models for the various other mechanisms as we discuss them, making our discussions a little more reality based.</p>
+<p>In <a href="GenesMutationGeneticVariation.html" class="quarto-xref"><span>Chapter 7</span></a> we discussed the fuel that drives the evolutionary engine, variation in the genome. Later on we will expand these ideas to phenotypic variation, but for the next couple of chapters we will focus on what happens to that variation in a population over time.</p>
+<p>We will begin our discussion by first clarifying how allele frequencies are calculated. We will then discuss the <strong>null model</strong> of evolution that will be essential to understanding how the various mechanisms work to drive evolution, Hardy-Weinberg equilibrium<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Understanding HW equilibrium will then allow us to model how the various mechanisms work individually and in concert, starting with the concept of genetic drift (<a href="MechEvolDrift.html" class="quarto-xref"><span>Chapter 9</span></a>). Most texts would begin the discussion on evolutionary genetics with natural selection, but in my opinion genetic drift, which we will oftentimes refer as just drift for brevity’s sake, is much more important than it is usually given credit for. That is not to say that it is more important than selection or migration or any of the the other mechanisms, just that it is more important than usually presented in introductory biology texts or many introductory evolution texts. Plus it will give us an opportunity to move beyond the deterministic models for the various other mechanisms as we discuss them, making our discussions a little more reality based.</p>
 <p>Following drift, we will then move on to discuss in great detail selection <a href="MechEvolSelection.html" class="quarto-xref"><span>Chapter 10</span></a>, followed by migration <a href="MechEvolMigration.html" class="quarto-xref"><span>Chapter 12</span></a>, mutation, and nonrandom mating.</p>
 </section>
 <section id="calculating-allele-frequencies" class="level2" data-number="8.2">
 <h2 data-number="8.2" class="anchored" data-anchor-id="calculating-allele-frequencies"><span class="header-section-number">8.2</span> Calculating allele frequencies</h2>
-<p>For population genetic analyses, researchers today typically sample dozens to hundreds of individuals from one or many populations for genotyping usually by DNA sequencing. Based on the sequencing data, we can determine the genotype of each individual. Assuming a diploid organism, single gene with two alleles (bi-allelic locus) designated as <span class="math inline">\(A\)</span> and <span class="math inline">\(a\)</span>, there are three possible genotypes: <span class="math inline">\(AA\)</span>, <span class="math inline">\(Aa\)</span>, and <span class="math inline">\(aa\)</span>. At a population level, we can then describe genetic variation with two metrics: the <strong>relative genotype frequency</strong> and the <strong>relative allele frequency</strong> in the population.</p>
-<p>The relative genotype frequency is the proportion of individuals in a population with a particular genotype, one measure of the distribution of genetic variation in a population. The table below summarizes hw we extimate the genotype frequecies.</p>
+<p>For population genetic analyses, researchers today typically sample dozens to hundreds of individuals from one or many populations for genotyping usually by DNA sequencing. Based on the sequencing data, we can determine the genotype of each individual. Assuming a diploid organism, single gene with two alleles (bi-allelic locus) designated as <span class="math inline">\(A\)</span> and <span class="math inline">\(a\)</span>, there are three possible genotypes: <span class="math inline">\(AA\)</span>, <span class="math inline">\(Aa\)</span>, and <span class="math inline">\(aa\)</span>. At a population level, we can then describe genetic variation with two metrics: the <strong>relative genotype frequency</strong> and the <strong>allele frequency</strong> in the population.</p>
+<p>The relative genotype frequency is the proportion of individuals in a population with a particular genotype, one measure of the distribution of genetic variation in a population. The table below summarizes how we estimate the genotype frequencies.</p>
 <div id="tbl-genotypefreq" class="striped hover quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-genotypefreq-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -476,11 +475,11 @@ Table&nbsp;8.1: Genotype table
 \frac{N_{AA}}{N_T} + \frac{N_{Aa}}{N_T} + \frac{N_{aa}}{N_T} = f_{AA}+f_{Aa}+f_{aa} = 1.0
 \tag{8.1}\]</span></span></p>
 <p>The <strong>relative allele frequency</strong> is the proportion of different alleles at a particular locus and measures the amount of genetic variation in a population. If you can identify the different genotypes in a population, than the allele frequencies can be easily calculated based on the relative genotype frequencies. For a bi-allelic locus in a diploid organism, the frequencies of <span class="math inline">\(A\)</span> allele is designated <span class="math inline">\(p\)</span> (<span class="math inline">\(f_A=p\)</span>) and <span class="math inline">\(a\)</span> allele <span class="math inline">\(q\)</span> (<span class="math inline">\(f_a=q\)</span>). We do this by effectively counting the <strong>number of allele copies</strong> in the population and divide that by the <strong>total number of allele copies</strong> in a population, which for a diploid organism is (<span class="math inline">\(2N_T\)</span>). To determine the number of allele copies for an allele, each homozygus individual contributes two copies of the specific allele, so there are <span class="math inline">\(2N_{AA}\)</span> allele copies from the homozygotes, while the heterozygous genotype contributes only one allele copy, or <span class="math inline">\(N_{Aa}\)</span>.</p>
-<p>To calculate the relative allele frequency for the <span class="math inline">\(A\)</span> allele then:</p>
+<p>To calculate the allele frequency for the <span class="math inline">\(A\)</span> allele then:</p>
 <p><span class="math display">\[
 f_A = p = \frac{2N_{AA}+N_{Aa}}{2N_T}
 \]</span></p>
-<p>A little bit of simple algebra to simplify gives:</p>
+<p>A little bit of simple algebra simplifies this to:</p>
 <p><span class="math display">\[
 p=\frac{2N_{AA}}{2N_T}+\frac{N_{Aa}}{2N_T}=\frac{N_{AA}}{N_T}+\frac{1}{2}\Big(\frac{N_{Aa}}{N_T}\Big) = f_{AA}+\frac{1}{2}(f_{Aa})
 \]</span></p>
@@ -547,7 +546,7 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Unfortunately I have found over the years that many students will confuse <span class="citation" data-cites="eqn-7">(<a href="#ref-eqn-7" role="doc-biblioref"><strong>eqn-7?</strong></a>)</span> as the most important take away from HW. <span class="citation" data-cites="eqn-7">(<a href="#ref-eqn-7" role="doc-biblioref"><strong>eqn-7?</strong></a>)</span> is actually kind of trivial since of course the sum of the relative gentoype frequencies will be <span class="math inline">\(1.0\)</span>, they are relative frequencies. It is very important that you understand, the important result of HW is that under the assumptions of the model, the <strong><em>genotype frequencies will be</em></strong>:</p>
+<p>Unfortunately I have found over the years that many students will confuse <a href="#eq-7" class="quarto-xref">Equation&nbsp;<span>8.7</span></a> as the most important take away from HW. <a href="#eq-7" class="quarto-xref">Equation&nbsp;<span>8.7</span></a> is actually kind of trivial since of course the sum of the relative gentoype frequencies will be <span class="math inline">\(1.0\)</span>, they are relative frequencies. It is very important that you understand, the important result of HW is that under the assumptions of the model, the <strong><em>genotype frequencies will be</em></strong>:</p>
 <table class="table-striped table-hover caption-top table">
 <caption>Hardy Weinberg genotype frequencies</caption>
 <thead>
@@ -592,7 +591,7 @@ Figure&nbsp;8.1: A modified Punnett square illustrates the relationship between 
 </figcaption>
 </figure>
 </div>
-<p>Since what we are interested in is the change in allele frequencies over time, our definition of evolution, we can use <span class="citation" data-cites="eqn-2">(<a href="#ref-eqn-2" role="doc-biblioref"><strong>eqn-2?</strong></a>)</span> above to calculate the allele frequencies in the next generation from the genotype frequencies.</p>
+<p>Since what we are interested in is the change in allele frequencies over time, our definition of evolution, we can use <a href="#eq-2" class="quarto-xref">Equation&nbsp;<span>8.2</span></a> above to calculate the allele frequencies in the next generation from the genotype frequencies.</p>
 <p><span class="math display">\[
 p'= f_{AA} + 1/2(f_{Aa})
 \]</span></p>
@@ -607,9 +606,9 @@ p'= p^2 + pq = p(p+q) = p
 <p><span class="math display">\[
 q'= q^2 + pq = q(p+q) = q
 \]</span></p>
-<p>This is the second important conclusion of Hardy-Weinberg: <span class="citation" data-cites="eqn-8">(<a href="#ref-eqn-8" role="doc-biblioref"><strong>eqn-8?</strong></a>)</span> tells us that under the assumptions of Hardy-Weinberg, there will be <strong>no changes in allele frequencies over time</strong>.</p>
+<p>This is the second important conclusion of Hardy-Weinberg: <a href="#eq-8" class="quarto-xref">Equation&nbsp;<span>8.8</span></a> tells us that under the assumptions of Hardy-Weinberg, there will be <strong>no changes in allele frequencies over time</strong>.</p>
 <p>This predictability of genotype and allele frequencies across generations is known as the Hardy-Weinberg principle (or equilibrium), which states that <strong>genotype and allele frequencies in a population will remain constant across generations as long as there are no evolutionary forces acting on that population</strong>. Those evolutionary forces are <a href="#imp-evolmechs" class="quarto-xref">Important&nbsp;<span>8.1</span></a>.</p>
-<p>A third important point about the Hardy-Weinberg principle is that it can be used as a <strong>null model</strong> to test whether any evolutionary forces are acting on a particular locus. To do so, we just need to genotype a representative sample of individuals in a population and calculate relative allele frequencies based on the observed genotype frequencies <a href="#eq-2" class="quarto-xref">Equation&nbsp;<span>8.2</span></a> and <a href="#eq-3" class="quarto-xref">Equation&nbsp;<span>8.3</span></a>. Then, we can calculate the idealized genotype frequencies predicted by Hardy-Weinberg using <a href="#eq-4" class="quarto-xref">Equation&nbsp;<span>8.4</span></a>, <a href="#eq-5" class="quarto-xref">Equation&nbsp;<span>8.5</span></a>, and <a href="#eq-6" class="quarto-xref">Equation&nbsp;<span>8.6</span></a>. If the calculated idealized genotype frequencies match the initially observed genotype frequencies, we say that the population is in <em>Hardy-Weinberg equilibrium</em> (<a href="#fig-decisiontree" class="quarto-xref">Figure&nbsp;<span>8.2</span></a>)<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. In this case, the observable data matches the model prediction, meaning that the assumptions underlying the model are correct: there are no evolutionary forces acting on that locus.</p>
+<p>A third important point about the Hardy-Weinberg principle is that it can be used as a <strong>null model</strong> to test whether any evolutionary forces are acting on a particular locus. To do so, we just need to genotype a representative sample of individuals in a population and calculate relative allele frequencies based on the observed genotype frequencies <a href="#eq-2" class="quarto-xref">Equation&nbsp;<span>8.2</span></a> and <a href="#eq-3" class="quarto-xref">Equation&nbsp;<span>8.3</span></a>. Then, we can calculate the idealized genotype frequencies predicted by Hardy-Weinberg using <a href="#eq-4" class="quarto-xref">Equation&nbsp;<span>8.4</span></a>, <a href="#eq-5" class="quarto-xref">Equation&nbsp;<span>8.5</span></a>, and <a href="#eq-6" class="quarto-xref">Equation&nbsp;<span>8.6</span></a>. If the calculated idealized genotype frequencies match the initially observed genotype frequencies, we say that the population is in <em>Hardy-Weinberg equilibrium</em> (<a href="#fig-decisiontree" class="quarto-xref">Figure&nbsp;<span>8.2</span></a>)<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. In this case, the observable data matches the model prediction, meaning that the assumptions underlying the model are correct: there are no evolutionary forces acting on that locus.</p>
 <p>In contrast, if the calculated idealized genotype frequencies do not match the initially observed genotype frequencies, the population is in <em>Hardy-Weinberg disequilibrium</em> (<a href="#fig-decisiontree" class="quarto-xref">Figure&nbsp;<span>8.2</span></a>). Since we cannot correctly calculate genotype frequencies based on the measured allele frequencies, some assumption of the Hardy-Weinberg model must be violated; <em>i.e.</em> at least one evolutionary force must be acting on the locus, causing an over representation of some genotypes relative to the others. This approach will not tell you which of the evolutionary forces caused the observed discrepancy; sorting that out requires additional research.</p>
 <div id="fig-decisiontree" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure">
@@ -626,7 +625,7 @@ Figure&nbsp;8.2
 </figure>
 </div>
 <p>Applying the Hardy-Weinberg principle is nonetheless a good starting point, because we can genotype individuals in a population at many loci in the genome, apply the Hardy-Weinberg principle at each locus, and identify regions of the genome where evolutionary forces are likely acting to change allele frequencies across generations. It is a simple approach to find a needle in a haystack, but comes with a lot of caveats.</p>
-<p>A more important aspect of HW as a null model is that it allows us to ask questions concerning what would happen to the change in allele frequencies if we relax the assumptions of the model, say for example if natural selection is acting on the population. We can use HW expectations to develop relatively simple models to assess the impacts of mutation, migration, selection, and drift by relaxing each of these assumption individually and determine how it might impact the change in allele frequencies over time. This is the basis of the field of evolutionary population genetics, and allows us to explore how the various mechanisms that drive evolution work, which we will be focusing on in the next couple of chapters.</p>
+<p>A more important aspect of HW as a null model is that it allows us to ask questions concerning what would happen to the change in allele frequencies if we relax the assumptions of the model, say for example if natural selection is acting on the population. We can use HW expectations to develop relatively simple models to assess the impacts of mutation, migration, selection, and drift by relaxing each of these assumptions individually and determine how it might impact the change in allele frequencies over time. This is the basis of the field of evolutionary population genetics, and allows us to explore how the various mechanisms that drive evolution work, which we will be focusing on in the next couple of chapters.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -649,9 +648,8 @@ Hardy Weinberg Equilibrium
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1"><p>Truth in advertising, the areas of emphasis for my PhD from the Ecology and Evolution Department at SUNY Stony Brook were in molecular evolution and population genetics, so I kind of have a soft spot for these two disciplines in evolution. Plus this may explain why I tend to put more emphasis on evolutionary genetics, phylogenetics, and molecular evolution then found in most commonly used texts.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Also known as the Hardy Weinberg Principle. We will use both ways to refer to it in this OER.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>We would normally perform a <span class="math inline">\(\chi^2\)</span> test to determine whether the differences found between observed and expected genotype frequencies are significant. We will wait to discuss this in lab though.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>Also known as the Hardy Weinberg Principle. We will use both ways to refer to it in this OER.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>We would normally perform a <span class="math inline">\(\chi^2\)</span> test to determine whether the differences found between observed and expected genotype frequencies are significant. We will wait to discuss this in lab though.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
