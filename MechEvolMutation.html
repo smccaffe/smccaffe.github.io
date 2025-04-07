@@ -110,7 +110,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./EvolGenetics.html">Evolutionary Genetics</a></li><li class="breadcrumb-item"><a href="./MechEvolMutation.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Mutation</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./GenesMutationGeneticVariation.html">Evolutionary Genetics</a></li><li class="breadcrumb-item"><a href="./MechEvolMutation.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Mutation</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -149,8 +149,8 @@ window.Quarto = {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./IntroBasicConcepts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction: Basic Concepts</span></a>
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Basic Concepts</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -184,8 +184,8 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./EvolTreesAndPhylogenetics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Evolutionary Trees and Phylogenetics</span></a>
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Working With Evolutionary Trees</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -207,7 +207,7 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./EvolGenetics.html" class="sidebar-item-text sidebar-link">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Evolutionary Genetics</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -362,19 +362,13 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#interaction-amoung-mutation-drift-and-selection" id="toc-interaction-amoung-mutation-drift-and-selection" class="nav-link active" data-scroll-target="#interaction-amoung-mutation-drift-and-selection"><span class="header-section-number">11.1</span> Interaction Amoung Mutation, Drift, and Selection</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./EvolGenetics.html">Evolutionary Genetics</a></li><li class="breadcrumb-item"><a href="./MechEvolMutation.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Mutation</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./GenesMutationGeneticVariation.html">Evolutionary Genetics</a></li><li class="breadcrumb-item"><a href="./MechEvolMutation.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Mutation</span></a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title"><span id="sec-mechmut" class="quarto-section-identifier"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Mutation</span></span></h1>
 </div>
@@ -394,29 +388,31 @@ window.Quarto = {
 
 
 <p><em>by Dr.&nbsp;Michael Tobler</em></p>
-<p><em>DRAFT 20250113</em></p>
-<p>Mutations provide the raw material upon which selection can act (<a href="the-raw-materials-for-evolution.html">Chapter 4</a>). At any given locus, mutation can cause transitions between alleles (<em>A</em><sub>1</sub> to <em>A</em><sub>2</sub>, or vice versa), or introduce a new allele (<em>A</em><sub>3</sub>). Despite the critical importance of mutation to evolutionary processes, mutation by itself is a weak evolutionary force. Because mutations rates are low, mutation at any locus only causes minute changes in allele frequency across generations.</p>
-<p>Nonetheless, there are important interactions between mutation and selection—especially in terms of the persistence of deleterious alleles in a population. In absence of mutation, selection keeps a recessive deleterious gene at a very low frequency (black line in Figure @ref(fig:mutsel)). But as selection removes deleterious alleles in every generation, mutation continuously reintroduces them. When the rate of elimination of deleterious alleles is equal to the rate of mutation, the frequency of an allele is at an equilibrium, called the mutation-selection balance. Assuming a dominant-recessive mode of inheritance (<em>w</em><sub>AA</sub> = <em>w</em><sub>Aa</sub>), the frequency of a deleterious allele at equilibrium is given by the mutation rate (𝜇) and the strength of selection (<em>s</em>):</p>
-<p><span class="math display">\[\begin{align}
-q=\sqrt{𝜇/s} (\#eq:23)
-\end{align}\]</span></p>
-<p>Consequently, the frequency of a deleterious allele depends on its mutation rate and the strength of selection against it. The equilibrium frequency of a deleterious allele increases with increasing mutation rate or with decreasing strength of selection, as illustrated in Figure @ref(fig:mutsel).</p>
+<p>Mutations provide the raw material upon which selection can act (<a href="GenesMutationGeneticVariation.html" class="quarto-xref"><span>Chapter 7</span></a>). At any given locus, mutation can cause transitions between alleles (<span class="math inline">\(A_1\)</span> to <span class="math inline">\(A_2\)</span>, or vice versa), or introduce a new allele (<span class="math inline">\(A_3\)</span>). Despite the critical importance of mutation to evolutionary processes, mutation by itself is a weak evolutionary force. Because mutations rates are low, mutation at any locus only causes minute changes in allele frequency across generations.</p>
+<p>Nonetheless, there are important interactions between mutation and selection—especially in terms of the persistence of deleterious alleles in a population. In absence of mutation, selection keeps a recessive deleterious gene at a very low frequency (black line in <a href="#fig-mutsel" class="quarto-xref">Figure&nbsp;<span>11.1</span></a>). But as selection removes deleterious alleles in every generation, mutation continuously reintroduces them. When the rate of elimination of deleterious alleles is equal to the rate of mutation, the frequency of an allele is at an equilibrium, called the mutation-selection balance. Assuming a dominant-recessive mode of inheritance (<span class="math inline">\(W_{A_1A_1} = W_{A_1A_2}\)</span>), the frequency of a deleterious allele at equilibrium is given by the mutation rate (<span class="math inline">\(\mu\)</span>) and the strength of selection (<span class="math inline">\(s\)</span>):</p>
+<p><span id="eq-23"><span class="math display">\[
+\begin{align}
+q=\sqrt{\mu/s}
+\end{align}
+\tag{11.1}\]</span></span></p>
+<p>Consequently, the frequency of a deleterious allele depends on its mutation rate and the strength of selection against it. The equilibrium frequency of a deleterious allele increases with increasing mutation rate or with decreasing strength of selection, as illustrated in <a href="#fig-mutsel" class="quarto-xref">Figure&nbsp;<span>11.1</span></a>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="MechEvolMutation_files/figure-html/mutsel-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption>In absence of mutation, selection maintains a recessive deleterious allele at low frequency (black line). As mutation rate increases, the equilibrium frequency of the deleterious allele increases (blue: mu=0.001; green: mu=0.01; orange: mu=0.1). The strength of selection was 0.5 for all simulations.</figcaption>
+<div id="fig-mutsel" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mutsel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="MechEvolMutation_files/figure-html/fig-mutsel-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mutsel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;11.1: In absence of mutation, selection maintains a recessive deleterious allele at low frequency (black line). As mutation rate increases, the equilibrium frequency of the deleterious allele increases (blue = mu=0.001, green = mu=0.01, orange = mu=0.1). The strength of selection was 0.5 for all simulations.
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Note that Equation @ref(eq:23) can be used to make inferences about mutation rates, when equilibrium allele frequencies and the strength of selection are known (because 𝜇=<em>q</em><sup>2</sup>*<em>s</em>). Accordingly, the principle of mutation-selection balance is an important null model that describes the relationship between selection, mutation, and allele frequencies, and it can be applied to study the prevalence of heritable diseases (see <a href="evolutionary-mechanisms-ii-mutation-genetic-drift-migration-and-non-random-mating.html#reflection-questions">Reflection Questions</a> for a case study on cystic fibrosis).</p>
-<section id="interaction-amoung-mutation-drift-and-selection" class="level2" data-number="11.1">
-<h2 data-number="11.1" class="anchored" data-anchor-id="interaction-amoung-mutation-drift-and-selection"><span class="header-section-number">11.1</span> Interaction Amoung Mutation, Drift, and Selection</h2>
+<p>Note that Equation <a href="#eq-23" class="quarto-xref">Equation&nbsp;<span>11.1</span></a> can be used to make inferences about mutation rates, when equilibrium allele frequencies and the strength of selection are known (because <span class="math inline">\(\mu=q^2s\)</span>). Accordingly, the principle of mutation-selection balance is an important null model that describes the relationship between selection, mutation, and allele frequencies, and it can be applied to study the prevalence of heritable diseases.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

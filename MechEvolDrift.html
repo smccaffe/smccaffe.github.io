@@ -54,7 +54,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -413,9 +433,11 @@ window.Quarto = {
   <li><a href="#effective-population-size" id="toc-effective-population-size" class="nav-link" data-scroll-target="#effective-population-size"><span class="header-section-number">9.2.7</span> Effective population size</a></li>
   <li><a href="#founder-effects-and-population-bottlenecks" id="toc-founder-effects-and-population-bottlenecks" class="nav-link" data-scroll-target="#founder-effects-and-population-bottlenecks"><span class="header-section-number">9.2.8</span> Founder effects and population bottlenecks</a></li>
   </ul></li>
-  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources"><span class="header-section-number">9.3</span> Additional resources</a></li>
-  <li><a href="#reflection-questions" id="toc-reflection-questions" class="nav-link" data-scroll-target="#reflection-questions"><span class="header-section-number">9.4</span> Reflection questions</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">9.5</span> References</a></li>
+  <li><a href="#summarizing-effects-of-drift" id="toc-summarizing-effects-of-drift" class="nav-link" data-scroll-target="#summarizing-effects-of-drift"><span class="header-section-number">9.3</span> Summarizing effects of drift</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">9.4</span> </a></li>
+  <li><a href="#additional-resources" id="toc-additional-resources" class="nav-link" data-scroll-target="#additional-resources"><span class="header-section-number">9.5</span> Additional resources</a></li>
+  <li><a href="#reflection-questions" id="toc-reflection-questions" class="nav-link" data-scroll-target="#reflection-questions"><span class="header-section-number">9.6</span> Reflection questions</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">9.7</span> References</a></li>
   </ul>
 </nav>
     </div>
@@ -467,7 +489,7 @@ Figure&nbsp;9.1
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>p<span class="ot">=</span><span class="fl">0.5</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rbinom</span>(<span class="dv">1</span>, <span class="at">size=</span><span class="dv">2</span><span class="sc">*</span>N, <span class="at">prob=</span>p)<span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span>N)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.4736842</code></pre>
+<pre><code>[1] 0.5131579</code></pre>
 </div>
 </div>
 <p>If we repeat this simulation 1,000 times, you can see that there can be substantial deviations from the predicted allele frequency of <span class="math inline">\(p=0.5\)</span> (<a href="#fig-random" class="quarto-xref">Figure&nbsp;<span>9.2</span></a>). Only about 10% of observations fall within the predicted 0.5-bin, and the frequency of <span class="math inline">\(A\)</span> can be as low as 0.3 and as high as 0.7 just because of random chance. That is a massive shift in allele frequency across a single generation.</p>
@@ -494,7 +516,36 @@ Figure&nbsp;9.2: Observed distributions of allele frequencies by randomly select
 <p>There are equations that model the effects of drift, but they can be a little intimidating. In my experience the best way to learn about drift, the effects of population size on drift, and the impact of drift on a population is through computer simulations, which we will be doing in lab. In lab we will set up a series of <em>in silico</em> experiments to address the topics below, but for now, we will just summarize the major points.</p>
 <section id="effects-of-population-size" class="level3" data-number="9.2.1">
 <h3 data-number="9.2.1" class="anchored" data-anchor-id="effects-of-population-size"><span class="header-section-number">9.2.1</span> Effects of population size</h3>
-<p>How exactly does population size impact the strength of genetic drift? As we will see in lab, the smaller the population size, the more effective genetic drift is in changing allele frequencies among generations. Very small populations can experience drastic changes in allele frequencies across generations. Genetic drift can also impact large populations, it just is less effective in terms the extent of change in allele frequency between generations and it takes far longer for its effects to be felt.</p>
+<p>How exactly does population size impact the strength of genetic drift? As we will see in lab, the smaller the population size, the more effective genetic drift is in changing allele frequencies among generations. Very small populations can experience drastic changes in allele frequencies across generations. Genetic drift can also impact large populations, it just is less effective in terms the extent of change in allele frequency between generations and it takes far longer for its effects to be felt. The plot in foldout below demonstrates the effects of population size on the intensity of genetic drift.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Effects of populations size on genetic drift
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div id="fig-driftpop" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-driftpop-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<img src="images/DriftPopSize.png" class="img-fluid figure-img">
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-driftpop-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.3: The Effects of populations size on genetic drift. Note how as population size <span class="math inline">\(Ne\)</span> decreases from 10,000 down to 50, the effects or intensity of genetic drift increases. In large population sizes, genetic occurs but is not very effective in changing allele frequencies over time. At low popuations sizes, genetic drift is intense and cause large random changes in the allele frequecy among generations, leading to the fixation or loss of alleles in matter of generations. Model parameters: N=finite, Starting allele frequency 0.5, Number of generations 400. Simulations were performed using <a href="https://sites.radford.edu/~rsheehy/Gen_flash/popgen/">Web PopGen II</a>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="fate-of-an-allele-under-drift" class="level3" data-number="9.2.2">
 <h3 data-number="9.2.2" class="anchored" data-anchor-id="fate-of-an-allele-under-drift"><span class="header-section-number">9.2.2</span> Fate of an allele under drift</h3>
@@ -504,6 +555,35 @@ Figure&nbsp;9.2: Observed distributions of allele frequencies by randomly select
 <h3 data-number="9.2.3" class="anchored" data-anchor-id="probability-of-an-allele-getting-fixed-by-drift"><span class="header-section-number">9.2.3</span> Probability of an allele getting fixed by drift</h3>
 <p>The probability that an allele will be fixed (<span class="math inline">\(p=1.0\)</span>) in a population due to drift is equal to the frequency of that allele in the population at any one generation. Since the frequency of alleles will change randomly over time, then so does the probability that allele will become fixed. Clearly though, as an allele becomes more and more common just by chance, then the probability of it eventually becoming fixed increases as well. When you are really close to the boundaries of allele frequencies (<em>i.e.</em> <span class="math inline">\(p=0\)</span> and <span class="math inline">\(p=1.0\)</span>), then you can say with fair amount of certainty what the fate of that allele will be. However, because it is a stochastic process, you could find an allele well on the path to becoming fixed, only to suddenly begin decreasing in frequency and eventually becoming lost. Thus is randomness.</p>
 <p>It should go without mention that the probably of an allele being lost in a population is then <span class="math inline">\((1-p)\)</span> at any one time.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Probability of an allele getting fixed by drift
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div id="fig-driftallelefreq" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-driftallelefreq-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<img src="images/DriftStartAlleleFreq.png" class="img-fluid figure-img">
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-driftallelefreq-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.4: The probability that an allele will be fixed in a population due to drift is equal to the frequency of that allele in the population at any one generation. Figure shows that populations with a starting allele frequency of <span class="math inline">\(p=0.1\)</span>. the frequency of the <span class="math inline">\(A_1\)</span> allele tends to be lost (<span class="math inline">\(p=0.0\)</span>) over time (7 out of 10 simulations), whereas when the starting allele frequency is <span class="math inline">\(p=0.9\)</span>, the allele tends to go to fixation (<span class="math inline">\(p=1.0\)</span>) over time (6 out of 10 simulations). Model parameters: N=250; Number of generations: 500; 10 simulations per starting allele frequncy. Simulations were performed using <a href="https://media.hhmi.org/biointeractive/click/population-genetics-explorer/index">HHMI Population Explorer</a>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="fate-of-a-new-mutation-allele" class="level3" data-number="9.2.4">
 <h3 data-number="9.2.4" class="anchored" data-anchor-id="fate-of-a-new-mutation-allele"><span class="header-section-number">9.2.4</span> Fate of a new mutation (allele)</h3>
@@ -523,7 +603,7 @@ Figure&nbsp;9.2: Observed distributions of allele frequencies by randomly select
 <section id="effects-on-population-heterozygosity" class="level3" data-number="9.2.6">
 <h3 data-number="9.2.6" class="anchored" data-anchor-id="effects-on-population-heterozygosity"><span class="header-section-number">9.2.6</span> Effects on population heterozygosity</h3>
 <p>Another important consequence of genetic drift is the effect of drift on levels of <strong>heterozygosity</strong>. The easiest way to think about heterozygosity is the frequency of heterozygous genotypes in a population, which is clearly driven by the frequency of the alleles.</p>
-<p>We can get a good sense of this by simply plotting the frequency of the three genotypes versus the frequency of the alleles. The resulting plot looks like the following (<a href="#fig-genofreq" class="quarto-xref">Figure&nbsp;<span>9.3</span></a>).</p>
+<p>We can get a good sense of this by simply plotting the frequency of the three genotypes versus the frequency of the alleles. The resulting plot looks like the following (<a href="#fig-genofreq" class="quarto-xref">Figure&nbsp;<span>9.5</span></a>).</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-genofreq" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -532,13 +612,39 @@ Figure&nbsp;9.2: Observed distributions of allele frequencies by randomly select
 <img src="MechEvolDrift_files/figure-html/fig-genofreq-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-genofreq-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;9.3: Hardy-Weinberg Equilibrium Genotype Frequencies
+Figure&nbsp;9.5: Hardy-Weinberg Equilibrium Genotype Frequencies
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>Based on <a href="#fig-genofreq" class="quarto-xref">Figure&nbsp;<span>9.3</span></a>, it is easy to see that heterozygotes at highest frequency when <span class="math inline">\(p=0.5\)</span>. The frequency of heterozygotes in the population will will decrease as <span class="math inline">\(p\)</span> gets larger or smaller than <span class="math inline">\(p=0.5\)</span>. We refer to the frequency of heterozygotes as the population heterozygosity. As <span class="math inline">\(p\)</span> changes, so does the population heterozygosity. In fact, we can estimate the change in heterozygosity from one generation to the next using the following equation:</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hardy-Weinberg Equilibrium Genotype Frequencies - real world data
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>In <a href="#fig-genofreq" class="quarto-xref">Figure&nbsp;<span>9.5</span></a> we show the theoretical frequency of the three genotypes in a population under HWE, but do we see these geneotype freqencies in real life? The figure below shows the Hardy-Weinberg proportions using 10,000 SNPs from the HapMap CEU European and YRI African populations (the 1st 10k from chromosome 1). The fit of the experimental data matches the theoretical expectations exceptionally well.</p>
+<div>
+
+</div>
+<div class="quarto-layout-panel" style="font-size: 12px; color: grey;" data-layout="[50]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<p><img src="images/GenotypeFreqHWE.png" class="img-fluid"> CEU: Utah residents with Northern and Western European ancestry from the CEPH collection, YRI: Yoruba in Ibadan, Nigeria. Within each of these populations the plot shows the allele frequency against the frequency of the 3 genotypes. Each SNP is represented by 3 different colored points. The solid lines show the mean genotype frequency (calculated using a loess smoothing). The dashed line shows the predicted genotype frequency from Hardy Weinberg equilibrium. From <a href="https://cooplab.github.io/popgen-notes/">Graham Coop’s Notes on Population Genetics</a>. Graham Coop, CC BY 3.0 <a href="https://creativecommons.org/licenses/by/3.0" class="uri">https://creativecommons.org/licenses/by/3.0</a>, via Wikimedia Commons.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Based on <a href="#fig-genofreq" class="quarto-xref">Figure&nbsp;<span>9.5</span></a>, it is easy to see that heterozygotes at highest frequency when <span class="math inline">\(p=0.5\)</span>. The frequency of heterozygotes in the population will will decrease as <span class="math inline">\(p\)</span> gets larger or smaller than <span class="math inline">\(p=0.5\)</span>. We refer to the frequency of heterozygotes as the population heterozygosity. As <span class="math inline">\(p\)</span> changes, so does the population heterozygosity. In fact, we can estimate the change in heterozygosity from one generation to the next using the following equation:</p>
 <p><span class="math display">\[
 H_{g+1} = H_{g}\left(1-\frac{1}{2N}\right)
 \]</span> Generally speaking, under genetic drift the allele frequencies drift up and sometimes down, but eventually they are either fixed or lost in the population. This means that sometimes the population heterozygosity goes up or down, but in the long run heterozygosity decays over time. In other words, under genetic drift the end result is a loss of heterozygosity.</p>
@@ -552,7 +658,7 @@ H_{g+1} = H_{g}\left(1-\frac{1}{2N}\right)
 </section>
 <section id="effective-population-size" class="level3" data-number="9.2.7">
 <h3 data-number="9.2.7" class="anchored" data-anchor-id="effective-population-size"><span class="header-section-number">9.2.7</span> Effective population size</h3>
-<p>An important aspect of genetic is the concept of effective population size (<span class="math inline">\(N_e\)</span>). The effective population size is different from the census population size, which is an ecological measure. A good way to think about the <span class="math inline">\(N_e\)</span> is that it is a measure of the breeding population size. It takes into consideration that many individuals that reach adulthood never breed in natural populations. Consequently, effective population size is almost always smaller than the census population size.</p>
+<p>An important aspect of genetic drift is the concept of effective population size (<span class="math inline">\(N_e\)</span>). The effective population size is different from the census population size (<span class="math inline">\(N_c\)</span>), which is an ecological measure. A good way to think about the <span class="math inline">\(N_e\)</span> is that it is a measure of the breeding population size. It takes into consideration that many individuals that reach adulthood never breed in natural populations. Consequently, effective population size is almost always smaller than the census population size.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -563,12 +669,12 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>A formal definition of the effective population size is the size of an ideal theoretical population that would lose (or have) heterozygosity at the observed rate (or level) in a population. This is not a particularly useful definition even if accurate. An easier way to think about it is because some individuals do not equally contribute to breeding, the effective number of breeders is less then the census size which results in an observed loss of heterozygosity which is greater then expected based on the census population size.</p>
+<p>A formal definition of the effective population size is <em>the size of an ideal theoretical population that would lose (or have) heterozygosity at the observed rate (or level) in a population</em>. This is not a particularly useful definition even if accurate. An easier way to think about it is because some individuals do not equally contribute to breeding, the effective number of breeders is less then the census size which results in an observed loss of heterozygosity which is greater then expected based on the census population size.</p>
 </div>
 </div>
 <p>There are a number of reasons why the number of effective breeding individuals would be lower than the census population size <span class="math inline">\(N_c\)</span>, and we have equations to model these effects. The callout below lists a couple of these reasons along with the equations use to define their impact on <span class="math inline">\(N_e\)</span>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -577,7 +683,7 @@ Factor impacting the effective population size
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <section id="sex-ratios" class="level4" data-number="9.2.7.1">
 <h4 data-number="9.2.7.1" class="anchored" data-anchor-id="sex-ratios"><span class="header-section-number">9.2.7.1</span> Sex ratios</h4>
@@ -611,7 +717,20 @@ N_e = \frac{4N-2D}{2+var(k)}
 </section>
 <section id="founder-effects-and-population-bottlenecks" class="level3" data-number="9.2.8">
 <h3 data-number="9.2.8" class="anchored" data-anchor-id="founder-effects-and-population-bottlenecks"><span class="header-section-number">9.2.8</span> Founder effects and population bottlenecks</h3>
-<p>Besides sampling error, genetic drift can also have profound impacts on allele frequencies when there are rapid reductions in population size. In general, we distinguish between two scenarios: (1) <em>Population bottlenecks</em> occur when catastrophic events (large-scale wild fires, floods, <em>etc</em>.) drastically reduce the size of a population. In such instances, survival is less dependent on individuals’ traits (that would be selection) than individuals being in the right place at the right time. Hence, the allelic composition of the generation after a bottleneck largely reflects a random subsample of the original population. (2) <em>Founder effects</em> occur when a small subset of a population disperses into a new area and founds a new population. In that case, only a random subset of alleles travels along with the founding individuals. Founder effects are particularly important in island populations, where species expand their range in a step-wise fashion along island chains. This can lead to serial founder effects with continuous loss of genetic diversity (Figure @ref(fig:founder)).</p>
+<p>Besides sampling error, genetic drift can also have profound impacts on allele frequencies when there are rapid reductions in population size. In general, we distinguish between two scenarios: (1) <em>Population bottlenecks</em> and (2) <em>Founder effects.</em></p>
+<p><strong>Population bottlenecks</strong> occur when catastrophic events (large-scale wild fires, floods, <em>etc</em>.) drastically reduce the size of a population. In such instances, survival is less dependent on individuals’ traits (that would be selection) than individuals being in the right place at the right time. Hence, the allelic composition of the generation after a bottleneck largely reflects a random subsample of the original population.</p>
+<p>We can see an example simulation of the effects of bottleneck in the results of a simple simulation below. A population with size <span class="math inline">\(N\)</span> of 5000 individuals undergoes, which results in rether low levels of genetic drift, shows small changes in the frequency of alleles over time. However, when a bottleneck in population size occurs, in the simulation starting in generation 100 the population size <span class="math inline">\(N\)</span> decreased to 250 individuals (moderately intense drift) for for whatever reason for 10 generations, we see that genetic drift becomes substantially greater with large changes in allele frequencies over time, with consequences to the population remaining far after the bottleneck event.</p>
+<div>
+
+</div>
+<div class="quarto-layout-panel" style="font-size: 12px; color: grey;" data-layout="[50]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: flex-start;">
+<p><img src="images/DrfitBottleNeck.png" class="img-fluid"> Effects of a botteneck on the allele frequency changes in a population. Simulations performed using <a href="https://sites.radford.edu/~rsheehy/Gen_flash/popgen/">Web PopGen II</a>.</p>
+</div>
+</div>
+</div>
+<p>(2) <em>Founder effects</em> occur when a small subset of a population disperses into a new area and founds a new population. In that case, not only is there reduced genetic variation compared to the original population, only a random subset of alleles travels along with the founding individuals. This can result in rapid divergence of these new found populations due to a loss of genetic variation and the formation of new species through a process known as genetic transilience<span class="citation" data-cites="templeton1980">(<a href="#ref-templeton1980" role="doc-biblioref">Templeton 1980</a>)</span>. Founder effects are particularly important in island populations, where species expand their range in a step-wise fashion along island chains. This can lead to serial founder effects with continuous loss of genetic diversity (<a href="#fig-founder" class="quarto-xref">Figure&nbsp;<span>9.6</span></a>)).</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-founder" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -620,24 +739,17 @@ N_e = \frac{4N-2D}{2+var(k)}
 <img src="MechEvolDrift_files/figure-html/fig-founder-1.png" class="img-fluid figure-img" width="672">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-founder-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;9.4: Allelic richness in populations of monarch butterflies (<em>Danaus plexippus</em>). The original population from the United States exhibits the highest levels of allelic richness. Allelic richness declined in a step-wise fashion as butterflies first colonized Hawaii and then other islands throughout the Pacific. <a href="data/6_serial_founder.csv">Data</a> from Pierce et al.&nbsp;(2014).
+Figure&nbsp;9.6: Allelic richness in populations of monarch butterflies (<em>Danaus plexippus</em>). The original population from the United States exhibits the highest levels of allelic richness. Allelic richness declined in a step-wise fashion as butterflies first colonized Hawaii and then other islands throughout the Pacific. <a href="data/6_serial_founder.csv">Data</a> from Pierce et al.&nbsp;(2014).
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
-<hr>
 </section>
 </section>
-<section id="additional-resources" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="additional-resources"><span class="header-section-number">9.3</span> Additional resources</h2>
-</section>
-<section id="reflection-questions" class="level2" data-number="9.4">
-<h2 data-number="9.4" class="anchored" data-anchor-id="reflection-questions"><span class="header-section-number">9.4</span> Reflection questions</h2>
-</section>
-<section id="references" class="level2" data-number="9.5">
-<h2 data-number="9.5" class="anchored" data-anchor-id="references"><span class="header-section-number">9.5</span> References</h2>
-<hr>
+<section id="summarizing-effects-of-drift" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="summarizing-effects-of-drift"><span class="header-section-number">9.3</span> Summarizing effects of drift</h2>
+<p>In summary, genetic drift can have a strong impact on the evolution of populations and species depending on the population size and demographic history. The callout below summarizes the effects of genetic drift as discussed above. In addition, genetic drift can profoundly impact how the other mechanisms of evolution act to change allele frequencies in a population. As we will see in the next couple of chapters, strong genetic drift can even overcome the effects of selection, can cause populations to diverge from each other even in the face of migration, and can lead to some other counter-intuitive results based on expectations from the simple models we will be exploring. In the following chapters we will be exploring how selection and migration impact the change in the frequency of alleles both within and among populations based a simple single gene, two allele model. Once we get a sense of what happens under the assumptions of an infinite population size, we will briefly explore how drift can then confound these model results.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -650,7 +762,7 @@ Summarizing effects of drift
 <div class="callout-body-container callout-body">
 <p>Evolution by genetic drift</p>
 <p>Summary</p>
-<p>Genetic drift is non-adaptive evolutionary change due to stochastic processes. It is more effective in small than large populations, and its effects are compounded over many generations. Ultimately genetic drift leads to the fixation/loss of alleles and adecline in genetic diversity</p>
+<p>Genetic drift is non-adaptive evolutionary change due to stochastic processes. It is more effective in small than large populations, and its effects are compounded over many generations. Ultimately genetic drift leads to the fixation/loss of alleles and a decline in genetic diversity</p>
 <ol type="1">
 <li>Allele frequencies fluctuate at random within a population, and eventually one or another allele becomes fixed</li>
 <li>Therefore, the genetic variation at a locus declines and is eventually lost. As the frequency of one of the alleles approaches <span class="math inline">\(1.0\)</span>, the frequency of heterozygotes <span class="math inline">\(2pq\)</span> declines. The rate of decline in heterozygosity if often used as a measure of the rate of genetic drift in a population</li>
@@ -662,8 +774,28 @@ Summarizing effects of drift
 </ol>
 </div>
 </div>
+</section>
+<section id="section" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="section"><span class="header-section-number">9.4</span> </h2>
+<hr>
+</section>
+<section id="additional-resources" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="additional-resources"><span class="header-section-number">9.5</span> Additional resources</h2>
+<p><em>add information on online simulation apps</em></p>
+</section>
+<section id="reflection-questions" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="reflection-questions"><span class="header-section-number">9.6</span> Reflection questions</h2>
+</section>
+<section id="references" class="level2" data-number="9.7">
+<h2 data-number="9.7" class="anchored" data-anchor-id="references"><span class="header-section-number">9.7</span> References</h2>
+<hr>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-templeton1980" class="csl-entry" role="listitem">
+Templeton, Alan R. 1980. <span>“THE THEORY OF SPECIATION <span><em>VIA</em></span> THE FOUNDER PRINCIPLE.”</span> <em>Genetics</em> 94 (4): 1011–38. <a href="https://doi.org/10.1093/genetics/94.4.1011">https://doi.org/10.1093/genetics/94.4.1011</a>.
+</div>
+</div>
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
