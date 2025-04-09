@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -387,6 +407,7 @@ window.Quarto = {
   <li><a href="#qtl-mapping" id="toc-qtl-mapping" class="nav-link" data-scroll-target="#qtl-mapping"><span class="header-section-number">13.6.1</span> QTL Mapping</a></li>
   <li><a href="#gwas" id="toc-gwas" class="nav-link" data-scroll-target="#gwas"><span class="header-section-number">13.6.2</span> GWAS</a></li>
   </ul></li>
+  <li><a href="#even-further-complexity-in-the-genotype-phenotype-connection" id="toc-even-further-complexity-in-the-genotype-phenotype-connection" class="nav-link" data-scroll-target="#even-further-complexity-in-the-genotype-phenotype-connection"><span class="header-section-number">13.7</span> Even further complexity in the genotype-phenotype connection</a></li>
   </ul>
 </nav>
     </div>
@@ -416,27 +437,28 @@ window.Quarto = {
 <p>So far, our evolutionary analyses have assumed that variation at one locus translates to variation in one trait. This, in turn, causes environmentally-dependent variation in fitness. As discussed in <a href="GenesMutationGeneticVariation.html" class="quarto-xref"><span>Chapter 7</span></a>, however, the relationships between genotype, phenotype, and fitness are much more complex. Single genes can affect the expression of multiple, apparently unrelated phenotypic traits (pleiotropy), which can impose evolutionary trade-offs, because different traits cannot be optimized independently. Similarly, the expression of a single trait can be controlled by multiple loci. This chapter explores basic quantitative genetic approaches used to study the evolution of complex traits controlled by multiple genes.</p>
 <section id="making-the-connection-between-single-gene-mendelain-characters-and-complex-continuous-quantitative-traits." class="level2" data-number="13.1">
 <h2 data-number="13.1" class="anchored" data-anchor-id="making-the-connection-between-single-gene-mendelain-characters-and-complex-continuous-quantitative-traits."><span class="header-section-number">13.1</span> Making the connection between single gene Mendelain characters and complex, continuous quantitative traits.</h2>
-<p>At one point in the history of genetics and evolutionary biology, there was a strong disagreement between those researchers that enthusiastically accepted a Mendelian interpretation of inheritance, led by William Bateson and his students, and those that argued most characters did not fall into the types of discrete groups (like round versus wrinkled pea) studied by Mendel. Rather, most traits were continuous in nature and therefore not inherited in a Mendelian sense, a position championed by the likes of Francis Galton and Karl Pearson (both leading figures in the field of statistics) referred to as the Biometricians. Biometricians argued that Mendelian inheritance was wholely insufficient to explain inheritance because discrete units of heredity, what we call genes today, could not explain the continuous distribution of characters found in most populations. The Mendelians on the other hand argued that the type of variation studied by Biometricians could not account for the evolution of new species.</p>
-<p>This ongoing debate continued to dominate the field of genetics, delaying the acceptance of natural selection as a key mechanism in evoution, until R.A. Fisher resolved it by demonstrating that these seemingly contradictory views were actually compatible. His key insight was that:</p>
+<p>At one point in the history of genetics and evolutionary biology, there was a strong disagreement between those researchers that enthusiastically accepted a Mendelian interpretation of inheritance, led by William Bateson and his students, and those that argued most characters did not fall into the types of discrete groups (like round versus wrinkled pea) studied by Mendel. Rather, most traits were continuous in nature and therefore not inherited in a Mendelian sense, a position championed by the likes of Francis Galton and Karl Pearson (both leading figures in the field of statistics) referred to as the Biometricians<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<p>Biometricians argued that Mendelian inheritance was insufficient to explain inheritance because discrete units of heredity, today what we call genes, could not explain the continuous distribution of characters found in most populations. The Mendelians on the other hand argued that the type of variation studied by Biometricians could not account for the evolution of new species due to the unspecified mechanism of inheritance at the time, and the prevaling concepts of <a href="https://en.wikipedia.org/wiki/Blending_inheritance">blended inheritance.</a></p>
+<p>This ongoing debate continued to dominate the field of genetics and therefore evolution, even delaying the acceptance of natural selection as a key mechanism in evolution. This continued to be the case for a decade or so until R.A. Fisher resolved the issue, unifying the concept of inheritance by demonstrating that these seemingly contradictory views were actually one of the same. His key insights were:</p>
 <ul>
-<li><p>The continuous variation observed by biometricians and the discrete inheritance patterns observed by Mendelians were produced by the same underlying process</p></li>
-<li><p>Continuous traits with “infinitesimal individual-to-individual gradations” resulted from multiple Mendelian factors (genes) combining to affect a trait</p></li>
-<li><p>Environmental factors further “smeared” genotypic categories into one another, creating continuous distributions</p></li>
+<li><p>The continuous variation observed by Biometricians and the discrete inheritance patterns observed by Mendelians were produced by the same underlying process, i.e.&nbsp;the inheritance of genes in a Mendelian fashion.</p></li>
+<li><p>Continuous traits with “infinitesimal individual-to-individual gradations” resulted from multiple Mendelian factors (genes) combining to affect a trait.</p></li>
+<li><p>Environmental factors further “smeared” genotypic categories into one another, creating continuous distributions.</p></li>
 </ul>
-<p>Fisher showed that Mendelian inheritance was not a special case but rather the fundamental mechanism of heredity. The continuous variation championed by biometricians could be explained by multiple Mendelian factors working together, along with environmental influences. This synthesis reconciled the two perspectives and laid the groundwork for the modern understanding of quantitative genetics.</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<p>Fisher showed that Mendelian inheritance was not a special case but rather the fundamental mechanism of heredity. The continuous variation championed by biometricians could be explained by multiple Mendelian factors working together, along with environmental influences. This synthesis reconciled the two perspectives and laid the groundwork for the modern understanding of the genotype-phenotype connection, and the field of <a href="https://en.wikipedia.org/wiki/Quantitative_genetics">quantitative genetics</a>.</p>
+<div id="nte-phenovar" class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Graphical view of Fisher’s insights
+Note&nbsp;13.1: Graphical view of Fisher’s insights
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>The figure below, taken directly from Futuyma and Kirkpatrick, demonstrates beautifully the connection between simple Mendelian characters and the more complex phenotypic characters studied by the Biometricians, as shown by Fisher. The phenotypic distribution is determined by both genetic and environmental factors. The vertical blue bars show the phe- notypes that would be produced without any environmental influence. The green curves show the phenotypic distributions for each of the genotypes that result with the addition of environmental variance. The red curve shows the phenotypic distribution for the entire population. Each locus has two alleles with frequencies <span class="math inline">\(0.5\)</span>, and the alleles have equal and additive effects on the trait (there is no dominance or epistasis). Notice that the phenotypic distributions become smoother when larger numbers of loci contribute to the trait and as the environmental variance increases.</p>
+<p>The figure below, taken directly from <span class="citation" data-cites="futuyma2017">(<a href="#ref-futuyma2017" role="doc-biblioref">Futuyma 2017</a>)</span>, demonstrates beautifully the connection between simple Mendelian characters and the more complex phenotypic characters studied by the Biometricians, as shown by Fisher. The phenotypic distribution is determined by both genetic and environmental factors. The vertical blue bars show the phenotypes that would be produced without any environmental influence. The green curves show the phenotypic distributions for each of the genotypes that result with the addition of environmental variance. The red curve shows the phenotypic distribution for the entire population. Each locus has two alleles with frequencies <span class="math inline">\(0.5\)</span>, and the alleles have equal and additive effects on the trait (there is no dominance or epistasis). Notice that the phenotypic distributions become smoother when larger numbers of loci contribute to the trait and as the environmental variance increases.</p>
 <div id="fig-quantvar" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-quantvar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -447,7 +469,7 @@ Graphical view of Fisher’s insights
 </div>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-quantvar-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;13.1: Image: Figure 6.3 from Futuyma and Kirkpatric (2017). This image is reproduced from the original source under the Fair Use Doctrine for educational/scholarly purposes.
+Figure&nbsp;13.1: Image: Figure 6.3 from <span class="citation" data-cites="futuyma2017">(<a href="#ref-futuyma2017" role="doc-biblioref">Futuyma 2017</a>)</span>. This image is reproduced from the original source under the Fair Use Doctrine for educational/scholarly purposes.
 </figcaption>
 </figure>
 </div>
@@ -473,7 +495,7 @@ Figure&nbsp;13.2: Phenotypes in F2 crosses are normally distributed if all allel
 </div>
 </div>
 </div>
-<p>The expression of quantitative traits can also be affected by the environment an individual finds itself in. The ability of a genotype to produce multiple phenotypes depending on the environment is called <strong>phenotypic plasticity</strong>.</p>
+<p>The expression of quantitative traits can also be affected by the environment an individual finds itself in, as alluded to in <a href="#nte-phenovar" class="quarto-xref">Note&nbsp;<span>13.1</span></a>. The ability of a genotype to produce multiple phenotypes depending on the environment is called <strong>phenotypic plasticity</strong>, though this variation around genotype may also be caused by other processes associated with genotype-phenotype connection (<em>e.g.</em> developmental noise)</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -591,9 +613,22 @@ Important&nbsp;13.1: Limitations to estimates of heretiability
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <section id="limitations-and-common-misconceptions-about-interpreting-heritability" class="level4 callout-body-container callout-body" data-number="13.4.1.1">
 <h4 data-number="13.4.1.1" class="anchored" data-anchor-id="limitations-and-common-misconceptions-about-interpreting-heritability"><span class="header-section-number">13.4.1.1</span> Limitations and common misconceptions about interpreting heritability</h4>
-<p><strong>Limitations based on experimental considerations</strong> From an experimental perspective, estimates of <span class="math inline">\(h^2\)</span> can be notoriously difficult in natural populations, let alone human populations. Some of the problems: - <strong>Covariation between genotype and environment</strong>, <em>e.g.</em> offspring raised in the same environment as parents: An optimal of accounting for this covariation would be randomly distribute all offspring among partent groups such that they are potential raised in an environment different from their parents. Obviously this is impossible or exceedingly difficult for some species (let alone immoral, like say humans). - <strong>Different environments for the different mating pairs:</strong> Differences in environmental quality, nutrition, stress, or temperature to just name a few environmental variances may impact the offspring genotypes, inflating the average <span class="math inline">\(V_E\)</span> - <strong>Other complicating issues</strong> like maternal effects, non-independence between number of offspring and phenotype, interactions among offspring, plus numreous other confounding variables. - <strong>Difficulty in determining parentage:</strong> Even when identifying parents seems obvious, extra-pair matings can occur and be difficult to determine (though molecular and genomic data can help). - Currently methods for identifying kinship in natural populations using genomic data has a lot of variance around the estimates, so identifying parent-offspring relationships from pooled population data, though incredibly useful, has it’s limitations today</p>
-<p><strong>Limitations based on interpretations of</strong> <span class="math inline">\(h^2\)</span> Understanding what <span class="math inline">\(h^2\)</span> actually means can prevent misinterpretations. <span class="math inline">\(h^2\)</span> estimates can be useful in predicting the response to selection, but they can be (and have been) abused an misunderstood - <span class="math inline">\(h^2\)</span> estimates say little about the causes of differences <em>among individuals</em> within a population; just because a character has a relatively high <span class="math inline">\(h^2\)</span> does not imply that individuals with low values of the character have “poor genes”. - <span class="math inline">\(h^2\)</span> says nothing about the genetic basis of the character, for example how many genes contribute to a character or how theose genes interact to determine the phenotype. - <span class="math inline">\(h^2\)</span> estimates say little about the causes of differences among populations if the populations are from different environments. The only way to determine the cause of differences among populations is through proper experimentation</p>
-<p><strong>Mischaracterizations of levels of</strong> <span class="math inline">\(h^2\)</span> - A <span class="math inline">\(h^2\approx0\)</span> does not mean there is no genetic basis to a character. All it means is that there may be very little variation in the genes that controbute to the character. Some traits may have a large genetic basis, but very little variation in a population (<em>e.g.</em> presence of two eyes in humans). These traits are still determined by genes, however since there is no variation among individuals, the heritability would be zero. - <span class="math inline">\(h^2\)</span> applies only to a particular population in a particular environment at a particular time. Using estimates of <span class="math inline">\(h^2\)</span> from a single population to infer the genetic basis of a character in other populations or other times should be used with caution. - Two populations with the same genetic variance may have very different heritabilities if <em>e.g.</em> one population has a higher environmental variance than the other</p>
+<p><strong>Limitations based on experimental considerations</strong> From an experimental perspective, estimates of <span class="math inline">\(h^2\)</span> can be notoriously difficult in natural populations, let alone human populations. Some of the experimental issues that need to be taken into consideration when estimating <span class="math inline">\(h^2\)</span> are:</p>
+<ul>
+<li><p><strong>Covariation between genotype and environment</strong>, <em>e.g.</em> offspring raised in the same environment as parents. An optimal was of correcting for this covariation would be randomly distribute all offspring among parental groups such that offspring are potentially raised in an environment different from their parents, basically randomizing the interaction effects of parent-offspring environment. Obviously this is impossible or exceedingly difficult for some species (let alone can be simply immoral, like say humans).</p></li>
+<li><p><strong>Different environments for the different mating pairs:</strong> Differences in environmental quality, nutrition, stress, or temperature to just name a few environmental variances may impact the offspring genotypes, inflating the average <span class="math inline">\(V_E\)</span>.</p></li>
+<li><p><strong>Other complicating issues</strong> like maternal effects, non-independence between number of offspring and phenotype, interactions among offspring, plus numerous other confounding variables.</p></li>
+<li><p><strong>Difficulty in determining parentage:</strong> Even when identifying parents seems obvious, extra-pair matings can and ofterntimes do occur, and be difficult to determine (though molecular and genomic data can help). Current methods for identifying kinship in natural populations using genomic data has a fair amount of uncertainty (or variance) around the estimates, so identifying parent-offspring relationships from pooled population data, though incredibly useful, has it’s limitations today.</p></li>
+</ul>
+<p><strong>Limitations based on interpretations of</strong> <span class="math inline">\(h^2\)</span>. There is a lot of misunderstanding surrounding what exactly heritability means. This is especially true outside the sciences, but occurs within Biology as well. Understanding what <span class="math inline">\(h^2\)</span> actually means can prevent many of the unfortunate misinterpretations we see today.</p>
+<ul>
+<li><p><span class="math inline">\(h^2\)</span> estimates say little about the causes of differences <em>among individuals</em> within a population; just because a character has a relatively high <span class="math inline">\(h^2\)</span> does not imply that individuals with low values of the character have “poor genes”.</p></li>
+<li><p><span class="math inline">\(h^2\)</span> says nothing about the genetic basis of the character, for example how many genes contribute to a character or how those genes interact to determine the phenotype.</p></li>
+<li><p><span class="math inline">\(h^2\)</span> estimates say little about the causes of differences among populations if the populations are from different environments (which will almost always be the case). The only way to determine the cause of differences among populations is through proper experimentation.</p></li>
+<li><p>A <span class="math inline">\(h^2\approx0\)</span> does not mean there is no genetic basis to a character. All it means is that there may be very little additive variance in the genes that contribute to the character. Some traits may have a strong genetic basis, but very little variation in a population for the genes or developmental pathways that determine the trait. These traits are still have a genetic basis (<em>i.e.</em> determined by genes to at least some extent), however since there is no variation among individuals, the heritability would be zero.</p></li>
+<li><p><span class="math inline">\(h^2\)</span> applies only to a particular population in a particular environment at a particular time. Using estimates of <span class="math inline">\(h^2\)</span> from a single population to infer the genetic basis of a character in other populations or other times should be used with caution.</p></li>
+<li><p>Two populations with the same genetic variance may have very different heritabilities if <em>e.g.</em> one population has a higher environmental variance than the other.</p></li>
+</ul>
 <p>Nonetheless, despite these limitations, estimates of <span class="math inline">\(h^2\)</span> are invaluable in determining whether a character has a genetic basis, and if so what is the extent of the parent-offspring similarity, which is essential to determine if changes within and among populations are due to selection or some other mechanism.</p>
 </section>
 </div>
@@ -627,13 +662,13 @@ Figure&nbsp;13.7: A. Graphical representation of the selection differential (<em
 </section>
 <section id="calculating-the-response-to-selection" class="level3" data-number="13.4.3">
 <h3 data-number="13.4.3" class="anchored" data-anchor-id="calculating-the-response-to-selection"><span class="header-section-number">13.4.3</span> Calculating the Response to Selection</h3>
-<p>The final step in quantitative genetic analyses is to calculate the response to selection (<span class="math inline">\(R\)</span>) as a function of narrow-sense heritability (<span class="math inline">\(h^2\)</span>) and the selection differential (<span class="math inline">\(S\)</span>) using the breeder’s equation:</p>
+<p>The final step in quantitative genetic analyses is to calculate the response to selection (<span class="math inline">\(R\)</span>) as a function of narrow-sense heritability (<span class="math inline">\(h^2\)</span>) and the selection differential (<span class="math inline">\(S\)</span>) using the B<strong>reeder’s Equation</strong>:</p>
 <p><span id="eq-42"><span class="math display">\[
 \begin{align}
 R=h^2*S
 \end{align}
 \tag{13.5}\]</span></span></p>
-<p>As you can see, the response to selection is dependent equally on the strength of selection and the degree to which a particular trait is heritable. If selection is weak, the evolutionary response will be small even when trait heritability is very high. Similarly, when heritability is low, the evolutionary response will be small even when selection is very strong. The principle of the breeder’s equation is also depicted in Figure <span class="citation" data-cites="figbreeder">(<a href="#ref-figbreeder" role="doc-biblioref"><strong>figbreeder?</strong></a>)</span>, a modified version of a parent-offspring regression. In this graph, successful parents are represented in green, and unsuccessful ones in red. As in <a href="#fig-seldiffgrad" class="quarto-xref">Figure&nbsp;<span>13.7</span></a> Figure A, the selection differential (<span class="math inline">\(S\)</span>) is the difference between the average trait of the successful parents and the average trait of all parents in the population. The response to selection (<span class="math inline">\(R\)</span>) is the difference between the average trait of the successful offspring and the average trait of all offspring in the population. Or, expressed mathematically:</p>
+<p>As you can see, the response to selection is dependent equally on the strength of selection and the degree to which a particular trait is heritable. If selection is weak, the evolutionary response will be small even when trait heritability is very high. Similarly, when heritability is low, the evolutionary response will be small even when selection is very strong. The principle of the Breeder’s Equation is also depicted in Figure <span class="citation" data-cites="figbreeder">(<a href="#ref-figbreeder" role="doc-biblioref"><strong>figbreeder?</strong></a>)</span>, a modified version of a parent-offspring regression. In this graph, successful parents are represented in green, and unsuccessful ones in red. As in <a href="#fig-seldiffgrad" class="quarto-xref">Figure&nbsp;<span>13.7</span></a> Figure A, the selection differential (<span class="math inline">\(S\)</span>) is the difference between the average trait of the successful parents and the average trait of all parents in the population. The response to selection (<span class="math inline">\(R\)</span>) is the difference between the average trait of the successful offspring and the average trait of all offspring in the population. Or, expressed mathematically:</p>
 <p><span id="eq-43"><span class="math display">\[
 \begin{align}
 h^2=\frac{R}{S}=\frac{O^*-\overline{O}}{P^*-\overline{P}}
@@ -757,9 +792,23 @@ Figure&nbsp;13.13: Conceptual illustration of the results from a QTL experiment.
 <h3 data-number="13.6.2" class="anchored" data-anchor-id="gwas"><span class="header-section-number">13.6.2</span> GWAS</h3>
 <p>QTL mapping is a powerful approach for identifying genomic regions that are associated with quantitative traits. However, the approach also comes with obvious limitations: large-scale crossing experiments are not possible in many species for which we may want to investigate the genetic basis of adaptive trait variation. This is especially true if we want to better understand genotype-phenotype relationships in humans. Understanding the association between genetic variation and phenotypic traits in humans not only teaches us about our nature, but has profound implication for the prediction and treatment of infectious and noncommunicable diseases.</p>
 <p>GWAS (genome-wide association study) is an approach to identify loci underlying complex traits that does not hinge on the availability of crosses between contrasting phenotypes. Rather than looking for correlations between trait expression and the genotypes at specific loci, GWAS contrasts allele frequencies between different groups of individuals. Imagine, for example, that we want to identify genes associated with the susceptibility to a particular disease. In this case, we would compare allele frequencies in individuals that have contracted that disease (cases) with allele frequencies of a random sample of individuals from the general population (controls). For loci that do not impact disease susceptibility, we do not expect significant differences in allele frequencies between cases and controls; the likelihood that a case or a control has a particular allele is equal to the allele frequency in the population. However, if there is a significant difference in the allele frequencies at a particular locus, it indicates that genetic variation at that locus is potentially associated with becoming a case (<em>i.e.</em>, contracting the disease). Like QTL mapping, GWAS requires extensive genotyping, both in terms of the number of loci in the genome and the number of individuals in the case and control groups. GWAS results are plotted similarly to QTL results, with the location of the genetic marker on the x-axis. Instead of LOD scores, GWAS plot the -log<sub>10</sub> of the <span class="math inline">\(p\)</span>-value associated with allele frequency differences at each locus, leading to peaks at loci showing significant associations with the trait of interest.</p>
-
-
 </section>
+</section>
+<section id="even-further-complexity-in-the-genotype-phenotype-connection" class="level2" data-number="13.7">
+<h2 data-number="13.7" class="anchored" data-anchor-id="even-further-complexity-in-the-genotype-phenotype-connection"><span class="header-section-number">13.7</span> Even further complexity in the genotype-phenotype connection</h2>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-futuyma2017" class="csl-entry" role="listitem">
+Futuyma, Douglas J. 2017. <span>“Evolutionary Biology Today and the Call for an Extended Synthesis.”</span> <em>Interface Focus</em> 7 (5): 20160145. <a href="https://doi.org/10.1098/rsfs.2016.0145">https://doi.org/10.1098/rsfs.2016.0145</a>.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Biometry is effectively an older term for biostatitstics. It is not really used that much any more, but certainly was in the past. In fact, one of the the leading texts in statistics, found on the bookshelf of just about every graduate student and researcher in evolutionary biology, was entitled Biometry, written by one of the leading figures in biostatistics in the mid to later part of the 20<sup>th</sup> century, <a href="https://www.science.org/doi/10.1126/science.1224101">Robert Sokal</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
